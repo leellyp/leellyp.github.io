@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="zh-CN" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TypeScriptnamespace 命名空间 - TypeScript教程 - V站前端教程</title><!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" --><link rel="stylesheet" href="../assets/css/app.min.css"><link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.css"><!-- link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"--><!-- link rel="stylesheet" href="../assets/css/share.min.css" --><meta property="og:type" content="article"><meta property="og:title" content="TypeScriptnamespace 命名空间"><link rel="apple-touch-icon" href="../assets/icons/logo.png"><link rel="icon" type="image/png" href="../assets/icons/logo.png"><style>.nav-item-active{background-color: #fff;color:#9cba39}
+      a{color:#399ab2}
+      a:hover{color:#9cba39}
+      .breadcrumb a{color:#399ab2}
+      .breadcrumb a:hover{color:#9cba39}
+      .navbar.is-light .navbar-end .navbar-link, .navbar.is-light .navbar-end>.navbar-item, 
+      .navbar.is-light .navbar-start>.navbar-item:hover{color:#9cba39}
+      .navbar-link, a.navbar-item:hover{color:#9cba39}
+
+      .panel-info .panel-block .menu-list a.is-active, .panel-menu .panel-block .menu-list a.is-active {
+        color: #fff;
+        background-color: #399ab2;
+      }
+      .menu-list>li{background:#F9F9F9;border-bottom: 1px solid #ededed;} 
+      .panel-info .panel-block .menu, .panel-menu .panel-block .menu{padding:0 5px}</style></head><body><nav class="navbar is-light" role="navigation" id="navbar" aria-label="main navigation"><div class="container" style="max-width:1230px;"><div class="navbar-brand"><a href="/" class="navbar-item title has-text-grey has-text-weight-light is-5">V站 / ViJian.com</a></div><div class="navbar-menu" id="navMenu"><div class="navbar-start"><div class="navbar-item"><a class="navbar-item" href="/">首页</a></div><div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link nav-item-active is-hidden-touch">教程</a><div class="navbar-dropdown"><a class="navbar-item" href="/html/intro.html">HTML 教程</a> <a class="navbar-item" href="/es6/intro.html">ES6 教程</a> <a class="navbar-item" href="/typescript/intro.html">TypeScript 教程</a><!--   <a class="navbar-item" href="/webapi/intro.html">Web API 教程</a>
+             <a class="navbar-item" href="/css/intro.html">CSS 教程</a>
+        <a class="navbar-item" href="/javascript/intro.html">JavaScript 教程</a> --></div></div></div><div class="navbar-end"></div></div></div></nav><section class="section main article" style="padding-top: 20px;"><div class="container" style="max-width:1260px;"><div class="columns"><div class="column" style="flex:none;width:16%"><nav class="panel-menu" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-book" aria-hidden="true"></i> TypeScript教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="../typescript/intro.html">&nbsp; <span class="menu-list-title" style="width:100%">语言简介</span></a></li><li><a href="../typescript/basic.html">&nbsp; <span class="menu-list-title" style="width:100%">基本用法</span></a></li><li><a href="../typescript/any.html">&nbsp; <span class="menu-list-title" style="width:100%">any 类型</span></a></li><li><a href="../typescript/unknown.html">&nbsp; <span class="menu-list-title" style="width:100%">unknown 类型</span></a></li><li><a href="../typescript/never.html">&nbsp; <span class="menu-list-title" style="width:100%">never 类型</span></a></li><li><a href="../typescript/types.html">&nbsp; <span class="menu-list-title" style="width:100%">类型系统</span></a></li><li><a href="../typescript/array.html">&nbsp; <span class="menu-list-title" style="width:100%">array 数组</span></a></li><li><a href="../typescript/tuple.html">&nbsp; <span class="menu-list-title" style="width:100%">tuple 元组</span></a></li><li><a href="../typescript/symbol.html">&nbsp; <span class="menu-list-title" style="width:100%">symbol 类型</span></a></li><li><a href="../typescript/function.html">&nbsp; <span class="menu-list-title" style="width:100%">function 函数</span></a></li><li><a href="../typescript/object.html">&nbsp; <span class="menu-list-title" style="width:100%">object 对象</span></a></li><li><a href="../typescript/interface.html">&nbsp; <span class="menu-list-title" style="width:100%">interface 接口</span></a></li><li><a href="../typescript/class.html">&nbsp; <span class="menu-list-title" style="width:100%">class 类型</span></a></li><li><a href="../typescript/generics.html">&nbsp; <span class="menu-list-title" style="width:100%">generics 泛型</span></a></li><li><a href="../typescript/enum.html">&nbsp; <span class="menu-list-title" style="width:100%">enum 枚举</span></a></li><li><a href="../typescript/assert.html">&nbsp; <span class="menu-list-title" style="width:100%">类型断言</span></a></li><li><a href="../typescript/module.html">&nbsp; <span class="menu-list-title" style="width:100%">module 模块</span></a></li><li><a href="../typescript/namespace.html" class="is-active">&nbsp; <span class="menu-list-title" style="width:100%">namespace 命名空间</span></a></li><li><a href="../typescript/decorator-legacy.html">&nbsp; <span class="menu-list-title" style="width:100%">装饰器（旧语法）</span></a></li><li><a href="../typescript/decorator.html">&nbsp; <span class="menu-list-title" style="width:100%">decorator 装饰器</span></a></li><li><a href="../typescript/declare.html">&nbsp; <span class="menu-list-title" style="width:100%">declare 关键字</span></a></li><li><a href="../typescript/d.ts.html">&nbsp; <span class="menu-list-title" style="width:100%">d.ts 类型声明文件</span></a></li><li><a href="../typescript/operator.html">&nbsp; <span class="menu-list-title" style="width:100%">类型运算符</span></a></li><li><a href="../typescript/type-operations.html">&nbsp; <span class="menu-list-title" style="width:100%">类型运算</span></a></li><li><a href="../typescript/narrowing.html">&nbsp; <span class="menu-list-title" style="width:100%">类型缩小</span></a></li><li><a href="../typescript/mapping.html">&nbsp; <span class="menu-list-title" style="width:100%">类型映射</span></a></li><li><a href="../typescript/utility.html">&nbsp; <span class="menu-list-title" style="width:100%">类型工具</span></a></li><li><a href="../typescript/comment.html">&nbsp; <span class="menu-list-title" style="width:100%">注释指令</span></a></li><li><a href="../typescript/es6.html">&nbsp; <span class="menu-list-title" style="width:100%">ES6类型</span></a></li><li><a href="../typescript/react.html">&nbsp; <span class="menu-list-title" style="width:100%">React支持</span></a></li><li><a href="../typescript/npm.html">&nbsp; <span class="menu-list-title" style="width:100%">使用npm模块</span></a></li><li><a href="../typescript/tsc.html">&nbsp; <span class="menu-list-title" style="width:100%">tsc命令行编译器</span></a></li><li><a href="../typescript/tsconfig.json.html">&nbsp; <span class="menu-list-title" style="width:100%">tsconfig.json 配置文件</span></a></li></ul></aside></div></nav></div><div class="column" style="flex:none;width:68%"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../"><span class="icon"><i class="fa fa-home"></i></span> &nbsp;V站</a></li><li><a href="../typescript/namespace.html/intro.html">TypeScript教程</a></li><li><a href="../typescript/namespace.html">TypeScript namespace 命名空间</a></li></ul></nav><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../typescript/module.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> module 模块</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../typescript/decorator-legacy.html">装饰器（旧语法） <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><article class="content"><h1 class="title">TypeScript namespace 命名空间</h1><div class="page-meta"><p>V站（ViJian.com）</p></div><p>namespace 是一种将相关代码组织在一起的方式，中文译为“命名空间”。</p><p>它出现在 ES 模块诞生之前，作为 TypeScript 自己的模块格式而发明的。但是，自从有了 ES 模块，官方已经不推荐使用 namespace 了。</p><h2 id="基本用法">基本用法 <a class="markdownIt-Anchor" href="#基本用法">#</a></h2><p>namespace 用来建立一个容器，内部的所有变量和函数，都必须在这个容器里面使用。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Utils</span> {
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">isString</span>(<span class="hljs-params">value:<span class="hljs-built_in">any</span></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&#x27;string&#x27;</span>;
+  }
+
+  <span class="hljs-comment">// 正确</span>
+  <span class="hljs-title function_">isString</span>(<span class="hljs-string">&#x27;yes&#x27;</span>);
+}
+
+<span class="hljs-title class_">Utils</span>.<span class="hljs-title function_">isString</span>(<span class="hljs-string">&#x27;no&#x27;</span>); <span class="hljs-comment">// 报错</span>
+</code></pre><p>上面示例中，命名空间<code>Utils</code>里面定义了一个函数<code>isString()</code>，它只能在<code>Utils</code>里面使用，如果用于外部就会报错。</p><p>如果要在命名空间以外使用内部成员，就必须为该成员加上<code>export</code>前缀，表示对外输出该成员。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Utility</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">log</span>(<span class="hljs-params">msg:<span class="hljs-built_in">string</span></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(msg);
+  }
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">error</span>(<span class="hljs-params">msg:<span class="hljs-built_in">string</span></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(msg);
+  }
+}
+
+<span class="hljs-title class_">Utility</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Call me&#x27;</span>);
+<span class="hljs-title class_">Utility</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;maybe!&#x27;</span>);
+</code></pre><p>上面示例中，只要加上<code>export</code>前缀，就可以在命名空间外部使用内部成员。</p><p>编译出来的 JavaScript 代码如下。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> <span class="hljs-title class_">Utility</span>;
+
+(<span class="hljs-keyword">function</span> (<span class="hljs-params">Utility</span>) {
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">log</span>(<span class="hljs-params">msg</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(msg);
+  }
+  <span class="hljs-title class_">Utility</span>.<span class="hljs-property">log</span> = log;
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">error</span>(<span class="hljs-params">msg</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(msg);
+  }
+  <span class="hljs-title class_">Utility</span>.<span class="hljs-property">error</span> = error;
+})(<span class="hljs-title class_">Utility</span> || (<span class="hljs-title class_">Utility</span> = {}));
+</code></pre><p>上面代码中，命名空间<code>Utility</code>变成了 JavaScript 的一个对象，凡是<code>export</code>的内部成员，都成了该对象的属性。</p><p>这就是说，namespace 会变成一个值，保留在编译后的代码中。这一点要小心，它不是纯的类型代码。</p><p>namespace 内部还可以使用<code>import</code>命令输入外部成员，相当于为外部成员起别名。当外部成员的名字比较长时，别名能够简化代码。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Utils</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">isString</span>(<span class="hljs-params">value:<span class="hljs-built_in">any</span></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&#x27;string&#x27;</span>;
+  }
+}
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">App</span> {
+  <span class="hljs-keyword">import</span> isString = <span class="hljs-title class_">Utils</span>.<span class="hljs-property">isString</span>;
+
+  <span class="hljs-title function_">isString</span>(<span class="hljs-string">&#x27;yes&#x27;</span>);
+  <span class="hljs-comment">// 等同于</span>
+  <span class="hljs-title class_">Utils</span>.<span class="hljs-title function_">isString</span>(<span class="hljs-string">&#x27;yes&#x27;</span>);
+}
+</code></pre><p>上面示例中，<code>import</code>命令指定在命名空间<code>App</code>里面，外部成员<code>Utils.isString</code>的别名为<code>isString</code>。</p><p><code>import</code>命令也可以在 namespace 外部，指定别名。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Shapes</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Polygons</span> {
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Triangle</span> {}
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Square</span> {}
+  }
+}
+
+<span class="hljs-keyword">import</span> polygons = <span class="hljs-title class_">Shapes</span>.<span class="hljs-property">Polygons</span>;
+
+<span class="hljs-comment">// 等同于 new Shapes.Polygons.Square()</span>
+<span class="hljs-keyword">let</span> sq = <span class="hljs-keyword">new</span> polygons.<span class="hljs-title class_">Square</span>();
+</code></pre><p>上面示例中，<code>import</code>命令在命名空间<code>Shapes</code>的外部，指定<code>Shapes.Polygons</code>的别名为<code>polygons</code>。</p><p>namespace 可以嵌套。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Utils</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Messaging</span> {
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">log</span>(<span class="hljs-params">msg:<span class="hljs-built_in">string</span></span>) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(msg);
+    }
+  }
+}
+
+<span class="hljs-title class_">Utils</span>.<span class="hljs-property">Messaging</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;hello&#x27;</span>) <span class="hljs-comment">// &quot;hello&quot;</span>
+</code></pre><p>上面示例中，命名空间<code>Utils</code>内部还有一个命名空间<code>Messaging</code>。注意，如果要在外部使用<code>Messaging</code>，必须在它前面加上<code>export</code>命令。</p><p>使用嵌套的命名空间，必须从最外层开始引用，比如<code>Utils.Messaging.log()</code>。</p><p>namespace 不仅可以包含实义代码，还可以包括类型代码。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> N {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyInterface</span>{}
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>{}
+}
+</code></pre><p>上面代码中，命令空间<code>N</code>不仅对外输出类，还对外输出一个接口，它们都可以用作类型。</p><p>namespace 与模块的作用是一致的，都是把相关代码组织在一起，对外输出接口。区别是一个文件只能有一个模块，但可以有多个 namespace。由于模块可以取代 namespace，而且是 JavaScript 的标准语法，还不需要编译转换，所以建议总是使用模块，替代 namespace。</p><p>如果 namespace 代码放在一个单独的文件里，那么引入这个文件需要使用三斜杠的语法。</p><pre class="hljs"><code><span class="hljs-comment">/// &lt;reference path = &quot;SomeFileName.ts&quot; /&gt;</span>
+</code></pre><h2 id="namespace-的输出">namespace 的输出 <a class="markdownIt-Anchor" href="#namespace-的输出">#</a></h2><p>namespace 本身也可以使用<code>export</code>命令输出，供其他文件使用。</p><pre class="hljs"><code><span class="hljs-comment">// shapes.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Shapes</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Triangle</span> {
+    <span class="hljs-comment">// ...</span>
+  }
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Square</span> {
+    <span class="hljs-comment">// ...</span>
+  }
+}
+</code></pre><p>上面示例是一个文件<code>shapes.ts</code>，里面使用<code>export</code>命令，输出了一个命名空间<code>Shapes</code>。</p><p>其他脚本文件使用<code>import</code>命令，加载这个命名空间。</p><pre class="hljs"><code><span class="hljs-comment">// 写法一</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Shapes</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./shapes&#x27;</span>;
+<span class="hljs-keyword">let</span> t = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Shapes</span>.<span class="hljs-title class_">Triangle</span>();
+
+<span class="hljs-comment">// 写法二</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> shapes <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./shapes&quot;</span>;
+<span class="hljs-keyword">let</span> t = <span class="hljs-keyword">new</span> shapes.<span class="hljs-property">Shapes</span>.<span class="hljs-title class_">Triangle</span>();
+</code></pre><p>不过，更好的方法还是建议使用模块，采用模块的输出和输入。</p><pre class="hljs"><code><span class="hljs-comment">// shapes.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Triangle</span> {
+  <span class="hljs-comment">/* ... */</span>
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Square</span> {
+  <span class="hljs-comment">/* ... */</span>
+}
+
+<span class="hljs-comment">// shapeConsumer.ts</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> shapes <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./shapes&quot;</span>;
+<span class="hljs-keyword">let</span> t = <span class="hljs-keyword">new</span> shapes.<span class="hljs-title class_">Triangle</span>();
+</code></pre><p>上面示例中，使用模块的输出和输入，改写了前面的例子。</p><h2 id="namespace-的合并">namespace 的合并 <a class="markdownIt-Anchor" href="#namespace-的合并">#</a></h2><p>多个同名的 namespace 会自动合并，这一点跟 interface 一样。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Animals</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> {}
+}
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Animals</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Legged</span> {
+    <span class="hljs-attr">numberOfLegs</span>: <span class="hljs-built_in">number</span>;
+  }
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> {}
+}
+
+<span class="hljs-comment">// 等同于</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Animals</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Legged</span> {
+    <span class="hljs-attr">numberOfLegs</span>: <span class="hljs-built_in">number</span>;
+  }
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> {}
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> {}
+}
+</code></pre><p>这样做的目的是，如果同名的命名空间分布在不同的文件中，TypeScript 最终会将它们合并在一起。这样就比较方便扩展别人的代码。</p><p>合并命名空间时，命名空间中的非<code>export</code>的成员不会被合并，但是它们只能在各自的命名空间中使用。</p><pre class="hljs"><code><span class="hljs-keyword">namespace</span> N {
+  <span class="hljs-keyword">const</span> a = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);  <span class="hljs-comment">// 正确</span>
+  }
+}
+
+<span class="hljs-keyword">namespace</span> N {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">foo</span>(); <span class="hljs-comment">// 正确</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);  <span class="hljs-comment">// 报错</span>
+  }
+}
+</code></pre><p>上面示例中，变量<code>a</code>是第一个名称空间<code>N</code>的非对外成员，它只在第一个名称空间可用。</p><p>命名空间还可以跟同名函数合并，但是要求同名函数必须在命名空间之前声明。这样做是为了确保先创建出一个函数对象，然后同名的命名空间就相当于给这个函数对象添加额外的属性。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> f.<span class="hljs-property">version</span>;
+}
+
+<span class="hljs-keyword">namespace</span> f {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> version = <span class="hljs-string">&#x27;1.0&#x27;</span>;
+}
+
+<span class="hljs-title function_">f</span>()   <span class="hljs-comment">// &#x27;1.0&#x27;</span>
+f.<span class="hljs-property">version</span> <span class="hljs-comment">// &#x27;1.0&#x27;</span>
+</code></pre><p>上面示例中，函数<code>f()</code>与命名空间<code>f</code>合并，相当于命名空间为函数对象<code>f</code>添加属性。</p><p>命名空间也能与同名 class 合并，同样要求class 必须在命名空间之前声明，原因同上。</p><pre class="hljs"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> {
+  foo = <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-keyword">namespace</span> C {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> bar = <span class="hljs-number">2</span>;
+}
+
+C.<span class="hljs-property">bar</span> <span class="hljs-comment">// 2</span>
+</code></pre><p>上面示例中，名称空间<code>C</code>为类<code>C</code>添加了一个静态属性<code>bar</code>。</p><p>命名空间还能与同名 Enum 合并。</p><pre class="hljs"><code><span class="hljs-keyword">enum</span> E {
+  A,
+  B,
+  C,
+}
+
+<span class="hljs-keyword">namespace</span> E {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(E.<span class="hljs-property">C</span>);
+  }
+}
+
+E.<span class="hljs-title function_">foo</span>() <span class="hljs-comment">// 2</span>
+</code></pre><p>上面示例中，命名空间<code>E</code>为枚举<code>E</code>添加了一个<code>foo()</code>方法。</p><p>注意，Enum 成员与命名空间导出成员不允许同名。</p><pre class="hljs"><code><span class="hljs-keyword">enum</span> E {
+  A, <span class="hljs-comment">// 报错</span>
+  B,
+}
+
+<span class="hljs-keyword">namespace</span> E {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">A</span>(<span class="hljs-params"></span>) {} <span class="hljs-comment">// 报错</span>
+}
+</code></pre><p>上面示例中，同名 Enum 与命名空间有同名成员，结果报错。</p></article><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../typescript/module.html"><span class="icon"><i class="fa fa-toggle-left"></i></span></a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../typescript/decorator-legacy.html"><span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><div class="page-info"><p>本教程采用<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.zh" target="_blank">知识共享 署名-相同方式共享 3.0协议</a>。</p><p>分享本文 <span class="social-share"></span></p></div></div><div class="column" style="flex:none;width:14%"><nav class="panel-info" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-list-ul" aria-hidden="true"></i> Web前端教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="/html/intro.html" target="_blank">&nbsp;HTML 教程</a></li><li><a href="/es6/intro.html" target="_blank">&nbsp;ES6 教程</a></li><li><a href="/typescript/intro.html" target="_blank">&nbsp;TypeScript 教程</a></li><!-- 
+      <li><a href="/css/intro.html" target="_blank">&nbsp;CSS 教程</a></li>
+    <li><a href="/javascript/intro.html" target="_blank">&nbsp;JavaScript 教程</a></li>
+      <li><a href="/webapi/intro.html" target="_blank">&nbsp;Web API 教程</a></li>
+    --></ul></aside></div></nav></div></div><div class="columns"><div class="column is-8 is-6-widescreen is-offset-1-widescreen"><div id="disqus_thread"></div></div></div></div></section><footer class="footer"><div class="container" style="max-width:1260px;"><div class="content has-text-centered"><p>V站（ViJian.com），今天学全栈，明天自己干</p></div></div></footer><script>var LOPPO={current_path:"typescript/namespace.md",relative_root_path:"../",article_toc:'<ul class="markdownIt-TOC">\n<li><a href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">基本用法</a></li>\n<li><a href="#namespace-%E7%9A%84%E8%BE%93%E5%87%BA">namespace 的输出</a></li>\n<li><a href="#namespace-%E7%9A%84%E5%90%88%E5%B9%B6">namespace 的合并</a></li>\n</ul>\n'}</script><script src="../assets/js/app.js"></script><!--script src="../assets/js/social-share.min.js"--><!--/script--><script>var shareDesc="我正在阅读《TypeScript namespace 命名空间》，出自V站（ViJian.com）。",shareOpts={url:window.location.href,source:shareDesc,title:shareDesc,description:"",image:"",sites:["weibo","wechat","qq","qzone","twitter","facebook"],origin:"ViJian_com",disabled:[],wechatQrcodeTitle:"微信",wechatQrcodeHelper:"扫一下二维码，分享到微信。"};socialShare(".social-share",shareOpts)</script></body></html>

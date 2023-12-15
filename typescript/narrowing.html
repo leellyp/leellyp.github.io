@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TypeScript类型缩小 - TypeScript教程 - V站前端教程</title><!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" --><link rel="stylesheet" href="../assets/css/app.min.css"><link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.css"><!-- link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"--><!-- link rel="stylesheet" href="../assets/css/share.min.css" --><meta property="og:type" content="article"><meta property="og:title" content="TypeScript类型缩小"><link rel="apple-touch-icon" href="../assets/icons/logo.png"><link rel="icon" type="image/png" href="../assets/icons/logo.png"><style>.nav-item-active{background-color: #fff;color:#9cba39}
+      a{color:#399ab2}
+      a:hover{color:#9cba39}
+      .breadcrumb a{color:#399ab2}
+      .breadcrumb a:hover{color:#9cba39}
+      .navbar.is-light .navbar-end .navbar-link, .navbar.is-light .navbar-end>.navbar-item, 
+      .navbar.is-light .navbar-start>.navbar-item:hover{color:#9cba39}
+      .navbar-link, a.navbar-item:hover{color:#9cba39}
+
+      .panel-info .panel-block .menu-list a.is-active, .panel-menu .panel-block .menu-list a.is-active {
+        color: #fff;
+        background-color: #399ab2;
+      }
+      .menu-list>li{background:#F9F9F9;border-bottom: 1px solid #ededed;} 
+      .panel-info .panel-block .menu, .panel-menu .panel-block .menu{padding:0 5px}</style></head><body><nav class="navbar is-light" role="navigation" id="navbar" aria-label="main navigation"><div class="container" style="max-width:1230px;"><div class="navbar-brand"><a href="/" class="navbar-item title has-text-grey has-text-weight-light is-5">V站 / ViJian.com</a></div><div class="navbar-menu" id="navMenu"><div class="navbar-start"><div class="navbar-item"><a class="navbar-item" href="/">首页</a></div><div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link nav-item-active is-hidden-touch">教程</a><div class="navbar-dropdown"><a class="navbar-item" href="/html/intro.html">HTML 教程</a> <a class="navbar-item" href="/es6/intro.html">ES6 教程</a> <a class="navbar-item" href="/typescript/intro.html">TypeScript 教程</a><!--   <a class="navbar-item" href="/webapi/intro.html">Web API 教程</a>
+             <a class="navbar-item" href="/css/intro.html">CSS 教程</a>
+        <a class="navbar-item" href="/javascript/intro.html">JavaScript 教程</a> --></div></div></div><div class="navbar-end"></div></div></div></nav><section class="section main article" style="padding-top: 20px;"><div class="container" style="max-width:1260px;"><div class="columns"><div class="column" style="flex:none;width:16%"><nav class="panel-menu" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-book" aria-hidden="true"></i> TypeScript教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="../typescript/intro.html">&nbsp; <span class="menu-list-title" style="width:100%">语言简介</span></a></li><li><a href="../typescript/basic.html">&nbsp; <span class="menu-list-title" style="width:100%">基本用法</span></a></li><li><a href="../typescript/any.html">&nbsp; <span class="menu-list-title" style="width:100%">any 类型</span></a></li><li><a href="../typescript/unknown.html">&nbsp; <span class="menu-list-title" style="width:100%">unknown 类型</span></a></li><li><a href="../typescript/never.html">&nbsp; <span class="menu-list-title" style="width:100%">never 类型</span></a></li><li><a href="../typescript/types.html">&nbsp; <span class="menu-list-title" style="width:100%">类型系统</span></a></li><li><a href="../typescript/array.html">&nbsp; <span class="menu-list-title" style="width:100%">array 数组</span></a></li><li><a href="../typescript/tuple.html">&nbsp; <span class="menu-list-title" style="width:100%">tuple 元组</span></a></li><li><a href="../typescript/symbol.html">&nbsp; <span class="menu-list-title" style="width:100%">symbol 类型</span></a></li><li><a href="../typescript/function.html">&nbsp; <span class="menu-list-title" style="width:100%">function 函数</span></a></li><li><a href="../typescript/object.html">&nbsp; <span class="menu-list-title" style="width:100%">object 对象</span></a></li><li><a href="../typescript/interface.html">&nbsp; <span class="menu-list-title" style="width:100%">interface 接口</span></a></li><li><a href="../typescript/class.html">&nbsp; <span class="menu-list-title" style="width:100%">class 类型</span></a></li><li><a href="../typescript/generics.html">&nbsp; <span class="menu-list-title" style="width:100%">generics 泛型</span></a></li><li><a href="../typescript/enum.html">&nbsp; <span class="menu-list-title" style="width:100%">enum 枚举</span></a></li><li><a href="../typescript/assert.html">&nbsp; <span class="menu-list-title" style="width:100%">类型断言</span></a></li><li><a href="../typescript/module.html">&nbsp; <span class="menu-list-title" style="width:100%">module 模块</span></a></li><li><a href="../typescript/namespace.html">&nbsp; <span class="menu-list-title" style="width:100%">namespace 命名空间</span></a></li><li><a href="../typescript/decorator-legacy.html">&nbsp; <span class="menu-list-title" style="width:100%">装饰器（旧语法）</span></a></li><li><a href="../typescript/decorator.html">&nbsp; <span class="menu-list-title" style="width:100%">decorator 装饰器</span></a></li><li><a href="../typescript/declare.html">&nbsp; <span class="menu-list-title" style="width:100%">declare 关键字</span></a></li><li><a href="../typescript/d.ts.html">&nbsp; <span class="menu-list-title" style="width:100%">d.ts 类型声明文件</span></a></li><li><a href="../typescript/operator.html">&nbsp; <span class="menu-list-title" style="width:100%">类型运算符</span></a></li><li><a href="../typescript/type-operations.html">&nbsp; <span class="menu-list-title" style="width:100%">类型运算</span></a></li><li><a href="../typescript/narrowing.html" class="is-active">&nbsp; <span class="menu-list-title" style="width:100%">类型缩小</span></a></li><li><a href="../typescript/mapping.html">&nbsp; <span class="menu-list-title" style="width:100%">类型映射</span></a></li><li><a href="../typescript/utility.html">&nbsp; <span class="menu-list-title" style="width:100%">类型工具</span></a></li><li><a href="../typescript/comment.html">&nbsp; <span class="menu-list-title" style="width:100%">注释指令</span></a></li><li><a href="../typescript/es6.html">&nbsp; <span class="menu-list-title" style="width:100%">ES6类型</span></a></li><li><a href="../typescript/react.html">&nbsp; <span class="menu-list-title" style="width:100%">React支持</span></a></li><li><a href="../typescript/npm.html">&nbsp; <span class="menu-list-title" style="width:100%">使用npm模块</span></a></li><li><a href="../typescript/tsc.html">&nbsp; <span class="menu-list-title" style="width:100%">tsc命令行编译器</span></a></li><li><a href="../typescript/tsconfig.json.html">&nbsp; <span class="menu-list-title" style="width:100%">tsconfig.json 配置文件</span></a></li></ul></aside></div></nav></div><div class="column" style="flex:none;width:68%"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../"><span class="icon"><i class="fa fa-home"></i></span> &nbsp;V站</a></li><li><a href="../typescript/narrowing.html/intro.html">TypeScript教程</a></li><li><a href="../typescript/narrowing.html">TypeScript 类型缩小</a></li></ul></nav><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../typescript/type-operations.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> 类型运算</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../typescript/mapping.html">类型映射 <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><article class="content"><h1 class="title">TypeScript 类型缩小</h1><div class="page-meta"><p>V站（ViJian.com）</p></div><p>TypeScript 变量的值可以变，但是类型通常是不变的。唯一允许的改变，就是类型缩小，就是将变量值的范围缩得更小。</p><h2 id="手动类型缩小">手动类型缩小 <a class="markdownIt-Anchor" href="#手动类型缩小">#</a></h2><p>如果一个变量属于联合类型，所以使用时一般需要缩小类型。</p><p>第一种方法是使用<code>if</code>判断。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">getScore</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span></span>): <span class="hljs-built_in">number</span> {
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&#x27;number&#x27;</span>) { <span class="hljs-comment">// (A)</span>
+    <span class="hljs-comment">// %inferred-type: number</span>
+    value;
+    <span class="hljs-keyword">return</span> value;
+  }
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&#x27;string&#x27;</span>) { <span class="hljs-comment">// (B)</span>
+    <span class="hljs-comment">// %inferred-type: string</span>
+    value;
+    <span class="hljs-keyword">return</span> value.<span class="hljs-property">length</span>;
+  }
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Unsupported value: &#x27;</span> + value);
+}
+</code></pre><p>如果一个值是<code>any</code>或<code>unknown</code>，你又想对它进行处理，就必须先缩小类型。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">parseStringLiteral</span>(<span class="hljs-params">stringLiteral: <span class="hljs-built_in">string</span></span>): <span class="hljs-built_in">string</span> {
+  <span class="hljs-keyword">const</span> <span class="hljs-attr">result</span>: <span class="hljs-built_in">unknown</span> = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(stringLiteral);
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> result === <span class="hljs-string">&#x27;string&#x27;</span>) { <span class="hljs-comment">// (A)</span>
+    <span class="hljs-keyword">return</span> result;
+  }
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Not a string literal: &#x27;</span> + stringLiteral);
+}
+</code></pre><p>下面是另一个例子。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Book</span> {
+  <span class="hljs-attr">title</span>: <span class="hljs-literal">null</span> | <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">isbn</span>: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">getTitle</span>(<span class="hljs-params">book: Book</span>) {
+  <span class="hljs-keyword">if</span> (book.<span class="hljs-property">title</span> === <span class="hljs-literal">null</span>) {
+    <span class="hljs-comment">// %inferred-type: null</span>
+    book.<span class="hljs-property">title</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;(Untitled)&#x27;</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// %inferred-type: string</span>
+    book.<span class="hljs-property">title</span>;
+    <span class="hljs-keyword">return</span> book.<span class="hljs-property">title</span>;
+  }
+}
+</code></pre><p>缩小类型的前提是，需要先获取类型。获取类型的几种方法如下。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">value: <span class="hljs-built_in">Function</span>|<span class="hljs-built_in">Date</span>|<span class="hljs-built_in">number</span>[]</span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&#x27;function&#x27;</span>) {
+    <span class="hljs-comment">// %inferred-type: Function</span>
+    value;
+  }
+
+  <span class="hljs-keyword">if</span> (value <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Date</span>) {
+    <span class="hljs-comment">// %inferred-type: Date</span>
+    value;
+  }
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(value)) {
+    <span class="hljs-comment">// %inferred-type: number[]</span>
+    value;
+  }
+}
+</code></pre><h3 id="typeof-运算符">typeof 运算符 <a class="markdownIt-Anchor" href="#typeof-运算符">#</a></h3><p>第二种方法是使用<code>switch</code>缩小类型。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">getScore</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span>|<span class="hljs-built_in">string</span></span>): <span class="hljs-built_in">number</span> {
+  <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">typeof</span> value) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;number&#x27;</span>:
+      <span class="hljs-comment">// %inferred-type: number</span>
+      value;
+      <span class="hljs-keyword">return</span> value;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;string&#x27;</span>:
+      <span class="hljs-comment">// %inferred-type: string</span>
+      value;
+      <span class="hljs-keyword">return</span> value.<span class="hljs-property">length</span>;
+    <span class="hljs-attr">default</span>:
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Unsupported value: &#x27;</span> + value);
+  }
+}
+</code></pre><h3 id="instanceof-运算符">instanceof 运算符 <a class="markdownIt-Anchor" href="#instanceof-运算符">#</a></h3><p>第三种方法是instanceof运算符。它能够检测实例对象与构造函数之间的关系。instanceof运算符的左操作数为实例对象，右操作数为构造函数，若构造函数的prototype属性值存在于实例对象的原型链上，则返回true；否则，返回false。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">x: <span class="hljs-built_in">Date</span> | <span class="hljs-built_in">RegExp</span></span>) {
+    <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Date</span>) {
+        x; <span class="hljs-comment">// Date</span>
+    }
+
+    <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">RegExp</span>) {
+        x; <span class="hljs-comment">// RegExp</span>
+    }
+}
+</code></pre><p>instanceof类型守卫同样适用于自定义构造函数，并对其实例对象进行类型细化。</p><pre class="hljs"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">x: A | B</span>) {
+   <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> A) {
+       x; <span class="hljs-comment">// A</span>
+   }
+
+   <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> B) {
+       x; <span class="hljs-comment">// B</span>
+  }
+}
+</code></pre><h3 id="in-运算符">in 运算符 <a class="markdownIt-Anchor" href="#in-运算符">#</a></h3><p>第四种方法是使用in运算符。</p><p>in运算符是JavaScript中的关系运算符之一，用来判断对象自身或其原型链中是否存在给定的属性，若存在则返回true，否则返回false。in运算符有两个操作数，左操作数为待测试的属性名，右操作数为测试对象。</p><p>in类型守卫根据in运算符的测试结果，将右操作数的类型细化为具体的对象类型。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> A {
+    <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;
+}
+<span class="hljs-keyword">interface</span> B {
+    <span class="hljs-attr">y</span>: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">x: A | B</span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;x&#x27;</span> <span class="hljs-keyword">in</span> x) {
+        x; <span class="hljs-comment">// A</span>
+    } <span class="hljs-keyword">else</span> {
+        x; <span class="hljs-comment">// B</span>
+    }
+}
+</code></pre><pre class="hljs"><code><span class="hljs-keyword">interface</span> A { <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> }
+<span class="hljs-keyword">interface</span> B { <span class="hljs-attr">b</span>: <span class="hljs-built_in">number</span> }
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">pickAB</span>(<span class="hljs-params">ab: A | B</span>) {
+ <span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;a&#x27;</span> <span class="hljs-keyword">in</span> ab) {
+ ab <span class="hljs-comment">// Type is A</span>
+ } <span class="hljs-keyword">else</span> {
+ ab <span class="hljs-comment">// Type is B</span>
+ }
+ ab <span class="hljs-comment">// Type is A | B</span>
+}
+</code></pre><p>缩小对象的属性，要用<code>in</code>运算符。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">FirstOrSecond</span> =
+  | {<span class="hljs-attr">first</span>: <span class="hljs-built_in">string</span>}
+  | {<span class="hljs-attr">second</span>: <span class="hljs-built_in">string</span>};
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">firstOrSecond: FirstOrSecond</span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;second&#x27;</span> <span class="hljs-keyword">in</span> firstOrSecond) {
+    <span class="hljs-comment">// %inferred-type: { second: string; }</span>
+    firstOrSecond;
+  }
+}
+
+<span class="hljs-comment">// 错误</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">firstOrSecond: FirstOrSecond</span>) {
+  <span class="hljs-comment">// @ts-expect-error: Property &#x27;second&#x27; does not exist on</span>
+  <span class="hljs-comment">// type &#x27;FirstOrSecond&#x27;. [...]</span>
+  <span class="hljs-keyword">if</span> (firstOrSecond.<span class="hljs-property">second</span> !== <span class="hljs-literal">undefined</span>) {
+    <span class="hljs-comment">// ···</span>
+  }
+}
+</code></pre><p><code>in</code>运算符只能用于联合类型，不能用于检查一个属性是否存在。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">obj: <span class="hljs-built_in">object</span></span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;name&#x27;</span> <span class="hljs-keyword">in</span> obj) {
+    <span class="hljs-comment">// %inferred-type: object</span>
+    obj;
+
+    <span class="hljs-comment">// 报错</span>
+    obj.<span class="hljs-property">name</span>;
+  }
+}
+</code></pre><h3 id="特征属性">特征属性 <a class="markdownIt-Anchor" href="#特征属性">#</a></h3><p>对于不同对象之间的区分，还可以人为地为每一类对象设置一个特征属性。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> <span class="hljs-title class_">UploadEvent</span> {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;upload&#x27;</span>;
+    <span class="hljs-attr">filename</span>: <span class="hljs-built_in">string</span>;
+    <span class="hljs-attr">contents</span>: <span class="hljs-built_in">string</span> 
+}
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">DownloadEvent</span> { <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;download&#x27;</span>; <span class="hljs-attr">filename</span>: <span class="hljs-built_in">string</span>; }
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">AppEvent</span> = <span class="hljs-title class_">UploadEvent</span> | <span class="hljs-title class_">DownloadEvent</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">handleEvent</span>(<span class="hljs-params">e: AppEvent</span>) {
+ <span class="hljs-keyword">switch</span> (e.<span class="hljs-property">type</span>) {
+ <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;download&#x27;</span>:
+ e <span class="hljs-comment">// Type is DownloadEvent</span>
+ <span class="hljs-keyword">break</span>;
+ <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;upload&#x27;</span>:
+ e; <span class="hljs-comment">// Type is UploadEvent</span>
+ <span class="hljs-keyword">break</span>;
+ }
+}
+</code></pre><h2 id="any-类型的细化">any 类型的细化 <a class="markdownIt-Anchor" href="#any-类型的细化">#</a></h2><p>TypeScript 推断变量类型时，会根据获知的信息，不断改变推断出来的类型，越来越细化。这种现象在<code>any</code>身上特别明显。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">range</span>(<span class="hljs-params">
+  start:<span class="hljs-built_in">number</span>,
+  limit:<span class="hljs-built_in">number</span>
+</span>) {
+  <span class="hljs-keyword">const</span> out = []; <span class="hljs-comment">// 类型为 any[]</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = start; i &lt; limit; i++) {
+    out.<span class="hljs-title function_">push</span>(i);
+  }
+  <span class="hljs-keyword">return</span> out; <span class="hljs-comment">// 类型为 number[]</span>
+}
+</code></pre><p>上面示例中，变量<code>out</code>的类型一开始推断为<code>any[]</code>，后来在里面放入数值，类型就变为<code>number[]</code>。</p><p>再看下面的例子。</p><pre class="hljs"><code><span class="hljs-keyword">const</span> result = []; <span class="hljs-comment">// 类型为 any[]</span>
+result.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;a&#x27;</span>);
+result <span class="hljs-comment">// 类型为 string[]</span>
+result.<span class="hljs-title function_">push</span>(<span class="hljs-number">1</span>);
+result <span class="hljs-comment">// 类型为 (string | number)[]</span>
+</code></pre><p>上面示例中，数组<code>result</code>随着成员类型的不同，而不断改变自己的类型。</p><p>注意，这种<code>any</code>类型的细化，只在打开了编译选项<code>noImplicitAny</code>时发生。</p><p>这时，如果在变量的推断类型还为<code>any</code>时（即没有任何写操作)，就去输出（或读取）该变量，则会报错，因为这时推断还没有完成，无法满足<code>noImplicitAny</code>的要求。</p><pre class="hljs"><code><span class="hljs-keyword">const</span> result = []; <span class="hljs-comment">// 类型为 any[]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">typeof</span> result); <span class="hljs-comment">// 报错</span>
+result.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;a&#x27;</span>); <span class="hljs-comment">// 类型为 string[]</span>
+</code></pre><p>上面示例中，只有运行完第三行，<code>result</code>的类型才能完成第一次推断，所以第二行读取<code>result</code>就会报错。</p><h2 id="is-运算符">is 运算符 <a class="markdownIt-Anchor" href="#is-运算符">#</a></h2><p><code>is</code>运算符返回一个布尔值，用来判断左侧的值是否属于右侧的类型。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">isInputElement</span>(<span class="hljs-params">el: HTMLElement</span>): el is <span class="hljs-title class_">HTMLInputElement</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;value&#x27;</span> <span class="hljs-keyword">in</span> el;
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">getElementContent</span>(<span class="hljs-params">el: HTMLElement</span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isInputElement</span>(el)) {
+ el; <span class="hljs-comment">// Type is HTMLInputElement</span>
+    <span class="hljs-keyword">return</span> el.<span class="hljs-property">value</span>;
+ }
+ el; <span class="hljs-comment">// Type is HTMLElement</span>
+ <span class="hljs-keyword">return</span> el.<span class="hljs-property">textContent</span>;
+}
+</code></pre><pre class="hljs"><code><span class="hljs-keyword">function</span> isDefined&lt;T&gt;(<span class="hljs-attr">x</span>: T | <span class="hljs-literal">undefined</span>): x is T {
+ <span class="hljs-keyword">return</span> x !== <span class="hljs-literal">undefined</span>;
+}
+</code></pre></article><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../typescript/type-operations.html"><span class="icon"><i class="fa fa-toggle-left"></i></span></a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../typescript/mapping.html"><span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><div class="page-info"><p>本教程采用<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.zh" target="_blank">知识共享 署名-相同方式共享 3.0协议</a>。</p><p>分享本文 <span class="social-share"></span></p></div></div><div class="column" style="flex:none;width:14%"><nav class="panel-info" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-list-ul" aria-hidden="true"></i> Web前端教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="/html/intro.html" target="_blank">&nbsp;HTML 教程</a></li><li><a href="/es6/intro.html" target="_blank">&nbsp;ES6 教程</a></li><li><a href="/typescript/intro.html" target="_blank">&nbsp;TypeScript 教程</a></li><!-- 
+      <li><a href="/css/intro.html" target="_blank">&nbsp;CSS 教程</a></li>
+    <li><a href="/javascript/intro.html" target="_blank">&nbsp;JavaScript 教程</a></li>
+      <li><a href="/webapi/intro.html" target="_blank">&nbsp;Web API 教程</a></li>
+    --></ul></aside></div></nav></div></div><div class="columns"><div class="column is-8 is-6-widescreen is-offset-1-widescreen"><div id="disqus_thread"></div></div></div></div></section><footer class="footer"><div class="container" style="max-width:1260px;"><div class="content has-text-centered"><p>V站（ViJian.com），今天学全栈，明天自己干</p></div></div></footer><script>var LOPPO={current_path:"typescript/narrowing.md",relative_root_path:"../",article_toc:'<ul class="markdownIt-TOC">\n<li><a href="#%E6%89%8B%E5%8A%A8%E7%B1%BB%E5%9E%8B%E7%BC%A9%E5%B0%8F">手动类型缩小</a>\n<ul>\n<li><a href="#typeof-%E8%BF%90%E7%AE%97%E7%AC%A6">typeof 运算符</a></li>\n<li><a href="#instanceof-%E8%BF%90%E7%AE%97%E7%AC%A6">instanceof 运算符</a></li>\n<li><a href="#in-%E8%BF%90%E7%AE%97%E7%AC%A6">in 运算符</a></li>\n<li><a href="#%E7%89%B9%E5%BE%81%E5%B1%9E%E6%80%A7">特征属性</a></li>\n</ul>\n</li>\n<li><a href="#any-%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%BB%86%E5%8C%96">any 类型的细化</a></li>\n<li><a href="#is-%E8%BF%90%E7%AE%97%E7%AC%A6">is 运算符</a></li>\n</ul>\n'}</script><script src="../assets/js/app.js"></script><!--script src="../assets/js/social-share.min.js"--><!--/script--><script>var shareDesc="我正在阅读《TypeScript 类型缩小》，出自V站（ViJian.com）。",shareOpts={url:window.location.href,source:shareDesc,title:shareDesc,description:"",image:"",sites:["weibo","wechat","qq","qzone","twitter","facebook"],origin:"ViJian_com",disabled:[],wechatQrcodeTitle:"微信",wechatQrcodeHelper:"扫一下二维码，分享到微信。"};socialShare(".social-share",shareOpts)</script></body></html>

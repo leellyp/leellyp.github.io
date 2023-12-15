@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="zh-CN" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TypeScript类型运算 - TypeScript教程 - V站前端教程</title><!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" --><link rel="stylesheet" href="../assets/css/app.min.css"><link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.css"><!-- link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"--><!-- link rel="stylesheet" href="../assets/css/share.min.css" --><meta property="og:type" content="article"><meta property="og:title" content="TypeScript类型运算"><link rel="apple-touch-icon" href="../assets/icons/logo.png"><link rel="icon" type="image/png" href="../assets/icons/logo.png"><style>.nav-item-active{background-color: #fff;color:#9cba39}
+      a{color:#399ab2}
+      a:hover{color:#9cba39}
+      .breadcrumb a{color:#399ab2}
+      .breadcrumb a:hover{color:#9cba39}
+      .navbar.is-light .navbar-end .navbar-link, .navbar.is-light .navbar-end>.navbar-item, 
+      .navbar.is-light .navbar-start>.navbar-item:hover{color:#9cba39}
+      .navbar-link, a.navbar-item:hover{color:#9cba39}
+
+      .panel-info .panel-block .menu-list a.is-active, .panel-menu .panel-block .menu-list a.is-active {
+        color: #fff;
+        background-color: #399ab2;
+      }
+      .menu-list>li{background:#F9F9F9;border-bottom: 1px solid #ededed;} 
+      .panel-info .panel-block .menu, .panel-menu .panel-block .menu{padding:0 5px}</style></head><body><nav class="navbar is-light" role="navigation" id="navbar" aria-label="main navigation"><div class="container" style="max-width:1230px;"><div class="navbar-brand"><a href="/" class="navbar-item title has-text-grey has-text-weight-light is-5">V站 / ViJian.com</a></div><div class="navbar-menu" id="navMenu"><div class="navbar-start"><div class="navbar-item"><a class="navbar-item" href="/">首页</a></div><div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link nav-item-active is-hidden-touch">教程</a><div class="navbar-dropdown"><a class="navbar-item" href="/html/intro.html">HTML 教程</a> <a class="navbar-item" href="/es6/intro.html">ES6 教程</a> <a class="navbar-item" href="/typescript/intro.html">TypeScript 教程</a><!--   <a class="navbar-item" href="/webapi/intro.html">Web API 教程</a>
+             <a class="navbar-item" href="/css/intro.html">CSS 教程</a>
+        <a class="navbar-item" href="/javascript/intro.html">JavaScript 教程</a> --></div></div></div><div class="navbar-end"></div></div></div></nav><section class="section main article" style="padding-top: 20px;"><div class="container" style="max-width:1260px;"><div class="columns"><div class="column" style="flex:none;width:16%"><nav class="panel-menu" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-book" aria-hidden="true"></i> TypeScript教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="../typescript/intro.html">&nbsp; <span class="menu-list-title" style="width:100%">语言简介</span></a></li><li><a href="../typescript/basic.html">&nbsp; <span class="menu-list-title" style="width:100%">基本用法</span></a></li><li><a href="../typescript/any.html">&nbsp; <span class="menu-list-title" style="width:100%">any 类型</span></a></li><li><a href="../typescript/unknown.html">&nbsp; <span class="menu-list-title" style="width:100%">unknown 类型</span></a></li><li><a href="../typescript/never.html">&nbsp; <span class="menu-list-title" style="width:100%">never 类型</span></a></li><li><a href="../typescript/types.html">&nbsp; <span class="menu-list-title" style="width:100%">类型系统</span></a></li><li><a href="../typescript/array.html">&nbsp; <span class="menu-list-title" style="width:100%">array 数组</span></a></li><li><a href="../typescript/tuple.html">&nbsp; <span class="menu-list-title" style="width:100%">tuple 元组</span></a></li><li><a href="../typescript/symbol.html">&nbsp; <span class="menu-list-title" style="width:100%">symbol 类型</span></a></li><li><a href="../typescript/function.html">&nbsp; <span class="menu-list-title" style="width:100%">function 函数</span></a></li><li><a href="../typescript/object.html">&nbsp; <span class="menu-list-title" style="width:100%">object 对象</span></a></li><li><a href="../typescript/interface.html">&nbsp; <span class="menu-list-title" style="width:100%">interface 接口</span></a></li><li><a href="../typescript/class.html">&nbsp; <span class="menu-list-title" style="width:100%">class 类型</span></a></li><li><a href="../typescript/generics.html">&nbsp; <span class="menu-list-title" style="width:100%">generics 泛型</span></a></li><li><a href="../typescript/enum.html">&nbsp; <span class="menu-list-title" style="width:100%">enum 枚举</span></a></li><li><a href="../typescript/assert.html">&nbsp; <span class="menu-list-title" style="width:100%">类型断言</span></a></li><li><a href="../typescript/module.html">&nbsp; <span class="menu-list-title" style="width:100%">module 模块</span></a></li><li><a href="../typescript/namespace.html">&nbsp; <span class="menu-list-title" style="width:100%">namespace 命名空间</span></a></li><li><a href="../typescript/decorator-legacy.html">&nbsp; <span class="menu-list-title" style="width:100%">装饰器（旧语法）</span></a></li><li><a href="../typescript/decorator.html">&nbsp; <span class="menu-list-title" style="width:100%">decorator 装饰器</span></a></li><li><a href="../typescript/declare.html">&nbsp; <span class="menu-list-title" style="width:100%">declare 关键字</span></a></li><li><a href="../typescript/d.ts.html">&nbsp; <span class="menu-list-title" style="width:100%">d.ts 类型声明文件</span></a></li><li><a href="../typescript/operator.html">&nbsp; <span class="menu-list-title" style="width:100%">类型运算符</span></a></li><li><a href="../typescript/type-operations.html" class="is-active">&nbsp; <span class="menu-list-title" style="width:100%">类型运算</span></a></li><li><a href="../typescript/narrowing.html">&nbsp; <span class="menu-list-title" style="width:100%">类型缩小</span></a></li><li><a href="../typescript/mapping.html">&nbsp; <span class="menu-list-title" style="width:100%">类型映射</span></a></li><li><a href="../typescript/utility.html">&nbsp; <span class="menu-list-title" style="width:100%">类型工具</span></a></li><li><a href="../typescript/comment.html">&nbsp; <span class="menu-list-title" style="width:100%">注释指令</span></a></li><li><a href="../typescript/es6.html">&nbsp; <span class="menu-list-title" style="width:100%">ES6类型</span></a></li><li><a href="../typescript/react.html">&nbsp; <span class="menu-list-title" style="width:100%">React支持</span></a></li><li><a href="../typescript/npm.html">&nbsp; <span class="menu-list-title" style="width:100%">使用npm模块</span></a></li><li><a href="../typescript/tsc.html">&nbsp; <span class="menu-list-title" style="width:100%">tsc命令行编译器</span></a></li><li><a href="../typescript/tsconfig.json.html">&nbsp; <span class="menu-list-title" style="width:100%">tsconfig.json 配置文件</span></a></li></ul></aside></div></nav></div><div class="column" style="flex:none;width:68%"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../"><span class="icon"><i class="fa fa-home"></i></span> &nbsp;V站</a></li><li><a href="../typescript/type-operations.html/intro.html">TypeScript教程</a></li><li><a href="../typescript/type-operations.html">TypeScript 类型运算</a></li></ul></nav><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../typescript/operator.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> 类型运算符</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../typescript/narrowing.html">类型缩小 <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><article class="content"><h1 class="title">TypeScript 类型运算</h1><div class="page-meta"><p>V站（ViJian.com）</p></div><h2 id="运算律">运算律 <a class="markdownIt-Anchor" href="#运算律">#</a></h2><p>改变成员类型的顺序不影响联合类型的结果类型。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T0</span> = <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>;
+</code></pre><p>对部分类型成员使用分组运算符不影响联合类型的结果类型。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T0</span> = (<span class="hljs-built_in">boolean</span> | <span class="hljs-built_in">string</span>) | <span class="hljs-built_in">number</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-built_in">boolean</span> | (<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>);
+</code></pre><p>联合类型的成员类型可以进行化简。假设有联合类型“U = T0 | T1”，如果T1是T0的子类型，那么可以将类型成员T1从联合类型U中消去。最后，联合类型U的结果类型为“U = T0”。例如，有联合类型“boolean | true | false”。其中，true类型和false类型是boolean类型的子类型，因此可以将true类型和false类型从联合类型中消去。最终，联合类型“boolean | true | false”的结果类型为boolean类型。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T0</span> = <span class="hljs-built_in">boolean</span> | <span class="hljs-literal">true</span> | <span class="hljs-literal">false</span>;
+
+<span class="hljs-comment">// 所以T0等同于 T1</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-built_in">boolean</span>;
+</code></pre><h3 id="优先级">优先级 <a class="markdownIt-Anchor" href="#优先级">#</a></h3><p><code>&amp;</code>的优先级高于<code>|</code>。</p><pre class="hljs"><code>A &amp; B | C &amp; D
+<span class="hljs-comment">// 该类型等同于如下类型：</span>
+(A &amp; B) | (C &amp; D)
+</code></pre><p>分配律</p><pre class="hljs"><code>A &amp; (B | C) 
+<span class="hljs-comment">// 等同于</span>
+(A &amp; B) | (A &amp; C)
+</code></pre><p>一个稍微复杂的类型等式。</p><pre class="hljs"><code>(A | B) &amp; (C | D) ≡ A &amp; C | A &amp; D | B &amp; C | B &amp; D
+</code></pre><pre class="hljs"><code>T = (<span class="hljs-built_in">string</span> | <span class="hljs-number">0</span>) &amp; (<span class="hljs-built_in">number</span> | <span class="hljs-string">&#x27;a&#x27;</span>);
+T = (<span class="hljs-built_in">string</span> &amp; <span class="hljs-built_in">number</span>) | (<span class="hljs-built_in">string</span> &amp; <span class="hljs-string">&#x27;a&#x27;</span>) | (<span class="hljs-number">0</span> &amp; <span class="hljs-built_in">number</span>) | (<span class="hljs-number">0</span> &amp; <span class="hljs-string">&#x27;a&#x27;</span>);
+
+T = <span class="hljs-built_in">never</span> | <span class="hljs-string">&#x27;a&#x27;</span> | <span class="hljs-number">0</span> | <span class="hljs-built_in">never</span>;
+T = <span class="hljs-string">&#x27;a&#x27;</span> | <span class="hljs-number">0</span>;
+</code></pre><pre class="hljs"><code><span class="hljs-keyword">function</span> extend&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span>, U <span class="hljs-keyword">extends</span> <span class="hljs-built_in">object</span>&gt;(<span class="hljs-attr">first</span>: T, <span class="hljs-attr">second</span>: U): T &amp; U {
+  <span class="hljs-keyword">const</span> result = &lt;T &amp; U&gt;{};
+  for (let id in first) {
+    (&lt;T&gt;result)[id] = first[id];
+  }
+  for (let id in second) {
+    if (!result.hasOwnProperty(id)) {
+      (&lt;U&gt;result)[id] = second[id];
+    }
+  }
+
+  return result;
+}
+
+const x = extend({ a: &#x27;hello&#x27; }, { b: 42 });
+</code></pre><h2 id="never-类型">never 类型 <a class="markdownIt-Anchor" href="#never-类型">#</a></h2><p>never 可以视为空集。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">NeverIntersection</span> = <span class="hljs-built_in">never</span> &amp; <span class="hljs-built_in">string</span>; <span class="hljs-comment">// Type: never</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">NeverUnion</span> = <span class="hljs-built_in">never</span> | <span class="hljs-built_in">string</span>; <span class="hljs-comment">// Type: string</span>
+</code></pre><p>很适合在交叉类型中用作过滤。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">OnlyStrings</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">string</span> ? T : <span class="hljs-built_in">never</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">RedOrBlue</span> = <span class="hljs-title class_">OnlyStrings</span>&lt;<span class="hljs-string">&quot;red&quot;</span> | <span class="hljs-string">&quot;blue&quot;</span> | <span class="hljs-number">0</span> | <span class="hljs-literal">false</span>&gt;;
+<span class="hljs-comment">// Equivalent to: &quot;red&quot; | &quot;blue&quot;</span>
+</code></pre><p>范例：<a href="https://www.typescriptlang.org/play#example/conditional-types" target="_blank" rel="noopener">https://www.typescriptlang.org/play#example/conditional-types</a></p><h2 id="unknown-类型">unknown 类型 <a class="markdownIt-Anchor" href="#unknown-类型">#</a></h2><p>在联合类型中，unknown吸收所有类型。这意味着如果任何组成类型是unknown，则联合类型的计算结果为unknown。</p><pre class="hljs"><code><span class="hljs-comment">// In an intersection everything absorbs unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T00</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-literal">null</span>; <span class="hljs-comment">// null</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T01</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// undefined</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T02</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-literal">null</span> &amp; <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// null &amp; undefined (which becomes never)</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T03</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-built_in">string</span>; <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T04</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-built_in">string</span>[]; <span class="hljs-comment">// string[]</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T05</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-built_in">unknown</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T06</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-built_in">any</span>; <span class="hljs-comment">// any</span>
+<span class="hljs-comment">// In a union an unknown absorbs everything</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T10</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T11</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T12</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T13</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-built_in">string</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T14</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-built_in">string</span>[]; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T15</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-built_in">unknown</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T16</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-built_in">any</span>; <span class="hljs-comment">// any</span>
+<span class="hljs-comment">// Type variable and unknown in union and intersection</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T20</span>&lt;T&gt; = T &amp; {}; <span class="hljs-comment">// T &amp; {}</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T21</span>&lt;T&gt; = T | {}; <span class="hljs-comment">// T | {}</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T22</span>&lt;T&gt; = T &amp; <span class="hljs-built_in">unknown</span>; <span class="hljs-comment">// T</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T23</span>&lt;T&gt; = T | <span class="hljs-built_in">unknown</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-comment">// unknown in conditional types</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T30</span>&lt;T&gt; = <span class="hljs-built_in">unknown</span> <span class="hljs-keyword">extends</span> T ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>; <span class="hljs-comment">// Deferred</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T31</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">unknown</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>; <span class="hljs-comment">// Deferred (so it distributes)</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T32</span>&lt;T&gt; = <span class="hljs-built_in">never</span> <span class="hljs-keyword">extends</span> T ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>; <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T33</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">never</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>; <span class="hljs-comment">// Deferred</span>
+</code></pre><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">UnionType1</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">UnionType2</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">UnionType3</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-built_in">string</span>; <span class="hljs-comment">// unknown</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">UnionType4</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-built_in">number</span>[]; <span class="hljs-comment">// unknown</span>
+</code></pre><p>该规则的一个例外是any。如果至少有一种构成类型是any，则联合类型的计算结果为any：</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">UnionType5</span> = <span class="hljs-built_in">unknown</span> | <span class="hljs-built_in">any</span>; <span class="hljs-comment">// any</span>
+</code></pre><p>在交叉类型中，每种类型都吸收unknown. 这意味着与任何类型相交unknown不会改变结果类型：</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">IntersectionType1</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-literal">null</span>; <span class="hljs-comment">// null</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">IntersectionType2</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// undefined</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">IntersectionType3</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-built_in">string</span>; <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">IntersectionType4</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-built_in">number</span>[]; <span class="hljs-comment">// number[]</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">IntersectionType5</span> = <span class="hljs-built_in">unknown</span> &amp; <span class="hljs-built_in">any</span>; <span class="hljs-comment">// any</span>
+</code></pre><p>除非使用<code>as</code>断言，首先缩小类型<code>unknown</code>类型的范围，然后才可以用于其他类型。</p><pre class="hljs"><code><span class="hljs-keyword">const</span> <span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> = <span class="hljs-string">&quot;Hello World&quot;</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-attr">someString</span>: <span class="hljs-built_in">string</span> = value <span class="hljs-keyword">as</span> <span class="hljs-built_in">string</span>;
+<span class="hljs-keyword">const</span> otherString = someString.<span class="hljs-title function_">toUpperCase</span>(); <span class="hljs-comment">// &quot;HELLO WORLD&quot;</span>
+</code></pre><h2 id="联合类型">联合类型 <a class="markdownIt-Anchor" href="#联合类型">#</a></h2><p>如果类型是多个值的联合，甚至可以产生插值的效果。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">EmailLocaleIDs</span> = <span class="hljs-string">&quot;welcome_email&quot;</span> | <span class="hljs-string">&quot;email_heading&quot;</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FooterLocaleIDs</span> = <span class="hljs-string">&quot;footer_title&quot;</span> | <span class="hljs-string">&quot;footer_sendoff&quot;</span>;
+
+<span class="hljs-comment">// 等同于 type AllLocaleIDs = &quot;welcome_email_id&quot; | &quot;email_heading_id&quot; | &quot;footer_title_id&quot; | &quot;footer_sendoff_id&quot;</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">AllLocaleIDs</span> = <span class="hljs-string">`<span class="hljs-subst">${EmailLocaleIDs | FooterLocaleIDs}</span>_id`</span>;
+</code></pre><h2 id="交叉类型">交叉类型 <a class="markdownIt-Anchor" href="#交叉类型">#</a></h2><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">Brightness</span> = <span class="hljs-string">&quot;dark&quot;</span> | <span class="hljs-string">&quot;light&quot;</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Color</span> = <span class="hljs-string">&quot;blue&quot;</span> | <span class="hljs-string">&quot;red&quot;</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">BrightnessAndColor</span> = <span class="hljs-string">`<span class="hljs-subst">${Brightness}</span>-<span class="hljs-subst">${Color}</span>`</span>;
+<span class="hljs-comment">// Equivalent to: &quot;dark-red&quot; | &quot;light-red&quot; | &quot;dark-blue&quot; | &quot;light-blue&quot;</span>
+</code></pre><p>如果交叉类型中存在多个相同的成员类型，那么相同的成员类型将被合并为单一成员类型。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T0</span> = <span class="hljs-built_in">boolean</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-built_in">boolean</span> &amp; <span class="hljs-built_in">boolean</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T2</span> = <span class="hljs-built_in">boolean</span> &amp; <span class="hljs-built_in">boolean</span> &amp; <span class="hljs-built_in">boolean</span>;
+</code></pre><p>上面示例中，T0、T1和T2都表示同一种类型boolean。</p><p>改变成员类型的顺序不影响交叉类型的结果类型。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Clickable</span> {
+    <span class="hljs-title function_">click</span>(): <span class="hljs-built_in">void</span>;
+}
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Focusable</span> {
+    <span class="hljs-title function_">focus</span>(): <span class="hljs-built_in">void</span>;
+}
+
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T0</span> = <span class="hljs-title class_">Clickable</span> &amp; <span class="hljs-title class_">Focusable</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Focusable</span> &amp; <span class="hljs-title class_">Clickable</span>;
+</code></pre><p>注意，当交叉类型涉及调用签名重载或构造签名重载时便失去了“加法交换律”的性质。因为交叉类型中成员类型的顺序将决定重载签名的顺序，进而将影响重载签名的解析顺序。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Clickable</span> {
+    <span class="hljs-title function_">register</span>(<span class="hljs-attr">x</span>: <span class="hljs-built_in">any</span>): <span class="hljs-built_in">void</span>;
+}
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Focusable</span> {
+    <span class="hljs-title function_">register</span>(<span class="hljs-attr">x</span>: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">boolean</span>;
+}
+
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">ClickableAndFocusable</span> = <span class="hljs-title class_">Clickable</span> &amp; <span class="hljs-title class_">Focusable</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">FocusableAndFocusable</span> = <span class="hljs-title class_">Focusable</span> &amp; <span class="hljs-title class_">Clickable</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">
+    clickFocus: ClickableAndFocusable,
+    focusClick: FocusableAndFocusable
+</span>) {
+    <span class="hljs-keyword">let</span> <span class="hljs-attr">a</span>: <span class="hljs-built_in">void</span> = clickFocus.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;foo&#x27;</span>);
+    <span class="hljs-keyword">let</span> <span class="hljs-attr">b</span>: <span class="hljs-built_in">boolean</span> = focusClick.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;foo&#x27;</span>);
+}
+</code></pre><p>此例第8行和第9行使用不同的成员类型顺序定义了两个交叉类型。第15行，调用“register()”方法的返回值类型为void，说明在ClickableAndFocusable类型中，Clickable接口中定义的“register()”方法具有更高的优先级。第16行，调用“register()”方法的返回值类型为boolean，说明FocusableAndFocusable类型中Focusable接口中定义的“register()”方法具有更高的优先级。此例也说明了调用签名重载的顺序与交叉类型中成员类型的定义顺序是一致的。</p><p>对部分类型成员使用分组运算符不影响交叉类型的结果类型。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Clickable</span> {
+  <span class="hljs-title function_">click</span>(): <span class="hljs-built_in">void</span>;
+}
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Focusable</span> {
+  <span class="hljs-title function_">focus</span>(): <span class="hljs-built_in">void</span>;
+}
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Scrollable</span> {
+  <span class="hljs-title function_">scroll</span>(): <span class="hljs-built_in">void</span>;
+}
+
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T0</span> = (<span class="hljs-title class_">Clickable</span> &amp; <span class="hljs-title class_">Focusable</span>) &amp; <span class="hljs-title class_">Scrollable</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-variable constant_">T1</span> = <span class="hljs-title class_">Clickable</span> &amp; (<span class="hljs-title class_">Focusable</span> &amp; <span class="hljs-title class_">Scrollable</span>);
+</code></pre><p>上面示例的T0和T1类型是同一种类型。</p><pre class="hljs"><code><span class="hljs-keyword">type</span> <span class="hljs-title class_">Combined</span> = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> } &amp; { <span class="hljs-attr">b</span>: <span class="hljs-built_in">string</span> };
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Conflicting</span> = { <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> } &amp; { <span class="hljs-attr">a</span>: <span class="hljs-built_in">string</span> };
+</code></pre><p>只要交叉类型I中任意一个成员类型包含了属性签名M，那么交叉类型I也包含属性签名M。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> A {
+    <span class="hljs-attr">a</span>: <span class="hljs-built_in">boolean</span>;
+}
+
+<span class="hljs-keyword">interface</span> B {
+    <span class="hljs-attr">b</span>: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-comment">// 交叉类型如下</span>
+{
+    <span class="hljs-attr">a</span>: <span class="hljs-built_in">boolean</span>;
+    <span class="hljs-attr">b</span>: <span class="hljs-built_in">string</span>;
+}
+</code></pre><p>若交叉类型的属性签名M在所有成员类型中都是可选属性，那么该属性签名在交叉类型中也是可选属性。否则，属性签名M是一个必选属性。</p><pre class="hljs"><code><span class="hljs-keyword">interface</span> A {
+    <span class="hljs-attr">x</span>: <span class="hljs-built_in">boolean</span>;
+    y?: <span class="hljs-built_in">string</span>;
+}
+<span class="hljs-keyword">interface</span> B {
+    x?: <span class="hljs-built_in">boolean</span>;
+    y?: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-comment">// 交叉类型如下</span>
+{
+    <span class="hljs-attr">x</span>: <span class="hljs-built_in">boolean</span>;
+    y?: <span class="hljs-built_in">string</span>;
+}
+</code></pre></article><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../typescript/operator.html"><span class="icon"><i class="fa fa-toggle-left"></i></span></a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../typescript/narrowing.html"><span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><div class="page-info"><p>本教程采用<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.zh" target="_blank">知识共享 署名-相同方式共享 3.0协议</a>。</p><p>分享本文 <span class="social-share"></span></p></div></div><div class="column" style="flex:none;width:14%"><nav class="panel-info" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-list-ul" aria-hidden="true"></i> Web前端教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="/html/intro.html" target="_blank">&nbsp;HTML 教程</a></li><li><a href="/es6/intro.html" target="_blank">&nbsp;ES6 教程</a></li><li><a href="/typescript/intro.html" target="_blank">&nbsp;TypeScript 教程</a></li><!-- 
+      <li><a href="/css/intro.html" target="_blank">&nbsp;CSS 教程</a></li>
+    <li><a href="/javascript/intro.html" target="_blank">&nbsp;JavaScript 教程</a></li>
+      <li><a href="/webapi/intro.html" target="_blank">&nbsp;Web API 教程</a></li>
+    --></ul></aside></div></nav></div></div><div class="columns"><div class="column is-8 is-6-widescreen is-offset-1-widescreen"><div id="disqus_thread"></div></div></div></div></section><footer class="footer"><div class="container" style="max-width:1260px;"><div class="content has-text-centered"><p>V站（ViJian.com），今天学全栈，明天自己干</p></div></div></footer><script>var LOPPO={current_path:"typescript/type-operations.md",relative_root_path:"../",article_toc:'<ul class="markdownIt-TOC">\n<li><a href="#%E8%BF%90%E7%AE%97%E5%BE%8B">运算律</a>\n<ul>\n<li><a href="#%E4%BC%98%E5%85%88%E7%BA%A7">优先级</a></li>\n</ul>\n</li>\n<li><a href="#never-%E7%B1%BB%E5%9E%8B">never 类型</a></li>\n<li><a href="#unknown-%E7%B1%BB%E5%9E%8B">unknown 类型</a></li>\n<li><a href="#%E8%81%94%E5%90%88%E7%B1%BB%E5%9E%8B">联合类型</a></li>\n<li><a href="#%E4%BA%A4%E5%8F%89%E7%B1%BB%E5%9E%8B">交叉类型</a></li>\n</ul>\n'}</script><script src="../assets/js/app.js"></script><!--script src="../assets/js/social-share.min.js"--><!--/script--><script>var shareDesc="我正在阅读《TypeScript 类型运算》，出自V站（ViJian.com）。",shareOpts={url:window.location.href,source:shareDesc,title:shareDesc,description:"",image:"",sites:["weibo","wechat","qq","qzone","twitter","facebook"],origin:"ViJian_com",disabled:[],wechatQrcodeTitle:"微信",wechatQrcodeHelper:"扫一下二维码，分享到微信。"};socialShare(".social-share",shareOpts)</script></body></html>
