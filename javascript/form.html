@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="zh-CN" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JavaScript表单，FormData 对象 - JavaScript教程 - V站前端教程</title><!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" --><link rel="stylesheet" href="../assets/css/app.min.css"><link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.css"><!-- link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"--><!-- link rel="stylesheet" href="../assets/css/share.min.css" --><meta property="og:type" content="article"><meta property="og:title" content="JavaScript表单，FormData 对象"><link rel="apple-touch-icon" href="../assets/icons/logo.png"><link rel="icon" type="image/png" href="../assets/icons/logo.png"><style>.nav-item-active{background-color: #fff;color:#9cba39}
+      a{color:#399ab2}
+      a:hover{color:#9cba39}
+      .breadcrumb a{color:#399ab2}
+      .breadcrumb a:hover{color:#9cba39}
+      .navbar.is-light .navbar-end .navbar-link, .navbar.is-light .navbar-end>.navbar-item, 
+      .navbar.is-light .navbar-start>.navbar-item:hover{color:#9cba39}
+      .navbar-link, a.navbar-item:hover{color:#9cba39}
+      .footer{padding:1.5rem 0;}
+
+      .panel-info .panel-block .menu-list a.is-active, .panel-menu .panel-block .menu-list a.is-active {
+        color: #fff;
+        background-color: #399ab2;
+      }
+      .menu-list>li{background:#F9F9F9;border-bottom: 1px solid #ededed;} 
+      .menu-list .menu-item-title{height: 35px;line-height: 35px;text-align: center;background-color: #EDEDED;color:#9cba39;font-weight: bold;}
+      .menu-list > li > a .menu-list-title::before {
+          font-weight: 700;
+          content: "";
+      }
+
+      .panel-info .panel-block .menu, .panel-menu .panel-block .menu{padding:0 5px}</style></head><body><nav class="navbar is-light" role="navigation" id="navbar" aria-label="main navigation"><div class="container" style="max-width:1230px;"><div class="navbar-brand"><a href="/" class="navbar-item title has-text-grey has-text-weight-light is-5">V站 / ViJian.com</a></div><div class="navbar-menu" id="navMenu"><div class="navbar-start"><div class="navbar-item"><a class="navbar-item" href="/">首页</a></div><div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link nav-item-active is-hidden-touch">教程</a><div class="navbar-dropdown"><a class="navbar-item" href="/html/intro.html">HTML 教程</a> <a class="navbar-item" href="/javascript/intro.html">JavaScript 教程</a> <a class="navbar-item" href="/es6/intro.html">ES6 教程</a> <a class="navbar-item" href="/typescript/intro.html">TypeScript 教程</a><!--   <a class="navbar-item" href="/webapi/intro.html">Web API 教程</a>
+             <a class="navbar-item" href="/css/intro.html">CSS 教程</a>
+       --></div></div></div><div class="navbar-end"></div></div></div></nav><section class="section main article" style="padding-top: 20px;"><div class="container" style="max-width:1260px;"><div class="columns"><div class="column" style="flex:none;width:16%"><nav class="panel-menu" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-book" aria-hidden="true"></i> JavaScript教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li class="menu-item-title" data="basic_item">基本</li><li class="basic_item"><a href="../javascript/intro.html">&nbsp; <span class="menu-list-title" style="width:100%">1.导论</span></a></li><li class="basic_item"><a href="../javascript/grammar.html">&nbsp; <span class="menu-list-title" style="width:100%">2.基本语法</span></a></li><li class="basic_item"><a href="../javascript/history.html">&nbsp; <span class="menu-list-title" style="width:100%">3.语言的历史</span></a></li><li class="menu-item-title" data="types_item">数据类型</li><li class="types_item"><a href="../javascript/typegeneral.html">&nbsp; <span class="menu-list-title" style="width:100%">1.数据类型概述</span></a></li><li class="types_item"><a href="../javascript/null-undefined-boolean.html">&nbsp; <span class="menu-list-title" style="width:100%">2.null, undefined 和布尔值</span></a></li><li class="types_item"><a href="../javascript/typenumber.html">&nbsp; <span class="menu-list-title" style="width:100%">3.数值</span></a></li><li class="types_item"><a href="../javascript/typestring.html">&nbsp; <span class="menu-list-title" style="width:100%">4.字符串</span></a></li><li class="types_item"><a href="../javascript/typeobject.html">&nbsp; <span class="menu-list-title" style="width:100%">5.对象</span></a></li><li class="types_item"><a href="../javascript/function.html">&nbsp; <span class="menu-list-title" style="width:100%">6.函数</span></a></li><li class="types_item"><a href="../javascript/typearray.html">&nbsp; <span class="menu-list-title" style="width:100%">7.数组</span></a></li><li class="menu-item-title" data="operator_item">运算符</li><li class="operator_item"><a href="../javascript/arithmetic.html">&nbsp; <span class="menu-list-title" style="width:100%">1.算术运算符</span></a></li><li class="operator_item"><a href="../javascript/comparison.html">&nbsp; <span class="menu-list-title" style="width:100%">2.比较运算符</span></a></li><li class="operator_item"><a href="../javascript/boolean.html">&nbsp; <span class="menu-list-title" style="width:100%">3.布尔运算符</span></a></li><li class="operator_item"><a href="../javascript/bit.html">&nbsp; <span class="menu-list-title" style="width:100%">4.二进制位运算符</span></a></li><li class="operator_item"><a href="../javascript/priority.html">&nbsp; <span class="menu-list-title" style="width:100%">5.其他运算符，运算顺序</span></a></li><li class="menu-item-title" data="feature_item">语法</li><li class="feature_item"><a href="../javascript/conversion.html">&nbsp; <span class="menu-list-title" style="width:100%">1.数据类型的转换</span></a></li><li class="feature_item"><a href="../javascript/error.html">&nbsp; <span class="menu-list-title" style="width:100%">2.错误处理机制</span></a></li><li class="feature_item"><a href="../javascript/style.html">&nbsp; <span class="menu-list-title" style="width:100%">3.编程风格</span></a></li><li class="feature_item"><a href="../javascript/console.html">&nbsp; <span class="menu-list-title" style="width:100%">4.console 对象与控制台</span></a></li><li class="menu-item-title" data="lib_item">标准库</li><li class="lib_item"><a href="../javascript/libobject.html">&nbsp; <span class="menu-list-title" style="width:100%">1.Object 对象</span></a></li><li class="lib_item"><a href="../javascript/libattributes.html">&nbsp; <span class="menu-list-title" style="width:100%">2.属性描述对象</span></a></li><li class="lib_item"><a href="../javascript/array.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Array 对象</span></a></li><li class="lib_item"><a href="../javascript/wrapper.html">&nbsp; <span class="menu-list-title" style="width:100%">4.包装对象</span></a></li><li class="lib_item"><a href="../javascript/libboolean.html">&nbsp; <span class="menu-list-title" style="width:100%">5.Boolean 对象</span></a></li><li class="lib_item"><a href="../javascript/number.html">&nbsp; <span class="menu-list-title" style="width:100%">6.Number 对象</span></a></li><li class="lib_item"><a href="../javascript/string.html">&nbsp; <span class="menu-list-title" style="width:100%">7.String 对象</span></a></li><li class="lib_item"><a href="../javascript/math.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Math 对象</span></a></li><li class="lib_item"><a href="../javascript/date.html">&nbsp; <span class="menu-list-title" style="width:100%">9.Date 对象</span></a></li><li class="lib_item"><a href="../javascript/regexp.html">&nbsp; <span class="menu-list-title" style="width:100%">10.RegExp 对象</span></a></li><li class="lib_item"><a href="../javascript/json.html">&nbsp; <span class="menu-list-title" style="width:100%">11.JSON 对象</span></a></li><li class="menu-item-title" data="oop_item">面向对象</li><li class="oop_item"><a href="../javascript/new.html">&nbsp; <span class="menu-list-title" style="width:100%">1.实例对象与 new 命令</span></a></li><li class="oop_item"><a href="../javascript/this.html">&nbsp; <span class="menu-list-title" style="width:100%">2.this 关键字</span></a></li><li class="oop_item"><a href="../javascript/prototype.html">&nbsp; <span class="menu-list-title" style="width:100%">3.对象的继承</span></a></li><li class="oop_item"><a href="../javascript/object.html">&nbsp; <span class="menu-list-title" style="width:100%">4.Object 对象的相关方法</span></a></li><li class="oop_item"><a href="../javascript/strict.html">&nbsp; <span class="menu-list-title" style="width:100%">5.严格模式</span></a></li><li class="menu-item-title" data="async_item">异步</li><li class="async_item"><a href="../javascript/general.html">&nbsp; <span class="menu-list-title" style="width:100%">1.异步操作概述</span></a></li><li class="async_item"><a href="../javascript/timer.html">&nbsp; <span class="menu-list-title" style="width:100%">2.定时器</span></a></li><li class="async_item"><a href="../javascript/promise.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Promise 对象</span></a></li><li class="menu-item-title" data="dom_item">DOM</li><li class="dom_item"><a href="../javascript/domgeneral.html">&nbsp; <span class="menu-list-title" style="width:100%">1.DOM 概述</span></a></li><li class="dom_item"><a href="../javascript/node.html">&nbsp; <span class="menu-list-title" style="width:100%">2.Node 接口</span></a></li><li class="dom_item"><a href="../javascript/nodelist.html">&nbsp; <span class="menu-list-title" style="width:100%">3.NodeList 接口，HTMLCollection 接口</span></a></li><li class="dom_item"><a href="../javascript/parentnode.html">&nbsp; <span class="menu-list-title" style="width:100%">4.ParentNode 接口，ChildNode 接口</span></a></li><li class="dom_item"><a href="../javascript/document.html">&nbsp; <span class="menu-list-title" style="width:100%">5.Document 节点</span></a></li><li class="dom_item"><a href="../javascript/element.html">&nbsp; <span class="menu-list-title" style="width:100%">6.Element 节点</span></a></li><li class="dom_item"><a href="../javascript/attributes.html">&nbsp; <span class="menu-list-title" style="width:100%">7.属性的操作</span></a></li><li class="dom_item"><a href="../javascript/text.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Text 节点和 DocumentFragment 节点</span></a></li><li class="dom_item"><a href="../javascript/css.html">&nbsp; <span class="menu-list-title" style="width:100%">9.CSS 操作</span></a></li><li class="dom_item"><a href="../javascript/mutationobserver.html">&nbsp; <span class="menu-list-title" style="width:100%">10.Mutation Observer API</span></a></li><li class="menu-item-title" data="event_item">事件</li><li class="event_item"><a href="../javascript/eventtarget.html">&nbsp; <span class="menu-list-title" style="width:100%">1.EventTarget 接口</span></a></li><li class="event_item"><a href="../javascript/model.html">&nbsp; <span class="menu-list-title" style="width:100%">2.事件模型</span></a></li><li class="event_item"><a href="../javascript/event.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Event 对象</span></a></li><li class="event_item"><a href="../javascript/mouse.html">&nbsp; <span class="menu-list-title" style="width:100%">4.鼠标事件</span></a></li><li class="event_item"><a href="../javascript/keyboard.html">&nbsp; <span class="menu-list-title" style="width:100%">5.键盘事件</span></a></li><li class="event_item"><a href="../javascript/progress.html">&nbsp; <span class="menu-list-title" style="width:100%">6.进度事件</span></a></li><li class="event_item"><a href="../javascript/eventform.html">&nbsp; <span class="menu-list-title" style="width:100%">7.表单事件</span></a></li><li class="event_item"><a href="../javascript/touch.html">&nbsp; <span class="menu-list-title" style="width:100%">8.触摸事件</span></a></li><li class="event_item"><a href="../javascript/drag.html">&nbsp; <span class="menu-list-title" style="width:100%">9.拖拉事件</span></a></li><li class="event_item"><a href="../javascript/common.html">&nbsp; <span class="menu-list-title" style="width:100%">10.其他常见事件</span></a></li><li class="event_item"><a href="../javascript/globaleventhandlers.html">&nbsp; <span class="menu-list-title" style="width:100%">11.GlobalEventHandlers 接口</span></a></li><li class="menu-item-title" data="bom_item">BOM</li><li class="bom_item"><a href="../javascript/engine.html">&nbsp; <span class="menu-list-title" style="width:100%">1.浏览器环境概述</span></a></li><li class="bom_item"><a href="../javascript/window.html">&nbsp; <span class="menu-list-title" style="width:100%">2.window 对象</span></a></li><li class="bom_item"><a href="../javascript/navigator.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Navigator 对象，Screen 对象</span></a></li><li class="bom_item"><a href="../javascript/cookie.html">&nbsp; <span class="menu-list-title" style="width:100%">4.Cookie</span></a></li><li class="bom_item"><a href="../javascript/xmlhttprequest.html">&nbsp; <span class="menu-list-title" style="width:100%">5.XMLHttpRequest 对象</span></a></li><li class="bom_item"><a href="../javascript/same-origin.html">&nbsp; <span class="menu-list-title" style="width:100%">6.同源限制</span></a></li><li class="bom_item"><a href="../javascript/cors.html">&nbsp; <span class="menu-list-title" style="width:100%">7.CORS 通信</span></a></li><li class="bom_item"><a href="../javascript/storage.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Storage 接口</span></a></li><li class="bom_item"><a href="../javascript/bomhistory.html">&nbsp; <span class="menu-list-title" style="width:100%">9.History 对象</span></a></li><li class="bom_item"><a href="../javascript/location.html">&nbsp; <span class="menu-list-title" style="width:100%">10.Location 对象，URL 对象，URLSearchParams 对象</span></a></li><li class="bom_item"><a href="../javascript/arraybuffer.html">&nbsp; <span class="menu-list-title" style="width:100%">11.ArrayBuffer 对象，Blob 对象</span></a></li><li class="bom_item"><a href="../javascript/file.html">&nbsp; <span class="menu-list-title" style="width:100%">12.File 对象，FileList 对象，FileReader 对象</span></a></li><li class="bom_item"><a href="../javascript/form.html" class="is-active">&nbsp; <span class="menu-list-title" style="width:100%">13.表单，FormData 对象</span></a></li><li class="bom_item"><a href="../javascript/indexeddb.html">&nbsp; <span class="menu-list-title" style="width:100%">14.IndexedDB API</span></a></li><li class="bom_item"><a href="../javascript/webworker.html">&nbsp; <span class="menu-list-title" style="width:100%">15.Web Worker</span></a></li><li class="menu-item-title" data="element_item">元素</li><li class="element_item"><a href="../javascript/a.html">&nbsp; <span class="menu-list-title" style="width:100%">1.a</span></a></li><li class="element_item"><a href="../javascript/image.html">&nbsp; <span class="menu-list-title" style="width:100%">2.image</span></a></li><li class="element_item"><a href="../javascript/elementform.html">&nbsp; <span class="menu-list-title" style="width:100%">3.form</span></a></li><li class="element_item"><a href="../javascript/input.html">&nbsp; <span class="menu-list-title" style="width:100%">4.input</span></a></li><li class="element_item"><a href="../javascript/button.html">&nbsp; <span class="menu-list-title" style="width:100%">5.button</span></a></li><li class="element_item"><a href="../javascript/option.html">&nbsp; <span class="menu-list-title" style="width:100%">6.option</span></a></li><li class="element_item"><a href="../javascript/video.html">&nbsp; <span class="menu-list-title" style="width:100%">7.video，audio</span></a></li></ul></aside></div></nav></div><div class="column" style="flex:none;width:68%"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../"><span class="icon"><i class="fa fa-home"></i></span> &nbsp;V站</a></li><li><a href="../javascript/intro.html">JavaScript教程</a></li><li><a href="../javascript/form.html">JavaScript 表单，FormData 对象</a></li></ul></nav><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../javascript/file.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> File 对象，FileList 对象，FileReader 对象</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../javascript/indexeddb.html">IndexedDB API <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><article class="content"><h1 class="title">JavaScript 表单，FormData 对象</h1><div class="page-meta"><p>V站（ViJian.com）</p></div><h2 id="表单概述">表单概述 <a class="markdownIt-Anchor" href="#表单概述">#</a></h2><p>表单（<code>&lt;form&gt;</code>）用来收集用户提交的数据，发送到服务器。比如，用户提交用户名和密码，让服务器验证，就要通过表单。表单提供多种控件，让开发者使用，具体的控件种类和用法请参考 HTML 语言的教程。本章主要介绍 JavaScript 与表单的交互。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/handling-page&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;user_name&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;passwd&quot;</span>&gt;</span>密码：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;passwd&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;user_passwd&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;submit_button&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>上面代码就是一个简单的表单，包含三个控件：用户名输入框、密码输入框和提交按钮。</p><p>用户点击“提交”按钮，每一个控件都会生成一个键值对，键名是控件的<code>name</code>属性，键值是控件的<code>value</code>属性，键名和键值之间由等号连接。比如，用户名输入框的<code>name</code>属性是<code>user_name</code>，<code>value</code>属性是用户输入的值，假定是“张三”，提交到服务器的时候，就会生成一个键值对<code>user_name=张三</code>。</p><p>所有的键值对都会提交到服务器。但是，提交的数据格式跟<code>&lt;form&gt;</code>元素的<code>method</code>属性有关。该属性指定了提交数据的 HTTP 方法。如果是 GET 方法，所有键值对会以 URL 的查询字符串形式，提交到服务器，比如<code>/handling-page?user_name=张三&amp;user_passwd=123&amp;submit_button=提交</code>。下面就是 GET 请求的 HTTP 头信息。</p><pre class="hljs"><code>GET /handling-page?user_name=张三&amp;user_passwd=123&amp;submit_button=提交
+<span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com
+</code></pre><p>如果是 POST 方法，所有键值对会连接成一行，作为 HTTP 请求的数据体发送到服务器，比如<code>user_name=张三&amp;user_passwd=123&amp;submit_button=提交</code>。下面就是 POST 请求的头信息。</p><pre class="hljs"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/handling-page</span> <span class="hljs-meta">HTTP/1.1</span>
+<span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com
+<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/x-www-form-urlencoded
+<span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">: </span>74
+
+<span class="language-dts">user_<span class="hljs-attr">name</span><span class="hljs-operator">=</span>张三<span class="hljs-variable">&amp;user_passwd</span>=<span class="hljs-number">123</span><span class="hljs-variable">&amp;submit_button</span>=提交
+</span></code></pre><p>注意，实际提交的时候，只要键值不是 URL 的合法字符（比如汉字“张三”和“提交”），浏览器会自动对其进行编码。</p><p>点击<code>submit</code>控件，就可以提交表单。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>上面表单就包含一个<code>submit</code>控件，点击这个控件，浏览器就会把表单数据向服务器提交。</p><p>注意，表单里面的<code>&lt;button&gt;</code>元素如果没有用<code>type</code>属性指定类型，那么默认就是<code>submit</code>控件。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>上面表单的<code>&lt;button&gt;</code>元素，点击以后也会提交表单。</p><p>除了点击<code>submit</code>控件提交表单，还可以用表单元素的<code>submit()</code>方法，通过脚本提交表单。</p><pre class="hljs"><code>formElement.<span class="hljs-title function_">submit</span>();
+</code></pre><p>表单元素的<code>reset()</code>方法可以重置所有控件的值（重置为默认值）。</p><pre class="hljs"><code>formElement.<span class="hljs-title function_">reset</span>()
+</code></pre><h2 id="formdata-对象">FormData 对象 <a class="markdownIt-Anchor" href="#formdata-对象">#</a></h2><h3 id="概述">概述 <a class="markdownIt-Anchor" href="#概述">#</a></h3><p>表单数据以键值对的形式向服务器发送，这个过程是浏览器自动完成的。但是有时候，我们希望通过脚本完成这个过程，构造或编辑表单的键值对，然后通过脚本发送给服务器。浏览器原生提供了 FormData 对象来完成这项工作。</p><p><code>FormData()</code>首先是一个构造函数，用来生成表单的实例。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> formdata = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>(form);
+</code></pre><p><code>FormData()</code>构造函数的参数是一个 DOM 的表单元素，构造函数会自动处理表单的键值对。这个参数是可选的，如果省略该参数，就表示一个空的表单。</p><p>下面是一个表单。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myForm&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myForm&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;useracc&quot;</span>&gt;</span>账号：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;useracc&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;useracc&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;userfile&quot;</span>&gt;</span>上传文件：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userfile&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;userfile&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit!&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>我们用<code>FormData()</code>处理上面这个表单。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> myForm = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;myForm&#x27;</span>);
+<span class="hljs-keyword">var</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>(myForm);
+
+<span class="hljs-comment">// 获取某个控件的值</span>
+formData.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;username&#x27;</span>) <span class="hljs-comment">// &quot;&quot;</span>
+
+<span class="hljs-comment">// 设置某个控件的值</span>
+formData.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;username&#x27;</span>, <span class="hljs-string">&#x27;张三&#x27;</span>);
+
+formData.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;username&#x27;</span>) <span class="hljs-comment">// &quot;张三&quot;</span>
+</code></pre><h3 id="实例方法">实例方法 <a class="markdownIt-Anchor" href="#实例方法">#</a></h3><p>FormData 提供以下实例方法。</p><ul><li><code>FormData.get(key)</code>：获取指定键名对应的键值，参数为键名。如果有多个同名的键值对，则返回第一个键值对的键值。</li><li><code>FormData.getAll(key)</code>：返回一个数组，表示指定键名对应的所有键值。如果有多个同名的键值对，数组会包含所有的键值。</li><li><code>FormData.set(key, value)</code>：设置指定键名的键值，参数为键名。如果键名不存在，会添加这个键值对，否则会更新指定键名的键值。如果第二个参数是文件，还可以使用第三个参数，表示文件名。</li><li><code>FormData.delete(key)</code>：删除一个键值对，参数为键名。</li><li><code>FormData.append(key, value)</code>：添加一个键值对。如果键名重复，则会生成两个相同键名的键值对。如果第二个参数是文件，还可以使用第三个参数，表示文件名。</li><li><code>FormData.has(key)</code>：返回一个布尔值，表示是否具有该键名的键值对。</li><li><code>FormData.keys()</code>：返回一个遍历器对象，用于<code>for...of</code>循环遍历所有的键名。</li><li><code>FormData.values()</code>：返回一个遍历器对象，用于<code>for...of</code>循环遍历所有的键值。</li><li><code>FormData.entries()</code>：返回一个遍历器对象，用于<code>for...of</code>循环遍历所有的键值对。如果直接用<code>for...of</code>循环遍历 FormData 实例，默认就会调用这个方法。</li></ul><p>下面是<code>get()</code>、<code>getAll()</code>、<code>set()</code>、<code>append()</code>方法的例子。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>();
+
+formData.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;username&#x27;</span>, <span class="hljs-string">&#x27;张三&#x27;</span>);
+formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;username&#x27;</span>, <span class="hljs-string">&#x27;李四&#x27;</span>);
+formData.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;username&#x27;</span>) <span class="hljs-comment">// &quot;张三&quot;</span>
+formData.<span class="hljs-title function_">getAll</span>(<span class="hljs-string">&#x27;username&#x27;</span>) <span class="hljs-comment">// [&quot;张三&quot;, &quot;李四&quot;]</span>
+
+formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;userpic[]&#x27;</span>, myFileInput.<span class="hljs-property">files</span>[<span class="hljs-number">0</span>], <span class="hljs-string">&#x27;user1.jpg&#x27;</span>);
+formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;userpic[]&#x27;</span>, myFileInput.<span class="hljs-property">files</span>[<span class="hljs-number">1</span>], <span class="hljs-string">&#x27;user2.jpg&#x27;</span>);
+</code></pre><p>下面是遍历器的例子。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>();
+formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-string">&#x27;value1&#x27;</span>);
+formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;key2&#x27;</span>, <span class="hljs-string">&#x27;value2&#x27;</span>);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">of</span> formData.<span class="hljs-title function_">keys</span>()) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(key);
+}
+<span class="hljs-comment">// &quot;key1&quot;</span>
+<span class="hljs-comment">// &quot;key2&quot;</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> value <span class="hljs-keyword">of</span> formData.<span class="hljs-title function_">values</span>()) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(value);
+}
+<span class="hljs-comment">// &quot;value1&quot;</span>
+<span class="hljs-comment">// &quot;value2&quot;</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> pair <span class="hljs-keyword">of</span> formData.<span class="hljs-title function_">entries</span>()) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(pair[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;: &#x27;</span> + pair[<span class="hljs-number">1</span>]);
+}
+<span class="hljs-comment">// key1: value1</span>
+<span class="hljs-comment">// key2: value2</span>
+
+<span class="hljs-comment">// 等同于遍历 formData.entries()</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> pair <span class="hljs-keyword">of</span> formData) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(pair[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;: &#x27;</span> + pair[<span class="hljs-number">1</span>]);
+}
+<span class="hljs-comment">// key1: value1</span>
+<span class="hljs-comment">// key2: value2</span>
+</code></pre><h2 id="表单的内置验证">表单的内置验证 <a class="markdownIt-Anchor" href="#表单的内置验证">#</a></h2><h3 id="自动校验">自动校验 <a class="markdownIt-Anchor" href="#自动校验">#</a></h3><p>表单提交的时候，浏览器允许开发者指定一些条件，它会自动验证各个表单控件的值是否符合条件。</p><pre class="hljs"><code><span class="hljs-comment">&lt;!-- 必填 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">required</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 必须符合正则表达式 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;banana|cherry&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 字符串长度必须为6个字符 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">&quot;6&quot;</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">&quot;6&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 数值必须在1到10之间 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">min</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;10&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 必须填入 Email 地址 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;email&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 必须填入 URL --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;URL&quot;</span>&gt;</span>
+</code></pre><p>如果一个控件通过验证，它就会匹配<code>:valid</code>的 CSS 伪类，浏览器会继续进行表单提交的流程。如果没有通过验证，该控件就会匹配<code>:invalid</code>的 CSS 伪类，浏览器会终止表单提交，并显示一个错误信息。</p><pre class="hljs"><code><span class="hljs-selector-tag">input</span><span class="hljs-selector-pseudo">:invalid</span> {
+  <span class="hljs-attribute">border-color</span>: red;
+}
+<span class="hljs-selector-tag">input</span>,
+<span class="hljs-selector-tag">input</span><span class="hljs-selector-pseudo">:valid</span> {
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#ccc</span>;
+}
+</code></pre><h3 id="checkvalidity">checkValidity() <a class="markdownIt-Anchor" href="#checkvalidity">#</a></h3><p>除了提交表单的时候，浏览器自动校验表单，还可以手动触发表单的校验。表单元素和表单控件都有<code>checkValidity()</code>方法，用于手动触发校验。</p><pre class="hljs"><code><span class="hljs-comment">// 触发整个表单的校验</span>
+form.<span class="hljs-title function_">checkValidity</span>()
+
+<span class="hljs-comment">// 触发单个表单控件的校验</span>
+formControl.<span class="hljs-title function_">checkValidity</span>()
+</code></pre><p><code>checkValidity()</code>方法返回一个布尔值，<code>true</code>表示通过校验，<code>false</code>表示没有通过校验。因此，提交表单可以封装为下面的函数。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">submitForm</span>(<span class="hljs-params">action</span>) {
+  <span class="hljs-keyword">var</span> form = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;form&#x27;</span>);
+  form.<span class="hljs-property">action</span> = action;
+  <span class="hljs-keyword">if</span> (form.<span class="hljs-title function_">checkValidity</span>()) {
+    form.<span class="hljs-title function_">submit</span>();
+  }
+}
+</code></pre><h3 id="willvalidate-属性">willValidate 属性 <a class="markdownIt-Anchor" href="#willvalidate-属性">#</a></h3><p>控件元素的<code>willValidate</code>属性是一个布尔值，表示该控件是否会在提交时进行校验。</p><pre class="hljs"><code><span class="hljs-comment">// HTML 代码如下</span>
+<span class="hljs-comment">// &lt;form novalidate&gt;</span>
+<span class="hljs-comment">//   &lt;input id=&quot;name&quot; name=&quot;name&quot; required /&gt;</span>
+<span class="hljs-comment">// &lt;/form&gt;</span>
+
+<span class="hljs-keyword">var</span> input = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#name&#x27;</span>);
+input.<span class="hljs-property">willValidate</span> <span class="hljs-comment">// true</span>
+</code></pre><h3 id="validationmessage-属性">validationMessage 属性 <a class="markdownIt-Anchor" href="#validationmessage-属性">#</a></h3><p>控件元素的<code>validationMessage</code>属性返回一个字符串，表示控件不满足校验条件时，浏览器显示的提示文本。以下两种情况，该属性返回空字符串。</p><ul><li>该控件不会在提交时自动校验</li><li>该控件满足校验条件</li></ul><pre class="hljs"><code><span class="hljs-comment">// HTML 代码如下</span>
+<span class="hljs-comment">// &lt;form&gt;&lt;input type=&quot;text&quot; required&gt;&lt;/form&gt;</span>
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;form input&#x27;</span>).<span class="hljs-property">validationMessage</span>
+<span class="hljs-comment">// &quot;请填写此字段。&quot;</span>
+</code></pre><p>下面是另一个例子。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> myInput = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;myinput&#x27;</span>);
+<span class="hljs-keyword">if</span> (!myInput.<span class="hljs-title function_">checkValidity</span>()) {
+  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;prompt&#x27;</span>).<span class="hljs-property">innerHTML</span> = myInput.<span class="hljs-property">validationMessage</span>;
+}
+</code></pre><h3 id="setcustomvalidity">setCustomValidity() <a class="markdownIt-Anchor" href="#setcustomvalidity">#</a></h3><p>控件元素的<code>setCustomValidity()</code>方法用来定制校验失败时的报错信息。它接受一个字符串作为参数，该字符串就是定制的报错信息。如果参数为空字符串，则上次设置的报错信息被清除。</p><p>这个方法可以替换浏览器内置的表单验证报错信息，参数就是要显示的报错信息。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;somefile.php&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+    <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
+    <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span>
+    <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Username&quot;</span>
+    <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;[a-z]{1,15}&quot;</span>
+    <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span>
+  &gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>上面的表单输入框，要求只能输入小写字母，且不得超过15个字符。如果输入不符合要求（比如输入“ABC”），提交表单的时候，Chrome 浏览器会弹出报错信息“Please match the requested format.”，禁止表单提交。下面使用<code>setCustomValidity()</code>方法替换掉报错信息。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> input = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;username&#x27;</span>);
+input.<span class="hljs-property">oninvalid</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) {
+  event.<span class="hljs-property">target</span>.<span class="hljs-title function_">setCustomValidity</span>(
+    <span class="hljs-string">&#x27;用户名必须是小写字母，不能为空，最长不超过15个字符&#x27;</span>
+  );
+}
+</code></pre><p>上面代码中，<code>setCustomValidity()</code>方法是在<code>invalid</code>事件的监听函数里面调用。该方法也可以直接调用，这时如果参数不为空字符串，浏览器就会认为该控件没有通过校验，就会立刻显示该方法设置的报错信息。</p><pre class="hljs"><code><span class="hljs-comment">/* HTML 代码如下
+&lt;form&gt;
+  &lt;p&gt;&lt;input type=&quot;file&quot; id=&quot;fs&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input type=&quot;submit&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+*/</span>
+
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;fs&#x27;</span>).<span class="hljs-property">onchange</span> = checkFileSize;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">checkFileSize</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">var</span> fs = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
+  <span class="hljs-keyword">var</span> files = fs.<span class="hljs-property">files</span>;
+  <span class="hljs-keyword">if</span> (files.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) {
+     <span class="hljs-keyword">if</span> (files[<span class="hljs-number">0</span>].<span class="hljs-property">size</span> &gt; <span class="hljs-number">75</span> * <span class="hljs-number">1024</span>) {
+       fs.<span class="hljs-title function_">setCustomValidity</span>(<span class="hljs-string">&#x27;文件不能大于 75KB&#x27;</span>);
+       <span class="hljs-keyword">return</span>;
+     }
+  }
+  fs.<span class="hljs-title function_">setCustomValidity</span>(<span class="hljs-string">&#x27;&#x27;</span>);
+}
+</code></pre><p>上面代码一旦发现文件大于 75KB，就会设置校验失败，同时给出自定义的报错信息。然后，点击提交按钮时，就会显示报错信息。这种校验失败是不会自动消除的，所以如果所有文件都符合条件，要将报错信息设为空字符串，手动消除校验失败的状态。</p><h3 id="validity-属性">validity 属性 <a class="markdownIt-Anchor" href="#validity-属性">#</a></h3><p>控件元素的属性<code>validity</code>属性返回一个<code>ValidityState</code>对象，包含当前校验状态的信息。</p><p>该对象有以下属性，全部为只读属性。</p><ul><li><code>ValidityState.badInput</code>：布尔值，表示浏览器是否不能将用户的输入转换成正确的类型，比如用户在数值框里面输入字符串。</li><li><code>ValidityState.customError</code>：布尔值，表示是否已经调用<code>setCustomValidity()</code>方法，将校验信息设置为一个非空字符串。</li><li><code>ValidityState.patternMismatch</code>：布尔值，表示用户输入的值是否不满足模式的要求。</li><li><code>ValidityState.rangeOverflow</code>：布尔值，表示用户输入的值是否大于最大范围。</li><li><code>ValidityState.rangeUnderflow</code>：布尔值，表示用户输入的值是否小于最小范围。</li><li><code>ValidityState.stepMismatch</code>：布尔值，表示用户输入的值不符合步长的设置（即不能被步长值整除）。</li><li><code>ValidityState.tooLong</code>：布尔值，表示用户输入的字数超出了最长字数。</li><li><code>ValidityState.tooShort</code>：布尔值，表示用户输入的字符少于最短字数。</li><li><code>ValidityState.typeMismatch</code>：布尔值，表示用户填入的值不符合类型要求（主要是类型为 Email 或 URL 的情况）。</li><li><code>ValidityState.valid</code>：布尔值，表示用户是否满足所有校验条件。</li><li><code>ValidityState.valueMissing</code>：布尔值，表示用户没有填入必填的值。</li></ul><p>下面是一个例子。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> input = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;myinput&#x27;</span>);
+<span class="hljs-keyword">if</span> (input.<span class="hljs-property">validity</span>.<span class="hljs-property">valid</span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;通过校验&#x27;</span>);
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;校验失败&#x27;</span>);
+}
+</code></pre><p>下面是另外一个例子。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> txt = <span class="hljs-string">&#x27;&#x27;</span>;
+<span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;myInput&#x27;</span>).<span class="hljs-property">validity</span>.<span class="hljs-property">rangeOverflow</span>) {
+  txt = <span class="hljs-string">&#x27;数值超过上限&#x27;</span>;
+}
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;prompt&#x27;</span>).<span class="hljs-property">innerHTML</span> = txt;
+</code></pre><p>如果想禁止浏览器弹出表单验证的报错信息，可以监听<code>invalid</code>事件。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> input = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;username&#x27;</span>);
+<span class="hljs-keyword">var</span> form  = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;form&#x27;</span>);
+
+<span class="hljs-keyword">var</span> elem = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+elem.<span class="hljs-property">id</span>  = <span class="hljs-string">&#x27;notify&#x27;</span>;
+elem.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;none&#x27;</span>;
+form.<span class="hljs-title function_">appendChild</span>(elem);
+
+input.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;invalid&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) {
+  event.<span class="hljs-title function_">preventDefault</span>();
+  <span class="hljs-keyword">if</span> (!event.<span class="hljs-property">target</span>.<span class="hljs-property">validity</span>.<span class="hljs-property">valid</span>) {
+    elem.<span class="hljs-property">textContent</span>   = <span class="hljs-string">&#x27;用户名必须是小写字母&#x27;</span>;
+    elem.<span class="hljs-property">className</span>     = <span class="hljs-string">&#x27;error&#x27;</span>;
+    elem.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;block&#x27;</span>;
+    input.<span class="hljs-property">className</span>    = <span class="hljs-string">&#x27;invalid animated shake&#x27;</span>;
+  }
+});
+
+input.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;input&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>){
+  <span class="hljs-keyword">if</span> ( <span class="hljs-string">&#x27;block&#x27;</span> === elem.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> ) {
+    input.<span class="hljs-property">className</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+    elem.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;none&#x27;</span>;
+  }
+});
+</code></pre><p>上面代码中，一旦发生<code>invalid</code>事件（表单验证失败），<code>event.preventDefault()</code>用来禁止浏览器弹出默认的验证失败提示，然后设置定制的报错提示框。</p><h3 id="表单的-novalidate-属性">表单的 novalidate 属性 <a class="markdownIt-Anchor" href="#表单的-novalidate-属性">#</a></h3><p>表单元素的 HTML 属性<code>novalidate</code>，可以关闭浏览器的自动校验。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">novalidate</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>这个属性也可以在脚本里设置。</p><pre class="hljs"><code>form.<span class="hljs-property">noValidate</span> = <span class="hljs-literal">true</span>;
+</code></pre><p>如果表单元素没有设置<code>novalidate</code>属性，那么提交按钮（<code>&lt;button&gt;</code>或<code>&lt;input&gt;</code>元素）的<code>formnovalidate</code>属性也有同样的作用。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">formnovalidate</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><h2 id="enctype-属性">enctype 属性 <a class="markdownIt-Anchor" href="#enctype-属性">#</a></h2><p>表单能够用四种编码，向服务器发送数据。编码格式由表单的<code>enctype</code>属性决定。</p><p>假定表单有两个字段，分别是<code>foo</code>和<code>baz</code>，其中<code>foo</code>字段的值等于<code>bar</code>，<code>baz</code>字段的值是一个分为两行的字符串。</p><pre class="hljs"><code>The first line.
+The second line.
+</code></pre><p>下面四种格式，都可以将这个表单发送到服务器。</p><p><strong>（1）GET 方法</strong></p><p>如果表单使用<code>GET</code>方法发送数据，<code>enctype</code>属性无效。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;register.php&quot;</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;get&quot;</span>
+  <span class="hljs-attr">onsubmit</span>=<span class="hljs-string">&quot;AJAXSubmit(this); return false;&quot;</span>
+&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>数据将以 URL 的查询字符串发出。</p><pre class="hljs"><code>?foo=bar&amp;baz=The%20first%20line.%0AThe%20second%20line.
+</code></pre><p><strong>（2）application/x-www-form-urlencoded</strong></p><p>如果表单用<code>POST</code>方法发送数据，并省略<code>enctype</code>属性，那么数据以<code>application/x-www-form-urlencoded</code>格式发送（因为这是默认值）。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;register.php&quot;</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>
+  <span class="hljs-attr">onsubmit</span>=<span class="hljs-string">&quot;AJAXSubmit(this); return false;&quot;</span>
+&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>发送的 HTTP 请求如下。</p><pre class="hljs"><code><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/x-www-form-urlencoded
+
+foo=bar&amp;baz=The+first+line.%0D%0AThe+second+line.%0D%0A
+</code></pre><p>上面代码中，数据体里面的<code>%0D%0A</code>代表换行符（<code>\r\n</code>）。</p><p><strong>（3）text/plain</strong></p><p>如果表单使用<code>POST</code>方法发送数据，<code>enctype</code>属性为<code>text/plain</code>，那么数据将以纯文本格式发送。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;register.php&quot;</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>
+  <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;text/plain&quot;</span>
+  <span class="hljs-attr">onsubmit</span>=<span class="hljs-string">&quot;AJAXSubmit(this); return false;&quot;</span>
+&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>发送的 HTTP 请求如下。</p><pre class="hljs"><code><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>text/plain
+
+foo=bar
+baz=The first line.
+The second line.
+</code></pre><p><strong>（4）multipart/form-data</strong></p><p>如果表单使用<code>POST</code>方法，<code>enctype</code>属性为<code>multipart/form-data</code>，那么数据将以混合的格式发送。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;register.php&quot;</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>
+  <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span>
+  <span class="hljs-attr">onsubmit</span>=<span class="hljs-string">&quot;AJAXSubmit(this); return false;&quot;</span>
+&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>发送的 HTTP 请求如下。</p><pre class="hljs"><code><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>multipart/form-data; boundary=---------------------------314911788813839
+
+-----------------------------314911788813839
+<span class="hljs-attribute">Content-Disposition</span><span class="hljs-punctuation">: </span>form-data; name=&quot;foo&quot;
+
+bar
+-----------------------------314911788813839
+<span class="hljs-attribute">Content-Disposition</span><span class="hljs-punctuation">: </span>form-data; name=&quot;baz&quot;
+
+The first line.
+The second line.
+
+-----------------------------314911788813839--
+</code></pre><p>这种格式也是文件上传的格式。</p><h2 id="文件上传">文件上传 <a class="markdownIt-Anchor" href="#文件上传">#</a></h2><p>用户上传文件，也是通过表单。具体来说，就是通过文件输入框选择本地文件，提交表单的时候，浏览器就会把这个文件发送到服务器。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myFile&quot;</span>&gt;</span>
+</code></pre><p>此外，还需要将表单<code>&lt;form&gt;</code>元素的<code>method</code>属性设为<code>POST</code>，<code>enctype</code>属性设为<code>multipart/form-data</code>。其中，<code>enctype</code>属性决定了 HTTP 头信息的<code>Content-Type</code>字段的值，默认情况下这个字段的值是<code>application/x-www-form-urlencoded</code>，但是文件上传的时候要改成<code>multipart/form-data</code>。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;file&quot;</span>&gt;</span>选择一个文件<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myFile&quot;</span> <span class="hljs-attr">multiple</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;submit_button&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;上传&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><p>上面的 HTML 代码中，file 控件的<code>multiple</code>属性，指定可以一次选择多个文件；如果没有这个属性，则一次只能选择一个文件。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> fileSelect = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;file&#x27;</span>);
+<span class="hljs-keyword">var</span> files = fileSelect.<span class="hljs-property">files</span>;
+</code></pre><p>然后，新建一个 FormData 实例对象，模拟发送到服务器的表单数据，把选中的文件添加到这个对象上面。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>();
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; files.<span class="hljs-property">length</span>; i++) {
+  <span class="hljs-keyword">var</span> file = files[i];
+
+  <span class="hljs-comment">// 只上传图片文件</span>
+  <span class="hljs-keyword">if</span> (!file.<span class="hljs-property">type</span>.<span class="hljs-title function_">match</span>(<span class="hljs-string">&#x27;image.*&#x27;</span>)) {
+    <span class="hljs-keyword">continue</span>;
+  }
+
+  formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;photos[]&#x27;</span>, file, file.<span class="hljs-property">name</span>);
+}
+</code></pre><p>最后，使用 Ajax 向服务器上传文件。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();
+
+xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;handler.php&#x27;</span>, <span class="hljs-literal">true</span>);
+
+xhr.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (xhr.<span class="hljs-property">status</span> !== <span class="hljs-number">200</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;An error occurred!&#x27;</span>);
+  }
+};
+
+xhr.<span class="hljs-title function_">send</span>(formData);
+</code></pre><p>除了发送 FormData 实例，也可以直接 AJAX 发送文件。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> file = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;test-input&#x27;</span>).<span class="hljs-property">files</span>[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();
+
+xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;myserver/uploads&#x27;</span>);
+xhr.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, file.<span class="hljs-property">type</span>);
+xhr.<span class="hljs-title function_">send</span>(file);
+</code></pre><h2 id="参考链接">参考链接 <a class="markdownIt-Anchor" href="#参考链接">#</a></h2><ul><li><a href="https://webdesign.tutsplus.com/tutorials/html5-form-validation-with-the-pattern-attribute--cms-25145" target="_blank" rel="noopener">HTML5 Form Validation With the “pattern” Attribute</a>, Thoriq Firdaus</li></ul></article><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../javascript/file.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> File 对象，FileList 对象，FileReader 对象</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../javascript/indexeddb.html">IndexedDB API <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><div class="page-info"><p>分享本文 <span class="social-share"></span></p></div></div><div class="column" style="flex:none;width:14%"><nav class="panel-info" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-list-ul" aria-hidden="true"></i> Web前端教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="/html/intro.html" target="_blank">&nbsp;HTML 教程</a></li><li><a href="/javascript/intro.html" target="_blank">&nbsp;JavaScript 教程</a></li><li><a href="/es6/intro.html" target="_blank">&nbsp;ES6 教程</a></li><li><a href="/typescript/intro.html" target="_blank">&nbsp;TypeScript 教程</a></li><!-- 
+      <li><a href="/css/intro.html" target="_blank">&nbsp;CSS 教程</a></li>
+   
+      <li><a href="/webapi/intro.html" target="_blank">&nbsp;Web API 教程</a></li>
+    --></ul></aside></div></nav></div></div></div></section><footer class="footer"><div class="container" style="max-width:1260px;"><div class="content has-text-centered"><p>V站（ViJian.com），上V站学全栈、全职兼职都能干<br><span>京ICP备13026726号-3</span></p></div></div></footer><script>var LOPPO={current_path:"javascript/form.md",relative_root_path:"../",article_toc:'<ul class="markdownIt-TOC">\n<li><a href="#%E8%A1%A8%E5%8D%95%E6%A6%82%E8%BF%B0">表单概述</a></li>\n<li><a href="#formdata-%E5%AF%B9%E8%B1%A1">FormData 对象</a>\n<ul>\n<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>\n<li><a href="#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95">实例方法</a></li>\n</ul>\n</li>\n<li><a href="#%E8%A1%A8%E5%8D%95%E7%9A%84%E5%86%85%E7%BD%AE%E9%AA%8C%E8%AF%81">表单的内置验证</a>\n<ul>\n<li><a href="#%E8%87%AA%E5%8A%A8%E6%A0%A1%E9%AA%8C">自动校验</a></li>\n<li><a href="#checkvalidity">checkValidity()</a></li>\n<li><a href="#willvalidate-%E5%B1%9E%E6%80%A7">willValidate 属性</a></li>\n<li><a href="#validationmessage-%E5%B1%9E%E6%80%A7">validationMessage 属性</a></li>\n<li><a href="#setcustomvalidity">setCustomValidity()</a></li>\n<li><a href="#validity-%E5%B1%9E%E6%80%A7">validity 属性</a></li>\n<li><a href="#%E8%A1%A8%E5%8D%95%E7%9A%84-novalidate-%E5%B1%9E%E6%80%A7">表单的 novalidate 属性</a></li>\n</ul>\n</li>\n<li><a href="#enctype-%E5%B1%9E%E6%80%A7">enctype 属性</a></li>\n<li><a href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0">文件上传</a></li>\n<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>\n</ul>\n'}</script><script src="../assets/js/app.js"></script><!--script src="../assets/js/social-share.min.js"--><!--/script--><script>var shareDesc="我正在阅读《JavaScript 表单，FormData 对象》，出自V站（ViJian.com）。",shareOpts={url:window.location.href,source:shareDesc,title:shareDesc,description:"",image:"",sites:["weibo","wechat","qq","qzone","twitter","facebook"],origin:"ViJian_com",disabled:[],wechatQrcodeTitle:"微信",wechatQrcodeHelper:"扫一下二维码，分享到微信。"};socialShare(".social-share",shareOpts)</script><script></script></body></html>

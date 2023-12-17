@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JavaScriptObject 对象的相关方法 - JavaScript教程 - V站前端教程</title><!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" --><link rel="stylesheet" href="../assets/css/app.min.css"><link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.css"><!-- link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"--><!-- link rel="stylesheet" href="../assets/css/share.min.css" --><meta property="og:type" content="article"><meta property="og:title" content="JavaScriptObject 对象的相关方法"><link rel="apple-touch-icon" href="../assets/icons/logo.png"><link rel="icon" type="image/png" href="../assets/icons/logo.png"><style>.nav-item-active{background-color: #fff;color:#9cba39}
+      a{color:#399ab2}
+      a:hover{color:#9cba39}
+      .breadcrumb a{color:#399ab2}
+      .breadcrumb a:hover{color:#9cba39}
+      .navbar.is-light .navbar-end .navbar-link, .navbar.is-light .navbar-end>.navbar-item, 
+      .navbar.is-light .navbar-start>.navbar-item:hover{color:#9cba39}
+      .navbar-link, a.navbar-item:hover{color:#9cba39}
+      .footer{padding:1.5rem 0;}
+
+      .panel-info .panel-block .menu-list a.is-active, .panel-menu .panel-block .menu-list a.is-active {
+        color: #fff;
+        background-color: #399ab2;
+      }
+      .menu-list>li{background:#F9F9F9;border-bottom: 1px solid #ededed;} 
+      .menu-list .menu-item-title{height: 35px;line-height: 35px;text-align: center;background-color: #EDEDED;color:#9cba39;font-weight: bold;}
+      .menu-list > li > a .menu-list-title::before {
+          font-weight: 700;
+          content: "";
+      }
+
+      .panel-info .panel-block .menu, .panel-menu .panel-block .menu{padding:0 5px}</style></head><body><nav class="navbar is-light" role="navigation" id="navbar" aria-label="main navigation"><div class="container" style="max-width:1230px;"><div class="navbar-brand"><a href="/" class="navbar-item title has-text-grey has-text-weight-light is-5">V站 / ViJian.com</a></div><div class="navbar-menu" id="navMenu"><div class="navbar-start"><div class="navbar-item"><a class="navbar-item" href="/">首页</a></div><div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link nav-item-active is-hidden-touch">教程</a><div class="navbar-dropdown"><a class="navbar-item" href="/html/intro.html">HTML 教程</a> <a class="navbar-item" href="/javascript/intro.html">JavaScript 教程</a> <a class="navbar-item" href="/es6/intro.html">ES6 教程</a> <a class="navbar-item" href="/typescript/intro.html">TypeScript 教程</a><!--   <a class="navbar-item" href="/webapi/intro.html">Web API 教程</a>
+             <a class="navbar-item" href="/css/intro.html">CSS 教程</a>
+       --></div></div></div><div class="navbar-end"></div></div></div></nav><section class="section main article" style="padding-top: 20px;"><div class="container" style="max-width:1260px;"><div class="columns"><div class="column" style="flex:none;width:16%"><nav class="panel-menu" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-book" aria-hidden="true"></i> JavaScript教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li class="menu-item-title" data="basic_item">基本</li><li class="basic_item"><a href="../javascript/intro.html">&nbsp; <span class="menu-list-title" style="width:100%">1.导论</span></a></li><li class="basic_item"><a href="../javascript/grammar.html">&nbsp; <span class="menu-list-title" style="width:100%">2.基本语法</span></a></li><li class="basic_item"><a href="../javascript/history.html">&nbsp; <span class="menu-list-title" style="width:100%">3.语言的历史</span></a></li><li class="menu-item-title" data="types_item">数据类型</li><li class="types_item"><a href="../javascript/typegeneral.html">&nbsp; <span class="menu-list-title" style="width:100%">1.数据类型概述</span></a></li><li class="types_item"><a href="../javascript/null-undefined-boolean.html">&nbsp; <span class="menu-list-title" style="width:100%">2.null, undefined 和布尔值</span></a></li><li class="types_item"><a href="../javascript/typenumber.html">&nbsp; <span class="menu-list-title" style="width:100%">3.数值</span></a></li><li class="types_item"><a href="../javascript/typestring.html">&nbsp; <span class="menu-list-title" style="width:100%">4.字符串</span></a></li><li class="types_item"><a href="../javascript/typeobject.html">&nbsp; <span class="menu-list-title" style="width:100%">5.对象</span></a></li><li class="types_item"><a href="../javascript/function.html">&nbsp; <span class="menu-list-title" style="width:100%">6.函数</span></a></li><li class="types_item"><a href="../javascript/typearray.html">&nbsp; <span class="menu-list-title" style="width:100%">7.数组</span></a></li><li class="menu-item-title" data="operator_item">运算符</li><li class="operator_item"><a href="../javascript/arithmetic.html">&nbsp; <span class="menu-list-title" style="width:100%">1.算术运算符</span></a></li><li class="operator_item"><a href="../javascript/comparison.html">&nbsp; <span class="menu-list-title" style="width:100%">2.比较运算符</span></a></li><li class="operator_item"><a href="../javascript/boolean.html">&nbsp; <span class="menu-list-title" style="width:100%">3.布尔运算符</span></a></li><li class="operator_item"><a href="../javascript/bit.html">&nbsp; <span class="menu-list-title" style="width:100%">4.二进制位运算符</span></a></li><li class="operator_item"><a href="../javascript/priority.html">&nbsp; <span class="menu-list-title" style="width:100%">5.其他运算符，运算顺序</span></a></li><li class="menu-item-title" data="feature_item">语法</li><li class="feature_item"><a href="../javascript/conversion.html">&nbsp; <span class="menu-list-title" style="width:100%">1.数据类型的转换</span></a></li><li class="feature_item"><a href="../javascript/error.html">&nbsp; <span class="menu-list-title" style="width:100%">2.错误处理机制</span></a></li><li class="feature_item"><a href="../javascript/style.html">&nbsp; <span class="menu-list-title" style="width:100%">3.编程风格</span></a></li><li class="feature_item"><a href="../javascript/console.html">&nbsp; <span class="menu-list-title" style="width:100%">4.console 对象与控制台</span></a></li><li class="menu-item-title" data="lib_item">标准库</li><li class="lib_item"><a href="../javascript/libobject.html">&nbsp; <span class="menu-list-title" style="width:100%">1.Object 对象</span></a></li><li class="lib_item"><a href="../javascript/libattributes.html">&nbsp; <span class="menu-list-title" style="width:100%">2.属性描述对象</span></a></li><li class="lib_item"><a href="../javascript/array.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Array 对象</span></a></li><li class="lib_item"><a href="../javascript/wrapper.html">&nbsp; <span class="menu-list-title" style="width:100%">4.包装对象</span></a></li><li class="lib_item"><a href="../javascript/libboolean.html">&nbsp; <span class="menu-list-title" style="width:100%">5.Boolean 对象</span></a></li><li class="lib_item"><a href="../javascript/number.html">&nbsp; <span class="menu-list-title" style="width:100%">6.Number 对象</span></a></li><li class="lib_item"><a href="../javascript/string.html">&nbsp; <span class="menu-list-title" style="width:100%">7.String 对象</span></a></li><li class="lib_item"><a href="../javascript/math.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Math 对象</span></a></li><li class="lib_item"><a href="../javascript/date.html">&nbsp; <span class="menu-list-title" style="width:100%">9.Date 对象</span></a></li><li class="lib_item"><a href="../javascript/regexp.html">&nbsp; <span class="menu-list-title" style="width:100%">10.RegExp 对象</span></a></li><li class="lib_item"><a href="../javascript/json.html">&nbsp; <span class="menu-list-title" style="width:100%">11.JSON 对象</span></a></li><li class="menu-item-title" data="oop_item">面向对象</li><li class="oop_item"><a href="../javascript/new.html">&nbsp; <span class="menu-list-title" style="width:100%">1.实例对象与 new 命令</span></a></li><li class="oop_item"><a href="../javascript/this.html">&nbsp; <span class="menu-list-title" style="width:100%">2.this 关键字</span></a></li><li class="oop_item"><a href="../javascript/prototype.html">&nbsp; <span class="menu-list-title" style="width:100%">3.对象的继承</span></a></li><li class="oop_item"><a href="../javascript/object.html" class="is-active">&nbsp; <span class="menu-list-title" style="width:100%">4.Object 对象的相关方法</span></a></li><li class="oop_item"><a href="../javascript/strict.html">&nbsp; <span class="menu-list-title" style="width:100%">5.严格模式</span></a></li><li class="menu-item-title" data="async_item">异步</li><li class="async_item"><a href="../javascript/general.html">&nbsp; <span class="menu-list-title" style="width:100%">1.异步操作概述</span></a></li><li class="async_item"><a href="../javascript/timer.html">&nbsp; <span class="menu-list-title" style="width:100%">2.定时器</span></a></li><li class="async_item"><a href="../javascript/promise.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Promise 对象</span></a></li><li class="menu-item-title" data="dom_item">DOM</li><li class="dom_item"><a href="../javascript/domgeneral.html">&nbsp; <span class="menu-list-title" style="width:100%">1.DOM 概述</span></a></li><li class="dom_item"><a href="../javascript/node.html">&nbsp; <span class="menu-list-title" style="width:100%">2.Node 接口</span></a></li><li class="dom_item"><a href="../javascript/nodelist.html">&nbsp; <span class="menu-list-title" style="width:100%">3.NodeList 接口，HTMLCollection 接口</span></a></li><li class="dom_item"><a href="../javascript/parentnode.html">&nbsp; <span class="menu-list-title" style="width:100%">4.ParentNode 接口，ChildNode 接口</span></a></li><li class="dom_item"><a href="../javascript/document.html">&nbsp; <span class="menu-list-title" style="width:100%">5.Document 节点</span></a></li><li class="dom_item"><a href="../javascript/element.html">&nbsp; <span class="menu-list-title" style="width:100%">6.Element 节点</span></a></li><li class="dom_item"><a href="../javascript/attributes.html">&nbsp; <span class="menu-list-title" style="width:100%">7.属性的操作</span></a></li><li class="dom_item"><a href="../javascript/text.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Text 节点和 DocumentFragment 节点</span></a></li><li class="dom_item"><a href="../javascript/css.html">&nbsp; <span class="menu-list-title" style="width:100%">9.CSS 操作</span></a></li><li class="dom_item"><a href="../javascript/mutationobserver.html">&nbsp; <span class="menu-list-title" style="width:100%">10.Mutation Observer API</span></a></li><li class="menu-item-title" data="event_item">事件</li><li class="event_item"><a href="../javascript/eventtarget.html">&nbsp; <span class="menu-list-title" style="width:100%">1.EventTarget 接口</span></a></li><li class="event_item"><a href="../javascript/model.html">&nbsp; <span class="menu-list-title" style="width:100%">2.事件模型</span></a></li><li class="event_item"><a href="../javascript/event.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Event 对象</span></a></li><li class="event_item"><a href="../javascript/mouse.html">&nbsp; <span class="menu-list-title" style="width:100%">4.鼠标事件</span></a></li><li class="event_item"><a href="../javascript/keyboard.html">&nbsp; <span class="menu-list-title" style="width:100%">5.键盘事件</span></a></li><li class="event_item"><a href="../javascript/progress.html">&nbsp; <span class="menu-list-title" style="width:100%">6.进度事件</span></a></li><li class="event_item"><a href="../javascript/eventform.html">&nbsp; <span class="menu-list-title" style="width:100%">7.表单事件</span></a></li><li class="event_item"><a href="../javascript/touch.html">&nbsp; <span class="menu-list-title" style="width:100%">8.触摸事件</span></a></li><li class="event_item"><a href="../javascript/drag.html">&nbsp; <span class="menu-list-title" style="width:100%">9.拖拉事件</span></a></li><li class="event_item"><a href="../javascript/common.html">&nbsp; <span class="menu-list-title" style="width:100%">10.其他常见事件</span></a></li><li class="event_item"><a href="../javascript/globaleventhandlers.html">&nbsp; <span class="menu-list-title" style="width:100%">11.GlobalEventHandlers 接口</span></a></li><li class="menu-item-title" data="bom_item">BOM</li><li class="bom_item"><a href="../javascript/engine.html">&nbsp; <span class="menu-list-title" style="width:100%">1.浏览器环境概述</span></a></li><li class="bom_item"><a href="../javascript/window.html">&nbsp; <span class="menu-list-title" style="width:100%">2.window 对象</span></a></li><li class="bom_item"><a href="../javascript/navigator.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Navigator 对象，Screen 对象</span></a></li><li class="bom_item"><a href="../javascript/cookie.html">&nbsp; <span class="menu-list-title" style="width:100%">4.Cookie</span></a></li><li class="bom_item"><a href="../javascript/xmlhttprequest.html">&nbsp; <span class="menu-list-title" style="width:100%">5.XMLHttpRequest 对象</span></a></li><li class="bom_item"><a href="../javascript/same-origin.html">&nbsp; <span class="menu-list-title" style="width:100%">6.同源限制</span></a></li><li class="bom_item"><a href="../javascript/cors.html">&nbsp; <span class="menu-list-title" style="width:100%">7.CORS 通信</span></a></li><li class="bom_item"><a href="../javascript/storage.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Storage 接口</span></a></li><li class="bom_item"><a href="../javascript/bomhistory.html">&nbsp; <span class="menu-list-title" style="width:100%">9.History 对象</span></a></li><li class="bom_item"><a href="../javascript/location.html">&nbsp; <span class="menu-list-title" style="width:100%">10.Location 对象，URL 对象，URLSearchParams 对象</span></a></li><li class="bom_item"><a href="../javascript/arraybuffer.html">&nbsp; <span class="menu-list-title" style="width:100%">11.ArrayBuffer 对象，Blob 对象</span></a></li><li class="bom_item"><a href="../javascript/file.html">&nbsp; <span class="menu-list-title" style="width:100%">12.File 对象，FileList 对象，FileReader 对象</span></a></li><li class="bom_item"><a href="../javascript/form.html">&nbsp; <span class="menu-list-title" style="width:100%">13.表单，FormData 对象</span></a></li><li class="bom_item"><a href="../javascript/indexeddb.html">&nbsp; <span class="menu-list-title" style="width:100%">14.IndexedDB API</span></a></li><li class="bom_item"><a href="../javascript/webworker.html">&nbsp; <span class="menu-list-title" style="width:100%">15.Web Worker</span></a></li><li class="menu-item-title" data="element_item">元素</li><li class="element_item"><a href="../javascript/a.html">&nbsp; <span class="menu-list-title" style="width:100%">1.a</span></a></li><li class="element_item"><a href="../javascript/image.html">&nbsp; <span class="menu-list-title" style="width:100%">2.image</span></a></li><li class="element_item"><a href="../javascript/elementform.html">&nbsp; <span class="menu-list-title" style="width:100%">3.form</span></a></li><li class="element_item"><a href="../javascript/input.html">&nbsp; <span class="menu-list-title" style="width:100%">4.input</span></a></li><li class="element_item"><a href="../javascript/button.html">&nbsp; <span class="menu-list-title" style="width:100%">5.button</span></a></li><li class="element_item"><a href="../javascript/option.html">&nbsp; <span class="menu-list-title" style="width:100%">6.option</span></a></li><li class="element_item"><a href="../javascript/video.html">&nbsp; <span class="menu-list-title" style="width:100%">7.video，audio</span></a></li></ul></aside></div></nav></div><div class="column" style="flex:none;width:68%"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../"><span class="icon"><i class="fa fa-home"></i></span> &nbsp;V站</a></li><li><a href="../javascript/intro.html">JavaScript教程</a></li><li><a href="../javascript/object.html">JavaScript Object 对象的相关方法</a></li></ul></nav><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../javascript/prototype.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> 对象的继承</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../javascript/strict.html">严格模式 <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><article class="content"><h1 class="title">JavaScript Object 对象的相关方法</h1><div class="page-meta"><p>V站（ViJian.com）</p></div><p>JavaScript 在<code>Object</code>对象上面，提供了很多相关方法，处理面向对象编程的相关操作。本章介绍这些方法。</p><h2 id="objectgetprototypeof">Object.getPrototypeOf() <a class="markdownIt-Anchor" href="#objectgetprototypeof">#</a></h2><p><code>Object.getPrototypeOf</code>方法返回参数对象的原型。这是获取原型对象的标准方法。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> F = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {};
+<span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> <span class="hljs-title function_">F</span>();
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(f) === F.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> <span class="hljs-comment">// true</span>
+</code></pre><p>上面代码中，实例对象<code>f</code>的原型是<code>F.prototype</code>。</p><p>下面是几种特殊对象的原型。</p><pre class="hljs"><code><span class="hljs-comment">// 空对象的原型是 Object.prototype</span>
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>({}) === <span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// Object.prototype 的原型是 null</span>
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) === <span class="hljs-literal">null</span> <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// 函数的原型是 Function.prototype</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {}
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(f) === <span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> <span class="hljs-comment">// true</span>
+</code></pre><h2 id="objectsetprototypeof">Object.setPrototypeOf() <a class="markdownIt-Anchor" href="#objectsetprototypeof">#</a></h2><p><code>Object.setPrototypeOf</code>方法为参数对象设置原型，返回该参数对象。它接受两个参数，第一个是现有对象，第二个是原型对象。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> a = {};
+<span class="hljs-keyword">var</span> b = {<span class="hljs-attr">x</span>: <span class="hljs-number">1</span>};
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">setPrototypeOf</span>(a, b);
+
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(a) === b <span class="hljs-comment">// true</span>
+a.<span class="hljs-property">x</span> <span class="hljs-comment">// 1</span>
+</code></pre><p>上面代码中，<code>Object.setPrototypeOf</code>方法将对象<code>a</code>的原型，设置为对象<code>b</code>，因此<code>a</code>可以共享<code>b</code>的属性。</p><p><code>new</code>命令可以使用<code>Object.setPrototypeOf</code>方法模拟。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> F = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span> = <span class="hljs-string">&#x27;bar&#x27;</span>;
+};
+
+<span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> <span class="hljs-title function_">F</span>();
+<span class="hljs-comment">// 等同于</span>
+<span class="hljs-keyword">var</span> f = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">setPrototypeOf</span>({}, F.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);
+F.<span class="hljs-title function_">call</span>(f);
+</code></pre><p>上面代码中，<code>new</code>命令新建实例对象，其实可以分成两步。第一步，将一个空对象的原型设为构造函数的<code>prototype</code>属性（上例是<code>F.prototype</code>）；第二步，将构造函数内部的<code>this</code>绑定这个空对象，然后执行构造函数，使得定义在<code>this</code>上面的方法和属性（上例是<code>this.foo</code>），都转移到这个空对象上。</p><h2 id="objectcreate">Object.create() <a class="markdownIt-Anchor" href="#objectcreate">#</a></h2><p>生成实例对象的常用方法是，使用<code>new</code>命令让构造函数返回一个实例。但是很多时候，只能拿到一个实例对象，它可能根本不是由构建函数生成的，那么能不能从一个实例对象，生成另一个实例对象呢？</p><p>JavaScript 提供了<code>Object.create()</code>方法，用来满足这种需求。该方法接受一个对象作为参数，然后以它为原型，返回一个实例对象。该实例完全继承原型对象的属性。</p><pre class="hljs"><code><span class="hljs-comment">// 原型对象</span>
+<span class="hljs-keyword">var</span> A = {
+  <span class="hljs-attr">print</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;hello&#x27;</span>);
+  }
+};
+
+<span class="hljs-comment">// 实例对象</span>
+<span class="hljs-keyword">var</span> B = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(A);
+
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(B) === A <span class="hljs-comment">// true</span>
+B.<span class="hljs-title function_">print</span>() <span class="hljs-comment">// hello</span>
+B.<span class="hljs-property">print</span> === A.<span class="hljs-property">print</span> <span class="hljs-comment">// true</span>
+</code></pre><p>上面代码中，<code>Object.create()</code>方法以<code>A</code>对象为原型，生成了<code>B</code>对象。<code>B</code>继承了<code>A</code>的所有属性和方法。</p><p>实际上，<code>Object.create()</code>方法可以用下面的代码代替。</p><pre class="hljs"><code><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-title class_">Object</span>.<span class="hljs-property">create</span> !== <span class="hljs-string">&#x27;function&#x27;</span>) {
+  <span class="hljs-title class_">Object</span>.<span class="hljs-property">create</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) {
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">F</span>(<span class="hljs-params"></span>) {}
+    F.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = obj;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title function_">F</span>();
+  };
+}
+</code></pre><p>上面代码表明，<code>Object.create()</code>方法的实质是新建一个空的构造函数<code>F</code>，然后让<code>F.prototype</code>属性指向参数对象<code>obj</code>，最后返回一个<code>F</code>的实例，从而实现让该实例继承<code>obj</code>的属性。</p><p>下面三种方式生成的新对象是等价的。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> obj1 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>({});
+<span class="hljs-keyword">var</span> obj2 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);
+<span class="hljs-keyword">var</span> obj3 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();
+</code></pre><p>如果想要生成一个不继承任何属性（比如没有<code>toString()</code>和<code>valueOf()</code>方法）的对象，可以将<code>Object.create()</code>的参数设为<code>null</code>。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-literal">null</span>);
+
+obj.<span class="hljs-title function_">valueOf</span>()
+<span class="hljs-comment">// TypeError: Object [object Object] has no method &#x27;valueOf&#x27;</span>
+</code></pre><p>上面代码中，对象<code>obj</code>的原型是<code>null</code>，它就不具备一些定义在<code>Object.prototype</code>对象上面的属性，比如<code>valueOf()</code>方法。</p><p>使用<code>Object.create()</code>方法的时候，必须提供对象原型，即参数不能为空，或者不是对象，否则会报错。</p><pre class="hljs"><code><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>()
+<span class="hljs-comment">// TypeError: Object prototype may only be an Object or null</span>
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-number">123</span>)
+<span class="hljs-comment">// TypeError: Object prototype may only be an Object or null</span>
+</code></pre><p><code>Object.create()</code>方法生成的新对象，动态继承了原型。在原型上添加或修改任何方法，会立刻反映在新对象之上。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> obj1 = { <span class="hljs-attr">p</span>: <span class="hljs-number">1</span> };
+<span class="hljs-keyword">var</span> obj2 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(obj1);
+
+obj1.<span class="hljs-property">p</span> = <span class="hljs-number">2</span>;
+obj2.<span class="hljs-property">p</span> <span class="hljs-comment">// 2</span>
+</code></pre><p>上面代码中，修改对象原型<code>obj1</code>会影响到实例对象<code>obj2</code>。</p><p>除了对象的原型，<code>Object.create()</code>方法还可以接受第二个参数。该参数是一个属性描述对象，它所描述的对象属性，会添加到实例对象，作为该对象自身的属性。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>({}, {
+  <span class="hljs-attr">p1</span>: {
+    <span class="hljs-attr">value</span>: <span class="hljs-number">123</span>,
+    <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">writable</span>: <span class="hljs-literal">true</span>,
+  },
+  <span class="hljs-attr">p2</span>: {
+    <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;abc&#x27;</span>,
+    <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">writable</span>: <span class="hljs-literal">true</span>,
+  }
+});
+
+<span class="hljs-comment">// 等同于</span>
+<span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>({});
+obj.<span class="hljs-property">p1</span> = <span class="hljs-number">123</span>;
+obj.<span class="hljs-property">p2</span> = <span class="hljs-string">&#x27;abc&#x27;</span>;
+</code></pre><p><code>Object.create()</code>方法生成的对象，继承了它的原型对象的构造函数。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">A</span>(<span class="hljs-params"></span>) {}
+<span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> <span class="hljs-title function_">A</span>();
+<span class="hljs-keyword">var</span> b = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(a);
+
+b.<span class="hljs-property">constructor</span> === A <span class="hljs-comment">// true</span>
+b <span class="hljs-keyword">instanceof</span> A <span class="hljs-comment">// true</span>
+</code></pre><p>上面代码中，<code>b</code>对象的原型是<code>a</code>对象，因此继承了<code>a</code>对象的构造函数<code>A</code>。</p><h2 id="objectprototypeisprototypeof">Object.prototype.isPrototypeOf() <a class="markdownIt-Anchor" href="#objectprototypeisprototypeof">#</a></h2><p>实例对象的<code>isPrototypeOf</code>方法，用来判断该对象是否为参数对象的原型。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> o1 = {};
+<span class="hljs-keyword">var</span> o2 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(o1);
+<span class="hljs-keyword">var</span> o3 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(o2);
+
+o2.<span class="hljs-title function_">isPrototypeOf</span>(o3) <span class="hljs-comment">// true</span>
+o1.<span class="hljs-title function_">isPrototypeOf</span>(o3) <span class="hljs-comment">// true</span>
+</code></pre><p>上面代码中，<code>o1</code>和<code>o2</code>都是<code>o3</code>的原型。这表明只要实例对象处在参数对象的原型链上，<code>isPrototypeOf</code>方法都返回<code>true</code>。</p><pre class="hljs"><code><span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-title function_">isPrototypeOf</span>({}) <span class="hljs-comment">// true</span>
+<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-title function_">isPrototypeOf</span>([]) <span class="hljs-comment">// true</span>
+<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-title function_">isPrototypeOf</span>(<span class="hljs-regexp">/xyz/</span>) <span class="hljs-comment">// true</span>
+<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-title function_">isPrototypeOf</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-literal">null</span>)) <span class="hljs-comment">// false</span>
+</code></pre><p>上面代码中，由于<code>Object.prototype</code>处于原型链的最顶端，所以对各种实例都返回<code>true</code>，只有直接继承自<code>null</code>的对象除外。</p><h2 id="objectprototype__proto__">Object.prototype.__proto__ <a class="markdownIt-Anchor" href="#objectprototype__proto__">#</a></h2><p>实例对象的<code>__proto__</code>属性（前后各两个下划线），返回该对象的原型。该属性可读写。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> obj = {};
+<span class="hljs-keyword">var</span> p = {};
+
+obj.<span class="hljs-property">__proto__</span> = p;
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(obj) === p <span class="hljs-comment">// true</span>
+</code></pre><p>上面代码通过<code>__proto__</code>属性，将<code>p</code>对象设为<code>obj</code>对象的原型。</p><p>根据语言标准，<code>__proto__</code>属性只有浏览器才需要部署，其他环境可以没有这个属性。它前后的两根下划线，表明它本质是一个内部属性，不应该对使用者暴露。因此，应该尽量少用这个属性，而是用<code>Object.getPrototypeOf()</code>和<code>Object.setPrototypeOf()</code>，进行原型对象的读写操作。</p><p>原型链可以用<code>__proto__</code>很直观地表示。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> A = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张三&#x27;</span>
+};
+<span class="hljs-keyword">var</span> B = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;李四&#x27;</span>
+};
+
+<span class="hljs-keyword">var</span> proto = {
+  <span class="hljs-attr">print</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);
+  }
+};
+
+A.<span class="hljs-property">__proto__</span> = proto;
+B.<span class="hljs-property">__proto__</span> = proto;
+
+A.<span class="hljs-title function_">print</span>() <span class="hljs-comment">// 张三</span>
+B.<span class="hljs-title function_">print</span>() <span class="hljs-comment">// 李四</span>
+
+A.<span class="hljs-property">print</span> === B.<span class="hljs-property">print</span> <span class="hljs-comment">// true</span>
+A.<span class="hljs-property">print</span> === proto.<span class="hljs-property">print</span> <span class="hljs-comment">// true</span>
+B.<span class="hljs-property">print</span> === proto.<span class="hljs-property">print</span> <span class="hljs-comment">// true</span>
+</code></pre><p>上面代码中，<code>A</code>对象和<code>B</code>对象的原型都是<code>proto</code>对象，它们都共享<code>proto</code>对象的<code>print</code>方法。也就是说，<code>A</code>和<code>B</code>的<code>print</code>方法，都是在调用<code>proto</code>对象的<code>print</code>方法。</p><h2 id="获取原型对象方法的比较">获取原型对象方法的比较 <a class="markdownIt-Anchor" href="#获取原型对象方法的比较">#</a></h2><p>如前所述，<code>__proto__</code>属性指向当前对象的原型对象，即构造函数的<code>prototype</code>属性。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();
+
+obj.<span class="hljs-property">__proto__</span> === <span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>
+<span class="hljs-comment">// true</span>
+obj.<span class="hljs-property">__proto__</span> === obj.<span class="hljs-property">constructor</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>
+<span class="hljs-comment">// true</span>
+</code></pre><p>上面代码首先新建了一个对象<code>obj</code>，它的<code>__proto__</code>属性，指向构造函数（<code>Object</code>或<code>obj.constructor</code>）的<code>prototype</code>属性。</p><p>因此，获取实例对象<code>obj</code>的原型对象，有三种方法。</p><ul><li><code>obj.__proto__</code></li><li><code>obj.constructor.prototype</code></li><li><code>Object.getPrototypeOf(obj)</code></li></ul><p>上面三种方法之中，前两种都不是很可靠。<code>__proto__</code>属性只有浏览器才需要部署，其他环境可以不部署。而<code>obj.constructor.prototype</code>在手动改变原型对象时，可能会失效。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> P = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {};
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title function_">P</span>();
+
+<span class="hljs-keyword">var</span> C = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {};
+C.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = p;
+<span class="hljs-keyword">var</span> c = <span class="hljs-keyword">new</span> <span class="hljs-title function_">C</span>();
+
+c.<span class="hljs-property">constructor</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> === p <span class="hljs-comment">// false</span>
+</code></pre><p>上面代码中，构造函数<code>C</code>的原型对象被改成了<code>p</code>，但是实例对象的<code>c.constructor.prototype</code>却没有指向<code>p</code>。所以，在改变原型对象时，一般要同时设置<code>constructor</code>属性。</p><pre class="hljs"><code>C.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = p;
+C.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> = C;
+
+<span class="hljs-keyword">var</span> c = <span class="hljs-keyword">new</span> <span class="hljs-title function_">C</span>();
+c.<span class="hljs-property">constructor</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> === p <span class="hljs-comment">// true</span>
+</code></pre><p>因此，推荐使用第三种<code>Object.getPrototypeOf</code>方法，获取原型对象。</p><h2 id="objectgetownpropertynames">Object.getOwnPropertyNames() <a class="markdownIt-Anchor" href="#objectgetownpropertynames">#</a></h2><p><code>Object.getOwnPropertyNames</code>方法返回一个数组，成员是参数对象本身的所有属性的键名，不包含继承的属性键名。</p><pre class="hljs"><code><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getOwnPropertyNames</span>(<span class="hljs-title class_">Date</span>)
+<span class="hljs-comment">// [&quot;parse&quot;, &quot;arguments&quot;, &quot;UTC&quot;, &quot;caller&quot;, &quot;name&quot;, &quot;prototype&quot;, &quot;now&quot;, &quot;length&quot;]</span>
+</code></pre><p>上面代码中，<code>Object.getOwnPropertyNames</code>方法返回<code>Date</code>所有自身的属性名。</p><p>对象本身的属性之中，有的是可以遍历的（enumerable），有的是不可以遍历的。<code>Object.getOwnPropertyNames</code>方法返回所有键名，不管是否可以遍历。只获取那些可以遍历的属性，使用<code>Object.keys</code>方法。</p><pre class="hljs"><code><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(<span class="hljs-title class_">Date</span>) <span class="hljs-comment">// []</span>
+</code></pre><p>上面代码表明，<code>Date</code>对象所有自身的属性，都是不可以遍历的。</p><h2 id="objectprototypehasownproperty">Object.prototype.hasOwnProperty() <a class="markdownIt-Anchor" href="#objectprototypehasownproperty">#</a></h2><p>对象实例的<code>hasOwnProperty</code>方法返回一个布尔值，用于判断某个属性定义在对象自身，还是定义在原型链上。</p><pre class="hljs"><code><span class="hljs-title class_">Date</span>.<span class="hljs-title function_">hasOwnProperty</span>(<span class="hljs-string">&#x27;length&#x27;</span>) <span class="hljs-comment">// true</span>
+<span class="hljs-title class_">Date</span>.<span class="hljs-title function_">hasOwnProperty</span>(<span class="hljs-string">&#x27;toString&#x27;</span>) <span class="hljs-comment">// false</span>
+</code></pre><p>上面代码表明，<code>Date.length</code>（构造函数<code>Date</code>可以接受多少个参数）是<code>Date</code>自身的属性，<code>Date.toString</code>是继承的属性。</p><p>另外，<code>hasOwnProperty</code>方法是 JavaScript 之中唯一一个处理对象属性时，不会遍历原型链的方法。</p><h2 id="in-运算符和-forin-循环">in 运算符和 for...in 循环 <a class="markdownIt-Anchor" href="#in-运算符和-forin-循环">#</a></h2><p><code>in</code>运算符返回一个布尔值，表示一个对象是否具有某个属性。它不区分该属性是对象自身的属性，还是继承的属性。</p><pre class="hljs"><code><span class="hljs-string">&#x27;length&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">Date</span> <span class="hljs-comment">// true</span>
+<span class="hljs-string">&#x27;toString&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">Date</span> <span class="hljs-comment">// true</span>
+</code></pre><p><code>in</code>运算符常用于检查一个属性是否存在。</p><p>获得对象的所有可遍历属性（不管是自身的还是继承的），可以使用<code>for...in</code>循环。</p><pre class="hljs"><code><span class="hljs-keyword">var</span> o1 = { <span class="hljs-attr">p1</span>: <span class="hljs-number">123</span> };
+
+<span class="hljs-keyword">var</span> o2 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(o1, {
+  <span class="hljs-attr">p2</span>: { <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span> }
+});
+
+<span class="hljs-keyword">for</span> (p <span class="hljs-keyword">in</span> o2) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">info</span>(p);
+}
+<span class="hljs-comment">// p2</span>
+<span class="hljs-comment">// p1</span>
+</code></pre><p>上面代码中，对象<code>o2</code>的<code>p2</code>属性是自身的，<code>p1</code>属性是继承的。这两个属性都会被<code>for...in</code>循环遍历。</p><p>为了在<code>for...in</code>循环中获得对象自身的属性，可以采用<code>hasOwnProperty</code>方法判断一下。</p><pre class="hljs"><code><span class="hljs-keyword">for</span> ( <span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> object ) {
+  <span class="hljs-keyword">if</span> ( object.<span class="hljs-title function_">hasOwnProperty</span>(name) ) {
+    <span class="hljs-comment">/* loop code */</span>
+  }
+}
+</code></pre><p>获得对象的所有属性（不管是自身的还是继承的，也不管是否可枚举），可以使用下面的函数。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">inheritedPropertyNames</span>(<span class="hljs-params">obj</span>) {
+  <span class="hljs-keyword">var</span> props = {};
+  <span class="hljs-keyword">while</span>(obj) {
+    <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getOwnPropertyNames</span>(obj).<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">p</span>) {
+      props[p] = <span class="hljs-literal">true</span>;
+    });
+    obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(obj);
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getOwnPropertyNames</span>(props);
+}
+</code></pre><p>上面代码依次获取<code>obj</code>对象的每一级原型对象“自身”的属性，从而获取<code>obj</code>对象的“所有”属性，不管是否可遍历。</p><p>下面是一个例子，列出<code>Date</code>对象的所有属性。</p><pre class="hljs"><code><span class="hljs-title function_">inheritedPropertyNames</span>(<span class="hljs-title class_">Date</span>)
+<span class="hljs-comment">// [</span>
+<span class="hljs-comment">//  &quot;caller&quot;,</span>
+<span class="hljs-comment">//  &quot;constructor&quot;,</span>
+<span class="hljs-comment">//  &quot;toString&quot;,</span>
+<span class="hljs-comment">//  &quot;UTC&quot;,</span>
+<span class="hljs-comment">//  ...</span>
+<span class="hljs-comment">// ]</span>
+</code></pre><h2 id="对象的拷贝">对象的拷贝 <a class="markdownIt-Anchor" href="#对象的拷贝">#</a></h2><p>如果要拷贝一个对象，需要做到下面两件事情。</p><ul><li>确保拷贝后的对象，与原对象具有同样的原型。</li><li>确保拷贝后的对象，与原对象具有同样的实例属性。</li></ul><p>下面就是根据上面两点，实现的对象拷贝函数。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">copyObject</span>(<span class="hljs-params">orig</span>) {
+  <span class="hljs-keyword">var</span> copy = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(orig));
+  <span class="hljs-title function_">copyOwnPropertiesFrom</span>(copy, orig);
+  <span class="hljs-keyword">return</span> copy;
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">copyOwnPropertiesFrom</span>(<span class="hljs-params">target, source</span>) {
+  <span class="hljs-title class_">Object</span>
+    .<span class="hljs-title function_">getOwnPropertyNames</span>(source)
+    .<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">propKey</span>) {
+      <span class="hljs-keyword">var</span> desc = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getOwnPropertyDescriptor</span>(source, propKey);
+      <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(target, propKey, desc);
+    });
+  <span class="hljs-keyword">return</span> target;
+}
+</code></pre><p>另一种更简单的写法，是利用 ES2017 才引入标准的<code>Object.getOwnPropertyDescriptors</code>方法。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">copyObject</span>(<span class="hljs-params">orig</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(
+    <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(orig),
+    <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getOwnPropertyDescriptors</span>(orig)
+  );
+}
+</code></pre><h2 id="参考链接">参考链接 <a class="markdownIt-Anchor" href="#参考链接">#</a></h2><ul><li>Dr. Axel Rauschmayer, <a href="http://www.2ality.com/2011/07/js-properties.html" target="_blank" rel="noopener">JavaScript properties: inheritance and enumerability</a></li></ul></article><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../javascript/prototype.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> 对象的继承</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../javascript/strict.html">严格模式 <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><div class="page-info"><p>分享本文 <span class="social-share"></span></p></div></div><div class="column" style="flex:none;width:14%"><nav class="panel-info" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-list-ul" aria-hidden="true"></i> Web前端教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="/html/intro.html" target="_blank">&nbsp;HTML 教程</a></li><li><a href="/javascript/intro.html" target="_blank">&nbsp;JavaScript 教程</a></li><li><a href="/es6/intro.html" target="_blank">&nbsp;ES6 教程</a></li><li><a href="/typescript/intro.html" target="_blank">&nbsp;TypeScript 教程</a></li><!-- 
+      <li><a href="/css/intro.html" target="_blank">&nbsp;CSS 教程</a></li>
+   
+      <li><a href="/webapi/intro.html" target="_blank">&nbsp;Web API 教程</a></li>
+    --></ul></aside></div></nav></div></div></div></section><footer class="footer"><div class="container" style="max-width:1260px;"><div class="content has-text-centered"><p>V站（ViJian.com），上V站学全栈、全职兼职都能干<br><span>京ICP备13026726号-3</span></p></div></div></footer><script>var LOPPO={current_path:"javascript/object.md",relative_root_path:"../",article_toc:'<ul class="markdownIt-TOC">\n<li><a href="#objectgetprototypeof">Object.getPrototypeOf()</a></li>\n<li><a href="#objectsetprototypeof">Object.setPrototypeOf()</a></li>\n<li><a href="#objectcreate">Object.create()</a></li>\n<li><a href="#objectprototypeisprototypeof">Object.prototype.isPrototypeOf()</a></li>\n<li><a href="#objectprototype__proto__">Object.prototype.__proto__</a></li>\n<li><a href="#%E8%8E%B7%E5%8F%96%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%94%E8%BE%83">获取原型对象方法的比较</a></li>\n<li><a href="#objectgetownpropertynames">Object.getOwnPropertyNames()</a></li>\n<li><a href="#objectprototypehasownproperty">Object.prototype.hasOwnProperty()</a></li>\n<li><a href="#in-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C-forin-%E5%BE%AA%E7%8E%AF">in 运算符和 for...in 循环</a></li>\n<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%8B%B7%E8%B4%9D">对象的拷贝</a></li>\n<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>\n</ul>\n'}</script><script src="../assets/js/app.js"></script><!--script src="../assets/js/social-share.min.js"--><!--/script--><script>var shareDesc="我正在阅读《JavaScript Object 对象的相关方法》，出自V站（ViJian.com）。",shareOpts={url:window.location.href,source:shareDesc,title:shareDesc,description:"",image:"",sites:["weibo","wechat","qq","qzone","twitter","facebook"],origin:"ViJian_com",disabled:[],wechatQrcodeTitle:"微信",wechatQrcodeHelper:"扫一下二维码，分享到微信。"};socialShare(".social-share",shareOpts)</script><script></script></body></html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JavaScript严格模式 - JavaScript教程 - V站前端教程</title><!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" --><link rel="stylesheet" href="../assets/css/app.min.css"><link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.css"><!-- link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"--><!-- link rel="stylesheet" href="../assets/css/share.min.css" --><meta property="og:type" content="article"><meta property="og:title" content="JavaScript严格模式"><link rel="apple-touch-icon" href="../assets/icons/logo.png"><link rel="icon" type="image/png" href="../assets/icons/logo.png"><style>.nav-item-active{background-color: #fff;color:#9cba39}
+      a{color:#399ab2}
+      a:hover{color:#9cba39}
+      .breadcrumb a{color:#399ab2}
+      .breadcrumb a:hover{color:#9cba39}
+      .navbar.is-light .navbar-end .navbar-link, .navbar.is-light .navbar-end>.navbar-item, 
+      .navbar.is-light .navbar-start>.navbar-item:hover{color:#9cba39}
+      .navbar-link, a.navbar-item:hover{color:#9cba39}
+      .footer{padding:1.5rem 0;}
+
+      .panel-info .panel-block .menu-list a.is-active, .panel-menu .panel-block .menu-list a.is-active {
+        color: #fff;
+        background-color: #399ab2;
+      }
+      .menu-list>li{background:#F9F9F9;border-bottom: 1px solid #ededed;} 
+      .menu-list .menu-item-title{height: 35px;line-height: 35px;text-align: center;background-color: #EDEDED;color:#9cba39;font-weight: bold;}
+      .menu-list > li > a .menu-list-title::before {
+          font-weight: 700;
+          content: "";
+      }
+
+      .panel-info .panel-block .menu, .panel-menu .panel-block .menu{padding:0 5px}</style></head><body><nav class="navbar is-light" role="navigation" id="navbar" aria-label="main navigation"><div class="container" style="max-width:1230px;"><div class="navbar-brand"><a href="/" class="navbar-item title has-text-grey has-text-weight-light is-5">V站 / ViJian.com</a></div><div class="navbar-menu" id="navMenu"><div class="navbar-start"><div class="navbar-item"><a class="navbar-item" href="/">首页</a></div><div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link nav-item-active is-hidden-touch">教程</a><div class="navbar-dropdown"><a class="navbar-item" href="/html/intro.html">HTML 教程</a> <a class="navbar-item" href="/javascript/intro.html">JavaScript 教程</a> <a class="navbar-item" href="/es6/intro.html">ES6 教程</a> <a class="navbar-item" href="/typescript/intro.html">TypeScript 教程</a><!--   <a class="navbar-item" href="/webapi/intro.html">Web API 教程</a>
+             <a class="navbar-item" href="/css/intro.html">CSS 教程</a>
+       --></div></div></div><div class="navbar-end"></div></div></div></nav><section class="section main article" style="padding-top: 20px;"><div class="container" style="max-width:1260px;"><div class="columns"><div class="column" style="flex:none;width:16%"><nav class="panel-menu" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-book" aria-hidden="true"></i> JavaScript教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li class="menu-item-title" data="basic_item">基本</li><li class="basic_item"><a href="../javascript/intro.html">&nbsp; <span class="menu-list-title" style="width:100%">1.导论</span></a></li><li class="basic_item"><a href="../javascript/grammar.html">&nbsp; <span class="menu-list-title" style="width:100%">2.基本语法</span></a></li><li class="basic_item"><a href="../javascript/history.html">&nbsp; <span class="menu-list-title" style="width:100%">3.语言的历史</span></a></li><li class="menu-item-title" data="types_item">数据类型</li><li class="types_item"><a href="../javascript/typegeneral.html">&nbsp; <span class="menu-list-title" style="width:100%">1.数据类型概述</span></a></li><li class="types_item"><a href="../javascript/null-undefined-boolean.html">&nbsp; <span class="menu-list-title" style="width:100%">2.null, undefined 和布尔值</span></a></li><li class="types_item"><a href="../javascript/typenumber.html">&nbsp; <span class="menu-list-title" style="width:100%">3.数值</span></a></li><li class="types_item"><a href="../javascript/typestring.html">&nbsp; <span class="menu-list-title" style="width:100%">4.字符串</span></a></li><li class="types_item"><a href="../javascript/typeobject.html">&nbsp; <span class="menu-list-title" style="width:100%">5.对象</span></a></li><li class="types_item"><a href="../javascript/function.html">&nbsp; <span class="menu-list-title" style="width:100%">6.函数</span></a></li><li class="types_item"><a href="../javascript/typearray.html">&nbsp; <span class="menu-list-title" style="width:100%">7.数组</span></a></li><li class="menu-item-title" data="operator_item">运算符</li><li class="operator_item"><a href="../javascript/arithmetic.html">&nbsp; <span class="menu-list-title" style="width:100%">1.算术运算符</span></a></li><li class="operator_item"><a href="../javascript/comparison.html">&nbsp; <span class="menu-list-title" style="width:100%">2.比较运算符</span></a></li><li class="operator_item"><a href="../javascript/boolean.html">&nbsp; <span class="menu-list-title" style="width:100%">3.布尔运算符</span></a></li><li class="operator_item"><a href="../javascript/bit.html">&nbsp; <span class="menu-list-title" style="width:100%">4.二进制位运算符</span></a></li><li class="operator_item"><a href="../javascript/priority.html">&nbsp; <span class="menu-list-title" style="width:100%">5.其他运算符，运算顺序</span></a></li><li class="menu-item-title" data="feature_item">语法</li><li class="feature_item"><a href="../javascript/conversion.html">&nbsp; <span class="menu-list-title" style="width:100%">1.数据类型的转换</span></a></li><li class="feature_item"><a href="../javascript/error.html">&nbsp; <span class="menu-list-title" style="width:100%">2.错误处理机制</span></a></li><li class="feature_item"><a href="../javascript/style.html">&nbsp; <span class="menu-list-title" style="width:100%">3.编程风格</span></a></li><li class="feature_item"><a href="../javascript/console.html">&nbsp; <span class="menu-list-title" style="width:100%">4.console 对象与控制台</span></a></li><li class="menu-item-title" data="lib_item">标准库</li><li class="lib_item"><a href="../javascript/libobject.html">&nbsp; <span class="menu-list-title" style="width:100%">1.Object 对象</span></a></li><li class="lib_item"><a href="../javascript/libattributes.html">&nbsp; <span class="menu-list-title" style="width:100%">2.属性描述对象</span></a></li><li class="lib_item"><a href="../javascript/array.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Array 对象</span></a></li><li class="lib_item"><a href="../javascript/wrapper.html">&nbsp; <span class="menu-list-title" style="width:100%">4.包装对象</span></a></li><li class="lib_item"><a href="../javascript/libboolean.html">&nbsp; <span class="menu-list-title" style="width:100%">5.Boolean 对象</span></a></li><li class="lib_item"><a href="../javascript/number.html">&nbsp; <span class="menu-list-title" style="width:100%">6.Number 对象</span></a></li><li class="lib_item"><a href="../javascript/string.html">&nbsp; <span class="menu-list-title" style="width:100%">7.String 对象</span></a></li><li class="lib_item"><a href="../javascript/math.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Math 对象</span></a></li><li class="lib_item"><a href="../javascript/date.html">&nbsp; <span class="menu-list-title" style="width:100%">9.Date 对象</span></a></li><li class="lib_item"><a href="../javascript/regexp.html">&nbsp; <span class="menu-list-title" style="width:100%">10.RegExp 对象</span></a></li><li class="lib_item"><a href="../javascript/json.html">&nbsp; <span class="menu-list-title" style="width:100%">11.JSON 对象</span></a></li><li class="menu-item-title" data="oop_item">面向对象</li><li class="oop_item"><a href="../javascript/new.html">&nbsp; <span class="menu-list-title" style="width:100%">1.实例对象与 new 命令</span></a></li><li class="oop_item"><a href="../javascript/this.html">&nbsp; <span class="menu-list-title" style="width:100%">2.this 关键字</span></a></li><li class="oop_item"><a href="../javascript/prototype.html">&nbsp; <span class="menu-list-title" style="width:100%">3.对象的继承</span></a></li><li class="oop_item"><a href="../javascript/object.html">&nbsp; <span class="menu-list-title" style="width:100%">4.Object 对象的相关方法</span></a></li><li class="oop_item"><a href="../javascript/strict.html" class="is-active">&nbsp; <span class="menu-list-title" style="width:100%">5.严格模式</span></a></li><li class="menu-item-title" data="async_item">异步</li><li class="async_item"><a href="../javascript/general.html">&nbsp; <span class="menu-list-title" style="width:100%">1.异步操作概述</span></a></li><li class="async_item"><a href="../javascript/timer.html">&nbsp; <span class="menu-list-title" style="width:100%">2.定时器</span></a></li><li class="async_item"><a href="../javascript/promise.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Promise 对象</span></a></li><li class="menu-item-title" data="dom_item">DOM</li><li class="dom_item"><a href="../javascript/domgeneral.html">&nbsp; <span class="menu-list-title" style="width:100%">1.DOM 概述</span></a></li><li class="dom_item"><a href="../javascript/node.html">&nbsp; <span class="menu-list-title" style="width:100%">2.Node 接口</span></a></li><li class="dom_item"><a href="../javascript/nodelist.html">&nbsp; <span class="menu-list-title" style="width:100%">3.NodeList 接口，HTMLCollection 接口</span></a></li><li class="dom_item"><a href="../javascript/parentnode.html">&nbsp; <span class="menu-list-title" style="width:100%">4.ParentNode 接口，ChildNode 接口</span></a></li><li class="dom_item"><a href="../javascript/document.html">&nbsp; <span class="menu-list-title" style="width:100%">5.Document 节点</span></a></li><li class="dom_item"><a href="../javascript/element.html">&nbsp; <span class="menu-list-title" style="width:100%">6.Element 节点</span></a></li><li class="dom_item"><a href="../javascript/attributes.html">&nbsp; <span class="menu-list-title" style="width:100%">7.属性的操作</span></a></li><li class="dom_item"><a href="../javascript/text.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Text 节点和 DocumentFragment 节点</span></a></li><li class="dom_item"><a href="../javascript/css.html">&nbsp; <span class="menu-list-title" style="width:100%">9.CSS 操作</span></a></li><li class="dom_item"><a href="../javascript/mutationobserver.html">&nbsp; <span class="menu-list-title" style="width:100%">10.Mutation Observer API</span></a></li><li class="menu-item-title" data="event_item">事件</li><li class="event_item"><a href="../javascript/eventtarget.html">&nbsp; <span class="menu-list-title" style="width:100%">1.EventTarget 接口</span></a></li><li class="event_item"><a href="../javascript/model.html">&nbsp; <span class="menu-list-title" style="width:100%">2.事件模型</span></a></li><li class="event_item"><a href="../javascript/event.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Event 对象</span></a></li><li class="event_item"><a href="../javascript/mouse.html">&nbsp; <span class="menu-list-title" style="width:100%">4.鼠标事件</span></a></li><li class="event_item"><a href="../javascript/keyboard.html">&nbsp; <span class="menu-list-title" style="width:100%">5.键盘事件</span></a></li><li class="event_item"><a href="../javascript/progress.html">&nbsp; <span class="menu-list-title" style="width:100%">6.进度事件</span></a></li><li class="event_item"><a href="../javascript/eventform.html">&nbsp; <span class="menu-list-title" style="width:100%">7.表单事件</span></a></li><li class="event_item"><a href="../javascript/touch.html">&nbsp; <span class="menu-list-title" style="width:100%">8.触摸事件</span></a></li><li class="event_item"><a href="../javascript/drag.html">&nbsp; <span class="menu-list-title" style="width:100%">9.拖拉事件</span></a></li><li class="event_item"><a href="../javascript/common.html">&nbsp; <span class="menu-list-title" style="width:100%">10.其他常见事件</span></a></li><li class="event_item"><a href="../javascript/globaleventhandlers.html">&nbsp; <span class="menu-list-title" style="width:100%">11.GlobalEventHandlers 接口</span></a></li><li class="menu-item-title" data="bom_item">BOM</li><li class="bom_item"><a href="../javascript/engine.html">&nbsp; <span class="menu-list-title" style="width:100%">1.浏览器环境概述</span></a></li><li class="bom_item"><a href="../javascript/window.html">&nbsp; <span class="menu-list-title" style="width:100%">2.window 对象</span></a></li><li class="bom_item"><a href="../javascript/navigator.html">&nbsp; <span class="menu-list-title" style="width:100%">3.Navigator 对象，Screen 对象</span></a></li><li class="bom_item"><a href="../javascript/cookie.html">&nbsp; <span class="menu-list-title" style="width:100%">4.Cookie</span></a></li><li class="bom_item"><a href="../javascript/xmlhttprequest.html">&nbsp; <span class="menu-list-title" style="width:100%">5.XMLHttpRequest 对象</span></a></li><li class="bom_item"><a href="../javascript/same-origin.html">&nbsp; <span class="menu-list-title" style="width:100%">6.同源限制</span></a></li><li class="bom_item"><a href="../javascript/cors.html">&nbsp; <span class="menu-list-title" style="width:100%">7.CORS 通信</span></a></li><li class="bom_item"><a href="../javascript/storage.html">&nbsp; <span class="menu-list-title" style="width:100%">8.Storage 接口</span></a></li><li class="bom_item"><a href="../javascript/bomhistory.html">&nbsp; <span class="menu-list-title" style="width:100%">9.History 对象</span></a></li><li class="bom_item"><a href="../javascript/location.html">&nbsp; <span class="menu-list-title" style="width:100%">10.Location 对象，URL 对象，URLSearchParams 对象</span></a></li><li class="bom_item"><a href="../javascript/arraybuffer.html">&nbsp; <span class="menu-list-title" style="width:100%">11.ArrayBuffer 对象，Blob 对象</span></a></li><li class="bom_item"><a href="../javascript/file.html">&nbsp; <span class="menu-list-title" style="width:100%">12.File 对象，FileList 对象，FileReader 对象</span></a></li><li class="bom_item"><a href="../javascript/form.html">&nbsp; <span class="menu-list-title" style="width:100%">13.表单，FormData 对象</span></a></li><li class="bom_item"><a href="../javascript/indexeddb.html">&nbsp; <span class="menu-list-title" style="width:100%">14.IndexedDB API</span></a></li><li class="bom_item"><a href="../javascript/webworker.html">&nbsp; <span class="menu-list-title" style="width:100%">15.Web Worker</span></a></li><li class="menu-item-title" data="element_item">元素</li><li class="element_item"><a href="../javascript/a.html">&nbsp; <span class="menu-list-title" style="width:100%">1.a</span></a></li><li class="element_item"><a href="../javascript/image.html">&nbsp; <span class="menu-list-title" style="width:100%">2.image</span></a></li><li class="element_item"><a href="../javascript/elementform.html">&nbsp; <span class="menu-list-title" style="width:100%">3.form</span></a></li><li class="element_item"><a href="../javascript/input.html">&nbsp; <span class="menu-list-title" style="width:100%">4.input</span></a></li><li class="element_item"><a href="../javascript/button.html">&nbsp; <span class="menu-list-title" style="width:100%">5.button</span></a></li><li class="element_item"><a href="../javascript/option.html">&nbsp; <span class="menu-list-title" style="width:100%">6.option</span></a></li><li class="element_item"><a href="../javascript/video.html">&nbsp; <span class="menu-list-title" style="width:100%">7.video，audio</span></a></li></ul></aside></div></nav></div><div class="column" style="flex:none;width:68%"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../"><span class="icon"><i class="fa fa-home"></i></span> &nbsp;V站</a></li><li><a href="../javascript/intro.html">JavaScript教程</a></li><li><a href="../javascript/strict.html">JavaScript 严格模式</a></li></ul></nav><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../javascript/object.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> Object 对象的相关方法</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../javascript/general.html">异步操作概述 <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><article class="content"><h1 class="title">JavaScript 严格模式</h1><div class="page-meta"><p>V站（ViJian.com）</p></div><p>除了正常的运行模式，JavaScript 还有第二种运行模式：严格模式（strict mode）。顾名思义，这种模式采用更加严格的 JavaScript 语法。</p><p>同样的代码，在正常模式和严格模式中，可能会有不一样的运行结果。一些在正常模式下可以运行的语句，在严格模式下将不能运行。</p><h2 id="设计目的">设计目的 <a class="markdownIt-Anchor" href="#设计目的">#</a></h2><p>早期的 JavaScript 语言有很多设计不合理的地方，但是为了兼容以前的代码，又不能改变老的语法，只能不断添加新的语法，引导程序员使用新语法。</p><p>严格模式是从 ES5 进入标准的，主要目的有以下几个。</p><ul><li>明确禁止一些不合理、不严谨的语法，减少 JavaScript 语言的一些怪异行为。</li><li>增加更多报错的场合，消除代码运行的一些不安全之处，保证代码运行的安全。</li><li>提高编译器效率，增加运行速度。</li><li>为未来新版本的 JavaScript 语法做好铺垫。</li></ul><p>总之，严格模式体现了 JavaScript 更合理、更安全、更严谨的发展方向。</p><h2 id="启用方法">启用方法 <a class="markdownIt-Anchor" href="#启用方法">#</a></h2><p>进入严格模式的标志，是一行字符串<code>use strict</code>。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+</code></pre><p>老版本的引擎会把它当作一行普通字符串，加以忽略。新版本的引擎就会进入严格模式。</p><p>严格模式可以用于整个脚本，也可以只用于单个函数。</p><p><strong>（1） 整个脚本文件</strong></p><p><code>use strict</code>放在脚本文件的第一行，整个脚本都将以严格模式运行。如果这行语句不在第一行就无效，整个脚本会以正常模式运行。(严格地说，只要前面不是产生实际运行结果的语句，<code>use strict</code>可以不在第一行，比如直接跟在一个空的分号后面，或者跟在注释后面。)</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-meta">
+  &#x27;use strict&#x27;</span>;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是严格模式&#x27;</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是正常模式&#x27;</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre><p>上面代码中，一个网页文件依次有两段 JavaScript 代码。前一个<code>&lt;script&gt;</code>标签是严格模式，后一个不是。</p><p>如果<code>use strict</code>写成下面这样，则不起作用，严格模式必须从代码一开始就生效。</p><pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是正常模式&#x27;</span>);
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre><p><strong>（2）单个函数</strong></p><p><code>use strict</code>放在函数体的第一行，则整个函数以严格模式运行。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">strict</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;这是严格模式&#x27;</span>;
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">strict2</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;这也是严格模式&#x27;</span>;
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">f</span>();
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">notStrict</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;这是正常模式&#x27;</span>;
+}
+</code></pre><p>有时，需要把不同的脚本合并在一个文件里面。如果一个脚本是严格模式，另一个脚本不是，它们的合并就可能出错。严格模式的脚本在前，则合并后的脚本都是严格模式；如果正常模式的脚本在前，则合并后的脚本都是正常模式。这两种情况下，合并后的结果都是不正确的。这时可以考虑把整个脚本文件放在一个立即执行的匿名函数之中。</p><pre class="hljs"><code>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-comment">// some code here</span>
+})();
+</code></pre><h2 id="显式报错">显式报错 <a class="markdownIt-Anchor" href="#显式报错">#</a></h2><p>严格模式使得 JavaScript 的语法变得更严格，更多的操作会显式报错。其中有些操作，在正常模式下只会默默地失败，不会报错。</p><h3 id="只读属性不可写">只读属性不可写 <a class="markdownIt-Anchor" href="#只读属性不可写">#</a></h3><p>严格模式下，设置字符串的<code>length</code>属性，会报错。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-string">&#x27;abc&#x27;</span>.<span class="hljs-property">length</span> = <span class="hljs-number">5</span>;
+<span class="hljs-comment">// TypeError: Cannot assign to read only property &#x27;length&#x27; of string &#x27;abc&#x27;</span>
+</code></pre><p>上面代码报错，因为<code>length</code>是只读属性，严格模式下不可写。正常模式下，改变<code>length</code>属性是无效的，但不会报错。</p><p>严格模式下，对只读属性赋值，或者删除不可配置（non-configurable）属性都会报错。</p><pre class="hljs"><code><span class="hljs-comment">// 对只读属性赋值会报错</span>
+<span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>({}, <span class="hljs-string">&#x27;a&#x27;</span>, {
+  <span class="hljs-attr">value</span>: <span class="hljs-number">37</span>,
+  <span class="hljs-attr">writable</span>: <span class="hljs-literal">false</span>
+});
+obj.<span class="hljs-property">a</span> = <span class="hljs-number">123</span>;
+<span class="hljs-comment">// TypeError: Cannot assign to read only property &#x27;a&#x27; of object #&lt;Object&gt;</span>
+
+<span class="hljs-comment">// 删除不可配置的属性会报错</span>
+<span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>({}, <span class="hljs-string">&#x27;p&#x27;</span>, {
+  <span class="hljs-attr">value</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">configurable</span>: <span class="hljs-literal">false</span>
+});
+<span class="hljs-keyword">delete</span> obj.<span class="hljs-property">p</span>
+<span class="hljs-comment">// TypeError: Cannot delete property &#x27;p&#x27; of #&lt;Object&gt;</span>
+</code></pre><h3 id="只设置了取值器的属性不可写">只设置了取值器的属性不可写 <a class="markdownIt-Anchor" href="#只设置了取值器的属性不可写">#</a></h3><p>严格模式下，对一个只有取值器（getter）、没有存值器（setter）的属性赋值，会报错。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> obj = {
+  <span class="hljs-keyword">get</span> <span class="hljs-title function_">v</span>() { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
+};
+obj.<span class="hljs-property">v</span> = <span class="hljs-number">2</span>;
+<span class="hljs-comment">// Uncaught TypeError: Cannot set property v of #&lt;Object&gt; which has only a getter</span>
+</code></pre><p>上面代码中，<code>obj.v</code>只有取值器，没有存值器，对它进行赋值就会报错。</p><h3 id="禁止扩展的对象不可扩展">禁止扩展的对象不可扩展 <a class="markdownIt-Anchor" href="#禁止扩展的对象不可扩展">#</a></h3><p>严格模式下，对禁止扩展的对象添加新属性，会报错。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> obj = {};
+<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">preventExtensions</span>(obj);
+obj.<span class="hljs-property">v</span> = <span class="hljs-number">1</span>;
+<span class="hljs-comment">// Uncaught TypeError: Cannot add property v, object is not extensible</span>
+</code></pre><p>上面代码中，<code>obj</code>对象禁止扩展，添加属性就会报错。</p><h3 id="evalarguments-不可用作标识名">eval、arguments 不可用作标识名 <a class="markdownIt-Anchor" href="#evalarguments-不可用作标识名">#</a></h3><p>严格模式下，使用<code>eval</code>或者<code>arguments</code>作为标识名，将会报错。下面的语句都会报错。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> <span class="hljs-built_in">eval</span> = <span class="hljs-number">17</span>;
+<span class="hljs-keyword">var</span> <span class="hljs-variable language_">arguments</span> = <span class="hljs-number">17</span>;
+<span class="hljs-keyword">var</span> obj = { <span class="hljs-keyword">set</span> <span class="hljs-title function_">p</span>(<span class="hljs-params"><span class="hljs-variable language_">arguments</span></span>) { } };
+<span class="hljs-keyword">try</span> { } <span class="hljs-keyword">catch</span> (<span class="hljs-variable language_">arguments</span>) { }
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">x</span>(<span class="hljs-params"><span class="hljs-built_in">eval</span></span>) { }
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">arguments</span>(<span class="hljs-params"></span>) { }
+<span class="hljs-keyword">var</span> y = <span class="hljs-keyword">function</span> <span class="hljs-title function_">eval</span>(<span class="hljs-params"></span>) { };
+<span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;arguments&#x27;</span>, <span class="hljs-string">&quot;&#x27;use strict&#x27;; return 17;&quot;</span>);
+<span class="hljs-comment">// SyntaxError: Unexpected eval or arguments in strict mode</span>
+</code></pre><h3 id="函数不能有重名的参数">函数不能有重名的参数 <a class="markdownIt-Anchor" href="#函数不能有重名的参数">#</a></h3><p>正常模式下，如果函数有多个重名的参数，可以用<code>arguments[i]</code>读取。严格模式下，这属于语法错误。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">a, a, b</span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-keyword">return</span> a + b;
+}
+<span class="hljs-comment">// Uncaught SyntaxError: Duplicate parameter name not allowed in this context</span>
+</code></pre><h3 id="禁止八进制的前缀0表示法">禁止八进制的前缀0表示法 <a class="markdownIt-Anchor" href="#禁止八进制的前缀0表示法">#</a></h3><p>正常模式下，整数的第一位如果是<code>0</code>，表示这是八进制数，比如<code>0100</code>等于十进制的64。严格模式禁止这种表示法，整数第一位为<code>0</code>，将报错。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> n = <span class="hljs-number">0100</span>;
+<span class="hljs-comment">// Uncaught SyntaxError: Octal literals are not allowed in strict mode.</span>
+</code></pre><h2 id="增强的安全措施">增强的安全措施 <a class="markdownIt-Anchor" href="#增强的安全措施">#</a></h2><p>严格模式增强了安全保护，从语法上防止了一些不小心会出现的错误。</p><h3 id="全局变量显式声明">全局变量显式声明 <a class="markdownIt-Anchor" href="#全局变量显式声明">#</a></h3><p>正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+
+v = <span class="hljs-number">1</span>; <span class="hljs-comment">// 报错，v未声明</span>
+
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++) { <span class="hljs-comment">// 报错，i 未声明</span>
+  <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
+  x = <span class="hljs-number">123</span>;
+}
+<span class="hljs-title function_">f</span>() <span class="hljs-comment">// 报错，未声明就创建一个全局变量</span>
+</code></pre><p>因此，严格模式下，变量都必须先声明，然后再使用。</p><h3 id="禁止-this-关键字指向全局对象">禁止 this 关键字指向全局对象 <a class="markdownIt-Anchor" href="#禁止-this-关键字指向全局对象">#</a></h3><p>正常模式下，函数内部的<code>this</code>可能会指向全局对象，严格模式禁止这种用法，避免无意间创造全局变量。</p><pre class="hljs"><code><span class="hljs-comment">// 正常模式</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span> === <span class="hljs-variable language_">window</span>);
+}
+<span class="hljs-title function_">f</span>() <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// 严格模式</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span> === <span class="hljs-literal">undefined</span>);
+}
+<span class="hljs-title function_">f</span>() <span class="hljs-comment">// true</span>
+</code></pre><p>上面代码中，严格模式的函数体内部<code>this</code>是<code>undefined</code>。</p><p>这种限制对于构造函数尤其有用。使用构造函数时，有时忘了加<code>new</code>，这时<code>this</code>不再指向全局对象，而是报错。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span>;
+};
+
+<span class="hljs-title function_">f</span>();<span class="hljs-comment">// 报错，this 未定义</span>
+</code></pre><p>严格模式下，函数直接调用时（不使用<code>new</code>调用），函数内部的<code>this</code>表示<code>undefined</code>（未定义），因此可以用<code>call</code>、<code>apply</code>和<code>bind</code>方法，将任意值绑定在<code>this</code>上面。正常模式下，<code>this</code>指向全局对象，如果绑定的值是非对象，将被自动转为对象再绑定上去，而<code>null</code>和<code>undefined</code>这两个无法转成对象的值，将被忽略。</p><pre class="hljs"><code><span class="hljs-comment">// 正常模式</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">fun</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
+}
+
+<span class="hljs-title function_">fun</span>() <span class="hljs-comment">// window</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-number">2</span>) <span class="hljs-comment">// Number {2}</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-literal">true</span>) <span class="hljs-comment">// Boolean {true}</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-literal">null</span>) <span class="hljs-comment">// window</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// window</span>
+
+<span class="hljs-comment">// 严格模式</span>
+<span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">fun</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
+}
+
+<span class="hljs-title function_">fun</span>() <span class="hljs-comment">//undefined</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-number">2</span>) <span class="hljs-comment">// 2</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-literal">true</span>) <span class="hljs-comment">// true</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-literal">null</span>) <span class="hljs-comment">// null</span>
+fun.<span class="hljs-title function_">call</span>(<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// undefined</span>
+</code></pre><p>上面代码中，可以把任意类型的值，绑定在<code>this</code>上面。</p><h3 id="禁止使用-fncalleefncaller">禁止使用 fn.callee、fn.caller <a class="markdownIt-Anchor" href="#禁止使用-fncalleefncaller">#</a></h3><p>函数内部不得使用<code>fn.caller</code>、<code>fn.arguments</code>，否则会报错。这意味着不能在函数内部得到调用栈了。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">f1</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  f1.<span class="hljs-property">caller</span>;    <span class="hljs-comment">// 报错</span>
+  f1.<span class="hljs-property">arguments</span>; <span class="hljs-comment">// 报错</span>
+}
+
+<span class="hljs-title function_">f1</span>();
+</code></pre><h3 id="禁止使用-argumentscalleeargumentscaller">禁止使用 arguments.callee、arguments.caller <a class="markdownIt-Anchor" href="#禁止使用-argumentscalleeargumentscaller">#</a></h3><p><code>arguments.callee</code>和<code>arguments.caller</code>是两个历史遗留的变量，从来没有标准化过，现在已经取消了。正常模式下调用它们没有什么作用，但是不会报错。严格模式明确规定，函数内部使用<code>arguments.callee</code>、<code>arguments.caller</code>将会报错。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> f = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">arguments</span>.<span class="hljs-property">callee</span>;
+};
+
+<span class="hljs-title function_">f</span>(); <span class="hljs-comment">// 报错</span>
+</code></pre><h3 id="禁止删除变量">禁止删除变量 <a class="markdownIt-Anchor" href="#禁止删除变量">#</a></h3><p>严格模式下无法删除变量，如果使用<code>delete</code>命令删除一个变量，会报错。只有对象的属性，且属性的描述对象的<code>configurable</code>属性设置为<code>true</code>，才能被<code>delete</code>命令删除。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> x;
+<span class="hljs-keyword">delete</span> x; <span class="hljs-comment">// 语法错误</span>
+
+<span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-literal">null</span>, {
+  <span class="hljs-attr">x</span>: {
+    <span class="hljs-attr">value</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>
+  }
+});
+<span class="hljs-keyword">delete</span> obj.<span class="hljs-property">x</span>; <span class="hljs-comment">// 删除成功</span>
+</code></pre><h2 id="静态绑定">静态绑定 <a class="markdownIt-Anchor" href="#静态绑定">#</a></h2><p>JavaScript 语言的一个特点，就是允许“动态绑定”，即某些属性和方法到底属于哪一个对象，不是在编译时确定的，而是在运行时（runtime）确定的。</p><p>严格模式对动态绑定做了一些限制。某些情况下，只允许静态绑定。也就是说，属性和方法到底归属哪个对象，必须在编译阶段就确定。这样做有利于编译效率的提高，也使得代码更容易阅读，更少出现意外。</p><p>具体来说，涉及以下几个方面。</p><h3 id="禁止使用-with-语句">禁止使用 with 语句 <a class="markdownIt-Anchor" href="#禁止使用-with-语句">#</a></h3><p>严格模式下，使用<code>with</code>语句将报错。因为<code>with</code>语句无法在编译时就确定，某个属性到底归属哪个对象，从而影响了编译效果。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">var</span> v  = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = {};
+
+<span class="hljs-keyword">with</span> (obj) {
+  v = <span class="hljs-number">2</span>;
+}
+<span class="hljs-comment">// Uncaught SyntaxError: Strict mode code may not include a with statement</span>
+</code></pre><h3 id="创设-eval-作用域">创设 eval 作用域 <a class="markdownIt-Anchor" href="#创设-eval-作用域">#</a></h3><p>正常模式下，JavaScript 语言有两种变量作用域（scope）：全局作用域和函数作用域。严格模式创设了第三种作用域：<code>eval</code>作用域。</p><p>正常模式下，<code>eval</code>语句的作用域，取决于它处于全局作用域，还是函数作用域。严格模式下，<code>eval</code>语句本身就是一个作用域，不再能够在其所运行的作用域创设新的变量了，也就是说，<code>eval</code>所生成的变量只能用于<code>eval</code>内部。</p><pre class="hljs"><code>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">eval</span>(<span class="hljs-string">&#x27;var x = 5; x&#x27;</span>)) <span class="hljs-comment">// 5</span>
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x) <span class="hljs-comment">// 2</span>
+})()
+</code></pre><p>上面代码中，由于<code>eval</code>语句内部是一个独立作用域，所以内部的变量<code>x</code>不会泄露到外部。</p><p>注意，如果希望<code>eval</code>语句也使用严格模式，有两种方式。</p><pre class="hljs"><code><span class="hljs-comment">// 方式一</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f1</span>(<span class="hljs-params">str</span>){
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">eval</span>(str);
+}
+<span class="hljs-title function_">f1</span>(<span class="hljs-string">&#x27;undeclared_variable = 1&#x27;</span>); <span class="hljs-comment">// 报错</span>
+
+<span class="hljs-comment">// 方式二</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f2</span>(<span class="hljs-params">str</span>){
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">eval</span>(str);
+}
+<span class="hljs-title function_">f2</span>(<span class="hljs-string">&#x27;&quot;use strict&quot;;undeclared_variable = 1&#x27;</span>)  <span class="hljs-comment">// 报错</span>
+</code></pre><p>上面两种写法，<code>eval</code>内部使用的都是严格模式。</p><h3 id="arguments-不再追踪参数的变化">arguments 不再追踪参数的变化 <a class="markdownIt-Anchor" href="#arguments-不再追踪参数的变化">#</a></h3><p>变量<code>arguments</code>代表函数的参数。严格模式下，函数内部改变参数与<code>arguments</code>的联系被切断了，两者不再存在联动关系。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">a</span>) {
+  a = <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">return</span> [a, <span class="hljs-variable language_">arguments</span>[<span class="hljs-number">0</span>]];
+}
+<span class="hljs-title function_">f</span>(<span class="hljs-number">1</span>); <span class="hljs-comment">// 正常模式为[2, 2]</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">a</span>) {
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  a = <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">return</span> [a, <span class="hljs-variable language_">arguments</span>[<span class="hljs-number">0</span>]];
+}
+<span class="hljs-title function_">f</span>(<span class="hljs-number">1</span>); <span class="hljs-comment">// 严格模式为[2, 1]</span>
+</code></pre><p>上面代码中，改变函数的参数，不会反应到<code>arguments</code>对象上来。</p><h2 id="向下一个版本的-javascript-过渡">向下一个版本的 JavaScript 过渡 <a class="markdownIt-Anchor" href="#向下一个版本的-javascript-过渡">#</a></h2><p>JavaScript 语言的下一个版本是 ECMAScript 6，为了平稳过渡，严格模式引入了一些 ES6 语法。</p><h3 id="非函数代码块不得声明函数">非函数代码块不得声明函数 <a class="markdownIt-Anchor" href="#非函数代码块不得声明函数">#</a></h3><p>ES6 会引入块级作用域。为了与新版本接轨，ES5 的严格模式只允许在全局作用域或函数作用域声明函数。也就是说，不允许在非函数的代码块内声明函数。</p><pre class="hljs"><code><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+<span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">f1</span>(<span class="hljs-params"></span>) { } <span class="hljs-comment">// 语法错误</span>
+}
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">f2</span>(<span class="hljs-params"></span>) { } <span class="hljs-comment">// 语法错误</span>
+}
+</code></pre><p>上面代码在<code>if</code>代码块和<code>for</code>代码块中声明了函数，ES5 环境会报错。</p><p>注意，如果是 ES6 环境，上面的代码不会报错，因为 ES6 允许在代码块之中声明函数。</p><h3 id="保留字">保留字 <a class="markdownIt-Anchor" href="#保留字">#</a></h3><p>为了向将来 JavaScript 的新版本过渡，严格模式新增了一些保留字（implements、interface、let、package、private、protected、public、static、yield等）。使用这些词作为变量名将会报错。</p><pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">package</span>(<span class="hljs-params">protected</span>) { <span class="hljs-comment">// 语法错误</span>
+  <span class="hljs-string">&#x27;use strict&#x27;</span>;
+  <span class="hljs-keyword">var</span> implements; <span class="hljs-comment">// 语法错误</span>
+}
+</code></pre><h2 id="参考链接">参考链接 <a class="markdownIt-Anchor" href="#参考链接">#</a></h2><ul><li>MDN, <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/Strict_mode" target="_blank" rel="noopener">Strict mode</a></li><li>Dr. Axel Rauschmayer, <a href="http://www.2ality.com/2011/10/strict-mode-hatred.html" target="_blank" rel="noopener">JavaScript: Why the hatred for strict mode?</a></li><li>Dr. Axel Rauschmayer，<a href="http://www.2ality.com/2011/01/javascripts-strict-mode-summary.html" target="_blank" rel="noopener">JavaScript’s strict mode: a summary</a></li><li>Douglas Crockford, <a href="http://www.yuiblog.com/blog/2010/12/14/strict-mode-is-coming-to-town/" target="_blank" rel="noopener">Strict Mode Is Coming To Town</a></li><li><a href="http://java-script.limewebs.com/strictMode/test_hosted.html" target="_blank" rel="noopener">JavaScript Strict Mode Support</a></li></ul></article><nav class="level level-previous-next is-mobile"><!-- Left side --><div class="level-left"><p class="level-item is-narrow"><a href="../javascript/object.html"><span class="icon"><i class="fa fa-toggle-left"></i></span> Object 对象的相关方法</a></p></div><div class="level-right"><p class="level-item is-narrow"><a href="../javascript/general.html">异步操作概述 <span class="icon"><i class="fa fa-toggle-right"></i></span></a></p></div></nav><div class="page-info"><p>分享本文 <span class="social-share"></span></p></div></div><div class="column" style="flex:none;width:14%"><nav class="panel-info" style="border: 1px solid #ededed;"><p class="panel-heading" style="font-size: 1.0em;border-radius:0px;padding: 0.5em 0em;text-align: center;"><i class="fa fa-list-ul" aria-hidden="true"></i> Web前端教程</p><div class="panel-block" style="padding: 5px 0px;"><aside class="menu"><ul class="menu-list"><li><a href="/html/intro.html" target="_blank">&nbsp;HTML 教程</a></li><li><a href="/javascript/intro.html" target="_blank">&nbsp;JavaScript 教程</a></li><li><a href="/es6/intro.html" target="_blank">&nbsp;ES6 教程</a></li><li><a href="/typescript/intro.html" target="_blank">&nbsp;TypeScript 教程</a></li><!-- 
+      <li><a href="/css/intro.html" target="_blank">&nbsp;CSS 教程</a></li>
+   
+      <li><a href="/webapi/intro.html" target="_blank">&nbsp;Web API 教程</a></li>
+    --></ul></aside></div></nav></div></div></div></section><footer class="footer"><div class="container" style="max-width:1260px;"><div class="content has-text-centered"><p>V站（ViJian.com），上V站学全栈、全职兼职都能干<br><span>京ICP备13026726号-3</span></p></div></div></footer><script>var LOPPO={current_path:"javascript/strict.md",relative_root_path:"../",article_toc:'<ul class="markdownIt-TOC">\n<li><a href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E7%9A%84">设计目的</a></li>\n<li><a href="#%E5%90%AF%E7%94%A8%E6%96%B9%E6%B3%95">启用方法</a></li>\n<li><a href="#%E6%98%BE%E5%BC%8F%E6%8A%A5%E9%94%99">显式报错</a>\n<ul>\n<li><a href="#%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%86%99">只读属性不可写</a></li>\n<li><a href="#%E5%8F%AA%E8%AE%BE%E7%BD%AE%E4%BA%86%E5%8F%96%E5%80%BC%E5%99%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%86%99">只设置了取值器的属性不可写</a></li>\n<li><a href="#%E7%A6%81%E6%AD%A2%E6%89%A9%E5%B1%95%E7%9A%84%E5%AF%B9%E8%B1%A1%E4%B8%8D%E5%8F%AF%E6%89%A9%E5%B1%95">禁止扩展的对象不可扩展</a></li>\n<li><a href="#evalarguments-%E4%B8%8D%E5%8F%AF%E7%94%A8%E4%BD%9C%E6%A0%87%E8%AF%86%E5%90%8D">eval、arguments 不可用作标识名</a></li>\n<li><a href="#%E5%87%BD%E6%95%B0%E4%B8%8D%E8%83%BD%E6%9C%89%E9%87%8D%E5%90%8D%E7%9A%84%E5%8F%82%E6%95%B0">函数不能有重名的参数</a></li>\n<li><a href="#%E7%A6%81%E6%AD%A2%E5%85%AB%E8%BF%9B%E5%88%B6%E7%9A%84%E5%89%8D%E7%BC%800%E8%A1%A8%E7%A4%BA%E6%B3%95">禁止八进制的前缀0表示法</a></li>\n</ul>\n</li>\n<li><a href="#%E5%A2%9E%E5%BC%BA%E7%9A%84%E5%AE%89%E5%85%A8%E6%8E%AA%E6%96%BD">增强的安全措施</a>\n<ul>\n<li><a href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E6%98%BE%E5%BC%8F%E5%A3%B0%E6%98%8E">全局变量显式声明</a></li>\n<li><a href="#%E7%A6%81%E6%AD%A2-this-%E5%85%B3%E9%94%AE%E5%AD%97%E6%8C%87%E5%90%91%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1">禁止 this 关键字指向全局对象</a></li>\n<li><a href="#%E7%A6%81%E6%AD%A2%E4%BD%BF%E7%94%A8-fncalleefncaller">禁止使用 fn.callee、fn.caller</a></li>\n<li><a href="#%E7%A6%81%E6%AD%A2%E4%BD%BF%E7%94%A8-argumentscalleeargumentscaller">禁止使用 arguments.callee、arguments.caller</a></li>\n<li><a href="#%E7%A6%81%E6%AD%A2%E5%88%A0%E9%99%A4%E5%8F%98%E9%87%8F">禁止删除变量</a></li>\n</ul>\n</li>\n<li><a href="#%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A">静态绑定</a>\n<ul>\n<li><a href="#%E7%A6%81%E6%AD%A2%E4%BD%BF%E7%94%A8-with-%E8%AF%AD%E5%8F%A5">禁止使用 with 语句</a></li>\n<li><a href="#%E5%88%9B%E8%AE%BE-eval-%E4%BD%9C%E7%94%A8%E5%9F%9F">创设 eval 作用域</a></li>\n<li><a href="#arguments-%E4%B8%8D%E5%86%8D%E8%BF%BD%E8%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%98%E5%8C%96">arguments 不再追踪参数的变化</a></li>\n</ul>\n</li>\n<li><a href="#%E5%90%91%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84-javascript-%E8%BF%87%E6%B8%A1">向下一个版本的 JavaScript 过渡</a>\n<ul>\n<li><a href="#%E9%9D%9E%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B8%8D%E5%BE%97%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0">非函数代码块不得声明函数</a></li>\n<li><a href="#%E4%BF%9D%E7%95%99%E5%AD%97">保留字</a></li>\n</ul>\n</li>\n<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>\n</ul>\n'}</script><script src="../assets/js/app.js"></script><!--script src="../assets/js/social-share.min.js"--><!--/script--><script>var shareDesc="我正在阅读《JavaScript 严格模式》，出自V站（ViJian.com）。",shareOpts={url:window.location.href,source:shareDesc,title:shareDesc,description:"",image:"",sites:["weibo","wechat","qq","qzone","twitter","facebook"],origin:"ViJian_com",disabled:[],wechatQrcodeTitle:"微信",wechatQrcodeHelper:"扫一下二维码，分享到微信。"};socialShare(".social-share",shareOpts)</script><script></script></body></html>
