@@ -55,18 +55,32 @@
           border-radius: 4px;
       }
 
-/* .codelist a.item-top h4{font-size:14px;text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.codelist a.item-top{width:40%}
-.right-column{display:none}
-.shortcuts .shortcut{width:45%}
-.ad-336280{width:100%;padding:0}
-.search{width:100%;float:none}
-.codelist-desktop{display:none}
-.codelist-mobile{display:block}
-.codelist a.item-top .codeicon{display:none}
-.codelist a.item-top strong{display:none}
-.codelist a.item-top{width:28%;height:40px;color:#bbb;background-color:#f6f6f6;border-radius:5px;padding:0}
-.codelist a.item-top h4{font-size:14px;text-align:center} */
+
+      @media screen and (max-width: 768px) {
+        .column-left{
+        flex: none; display: none;
+        }
+        .column-main{
+          flex: none; width: 100%
+        }
+
+        .section{padding: 0;}
+        .middle-column-home{border: 0;padding: 0 10px;}
+
+        .codelist .codelist-ul li{float: left;width:33.33%;padding:0 8px 10px 0;height:60px;line-height: 60px;}
+        .codelist .codelist-ul li .item-site{display: none;} 
+        .codelist .codelist-ul li .codeicon{display: none;} 
+        .codelist .codelist-ul li strong{display: none;} 
+        .codelist a.item-top h4{margin: 0;padding: 0;font-size: 14px;}
+      }
+      @media screen and (min-width: 769px)  {
+        .column-left{
+          flex: none;display: block; width: 16%
+        }
+        .column-main{
+          flex: none; width: 83%
+        }
+     }
 
     </style>
   </head>
@@ -75,6 +89,11 @@
       <div class="container" style="max-width:1230px;">
         <div class="navbar-brand">
           <a href="/" class="navbar-item title has-text-grey has-text-weight-light is-5">V站 / ViJian.com</a>
+          <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
         <div class="navbar-menu" id="navMenu">
           <div class="navbar-start">
@@ -113,7 +132,7 @@
     <section class="section main article" style="min-height: 427px;padding-top: 20px;">
       <div class="container" style="max-width: 1260px">
         <div class="columns">
-              <div class="column" style="flex: none; width: 16%">
+              <div class="column column-left">
             
 
                 <nav class="panel-info" style="border: 1px solid #ededed">
@@ -165,10 +184,10 @@
 
           
               </div>
-              <div class="column" style="flex: none; width: 83%">
+              <div class="column column-main">
                 <div class="col middle-column-home">
                     <div class="codelist codelist-desktop cate2">
-                        <h2><i class="fa fa-list"></i> HTML/CSS</i></h2>
+                        <h2><i class="fa fa-list"></i> HTML/CSS</h2>
                         <ul class="codelist-ul">
                           <li>
                             <a class="item-top item-1 item-course" href="https://www.bilibili.com/video/BV1kM4y127Li/" rel="nofollow" target="_blank"><h4>黑马HTML5+CSS3<span class="item-site">200集，44:43</span></h4>
@@ -206,7 +225,7 @@
                         </ul>  
                    </div>
                    <div class="codelist codelist-desktop cate2">
-                    <h2><i class="fa fa-list"></i>JavaScript</i></h2>
+                    <h2><i class="fa fa-list"></i> JavaScript</h2>
                     <ul class="codelist-ul">
                       <li>
                           <a class="item-top item-1 item-course" href="https://www.bilibili.com/video/BV1Y84y1L7Nn/" rel="nofollow" target="_blank"><h4>黑马JavaScript<span class="item-site">200集，60:10</span></h4>
@@ -255,7 +274,7 @@
                     </ul>  
                </div>
                <div class="codelist codelist-desktop cate2">
-                <h2><i class="fa fa-list"></i>TypeScript</i></h2>
+                <h2><i class="fa fa-list"></i> TypeScript</h2>
                 <ul class="codelist-ul">
                   <li>
                     <a class="item-top item-1 item-course" href="https://www.bilibili.com/video/BV1H44y157gq/" rel="nofollow" target="_blank"><h4>千锋TypeScript<span class="item-site">109集，11:29</span></h4>
@@ -293,7 +312,7 @@
                 </ul>  
            </div>
                    <div class="codelist codelist-desktop cate2">
-                    <h2><i class="fa fa-list"></i> VUE</i></h2>
+                    <h2><i class="fa fa-list"></i> VUE</h2>
                     <ul class="codelist-ul">
                  
 
@@ -334,7 +353,7 @@
                     </ul>  
                </div>
                <div class="codelist codelist-desktop cate2">
-                <h2><i class="fa fa-list"></i> UniApp/小程序</i></h2>
+                <h2><i class="fa fa-list"></i> UniApp/小程序</h2>
                 <ul class="codelist-ul">
              
 
@@ -353,7 +372,7 @@
                 </ul>  
            </div>
                    <div class="codelist codelist-desktop cate2">
-                    <h2><i class="fa fa-list"></i> NodeJs</i></h2>
+                    <h2><i class="fa fa-list"></i> NodeJs</h2>
                     <ul class="codelist-ul">
                       
                       <li>
@@ -396,7 +415,7 @@
                    </div>
 
                    <div class="codelist codelist-desktop cate2">
-                    <h2><i class="fa fa-list"></i> 构建工具</i></h2>
+                    <h2><i class="fa fa-list"></i> 构建工具</h2>
                     <ul class="codelist-ul">
                       
                       <li>
@@ -464,5 +483,33 @@
         <div class="content has-text-centered"><p>V站（ViJian.com），上V站学全栈、全职兼职都能干 <br><span>京ICP备13026726号-3</span></p></div>
       </div>
     </footer>
+    <script>
+
+      function navbarHandler() {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+          // Add a click event on each of them
+          $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+
+            });
+          });
+        }
+      }
+
+      navbarHandler();
+ </script>
   </body>
 </html>
